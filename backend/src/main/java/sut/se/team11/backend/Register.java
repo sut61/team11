@@ -11,7 +11,8 @@ public class Register {
     @Id
     @SequenceGenerator(name = "register_seq", sequenceName = "register_seq")
     @GeneratedValue(generator = "register_seq", strategy = GenerationType.SEQUENCE)
-    private Long r;
+    private Long tId;
+    private String name;
 
 
 
