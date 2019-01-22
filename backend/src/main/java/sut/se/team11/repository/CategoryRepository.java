@@ -6,4 +6,5 @@ import sut.se.team11.entity.Category;
 
 @RepositoryRestResource
 public interface CategoryRepository extends JpaRepository<Category, Long> {
+    Category findById(long categoryId);
 }

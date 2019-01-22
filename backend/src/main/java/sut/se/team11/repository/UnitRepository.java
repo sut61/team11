@@ -6,4 +6,5 @@ import sut.se.team11.entity.Unit;
 
 @RepositoryRestResource
 public interface UnitRepository extends JpaRepository<Unit, Long> {
+    Unit findById(long unitId);
 }
