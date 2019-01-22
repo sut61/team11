@@ -4,10 +4,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,4 +17,10 @@ public class Cart {
     private Long cartId;
     private @NonNull String paymentStatus;
     private @NonNull Date date;
+
+    @ManyToOne
+    @JoinColumn(name = "customerId")
+    private Customer customer;
+    @OneToMany(mappedBy = "cart")
+    private List<BuyItem> buyItems;
 }
