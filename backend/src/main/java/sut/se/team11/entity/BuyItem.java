@@ -11,7 +11,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class BuyItem {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "buy_seq", sequenceName = "buy_seq")
+    @GeneratedValue(generator = "buy_seq", strategy = GenerationType.SEQUENCE)
     private Long butItemId;
     private @NonNull String itemName;
     private @NonNull double price;
