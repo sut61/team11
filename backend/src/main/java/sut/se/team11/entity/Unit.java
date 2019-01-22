@@ -4,16 +4,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
 @NoArgsConstructor
 public class Unit {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "unit_seq", sequenceName = "unit_seq")
+    @GeneratedValue(generator = "unit_seq", strategy = GenerationType.SEQUENCE)
     private Long unitId;
     private @NonNull String unitName;
 }

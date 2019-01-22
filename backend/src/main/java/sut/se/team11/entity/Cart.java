@@ -13,7 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Cart {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "cart_seq", sequenceName = "cart_seq")
+    @GeneratedValue(generator = "cart_seq", strategy = GenerationType.SEQUENCE)
     private Long cartId;
     private @NonNull String paymentStatus;
     private @NonNull Date date;
