@@ -3,6 +3,7 @@ package sut.se.team11.entity;
 import lombok.Data;
 import lombok.NonNull;
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,6 +26,7 @@ public class Customer {
 
     @ManyToOne
     private Province province;
+
 
     public Customer() {}
 
