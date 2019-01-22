@@ -16,7 +16,8 @@ public class BackendApplication {
 	}
 	@Bean
 	ApplicationRunner init(CustomerRepository customerRepository, BranchRepository branchRepository, CareerRepository careerRepository,
-						   ProvinceRepository provinceRepository
+						   ProvinceRepository provinceRepository, CategoryRepository categoryRepository,
+						   UnitRepository unitRepository
 	){
 		return  args -> {
 
@@ -42,6 +43,33 @@ public class BackendApplication {
 				province.setPName(pName);
 				provinceRepository.save(province);
 
+			});
+
+
+			Stream.of("เครื่องใช้ไฟฟ้า","อุปกรณ์อิเล็คทรอนิกส์").forEach(name -> {
+				Category category = new Category();
+				category.setCategoryName(name);
+				categoryRepository.save(category);
+			});
+			Stream.of("เครื่อง","ชิ้น").forEach(name -> {
+				Unit unit = new Unit();
+				unit.setUnitName(name);
+				unitRepository.save(unit);
+			});
+			Stream.of("Customer A").forEach(name -> {
+				Customer customer = new Customer();
+				Branch branch = branchRepository.findById(1);
+				Career career = careerRepository.findById(1);
+				Province province = provinceRepository.findById(1);
+
+				customer.setCustomerName(name);
+				customer.setAddress("555/55 NYC");
+				customer.setTel("0123456789");
+				customer.setCareer(career);
+				customer.setBranch(branch);
+				customer.setProvince(province);
+
+				customerRepository.save(customer);
 			});
 
 		};
