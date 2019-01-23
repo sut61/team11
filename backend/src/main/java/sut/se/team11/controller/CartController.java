@@ -2,10 +2,7 @@ package sut.se.team11.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sut.se.team11.entity.Cart;
 import sut.se.team11.entity.Customer;
 import sut.se.team11.repository.CartRepository;
@@ -45,5 +42,14 @@ public class CartController {
         Cart cSave = cartRepository.save(c);
 
         return ResponseEntity.ok().body(cSave);
+    }
+
+    @GetMapping(path = "/getCart/{cartId}")
+    private ResponseEntity<Cart> findCart(@PathVariable long cartId){
+        Cart cart = cartRepository.findById(cartId);
+        if(cart == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(cart);
     }
 }
