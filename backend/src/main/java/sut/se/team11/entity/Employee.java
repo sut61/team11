@@ -27,7 +27,7 @@ public class Employee {
     private Education education;
 
     @ManyToOne
-    private Branch brunch;
+    private Branch branch;
 
     @ManyToOne
     private Position position;  
