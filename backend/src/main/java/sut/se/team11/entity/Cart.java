@@ -1,5 +1,6 @@
 package sut.se.team11.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -17,6 +18,7 @@ public class Cart {
     @GeneratedValue(generator = "cart_seq", strategy = GenerationType.SEQUENCE)
     private Long cartId;
     private @NonNull String paymentStatus;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private @NonNull Date date;
 
     @ManyToOne
