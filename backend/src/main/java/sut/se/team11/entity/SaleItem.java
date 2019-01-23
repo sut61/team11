@@ -20,7 +20,6 @@ public class SaleItem {
     private @NonNull String itemName;
     private @NonNull double price;
     private @NonNull int amount;
-    private @NonNull double totalPrice;
     private @NonNull Date date;
 
 
