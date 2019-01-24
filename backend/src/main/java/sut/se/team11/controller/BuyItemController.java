@@ -32,6 +32,7 @@ public class BuyItemController {
 
         long categoryId = buyItem.getCategory().getCategoryId();
         long unitId = buyItem.getUnit().getUnitId();
+        double totalPrice = b.calTotalPrice(buyItem.getPrice(), buyItem.getAmount());
 
         Category category = categoryRepository.findById(categoryId);
         Unit unit = unitRepository.findById(unitId);
@@ -41,7 +42,7 @@ public class BuyItemController {
             b.setItemName(buyItem.getItemName());
             b.setPrice(buyItem.getPrice());
             b.setAmount(buyItem.getAmount());
-            // b.setTotalPrice();
+            b.setTotalPrice(totalPrice);
             b.setCart(cart);
             b.setCategory(category);
             b.setUnit(unit);
