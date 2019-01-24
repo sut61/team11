@@ -55,8 +55,11 @@ public class QuotationController {
         quotation1.setPrice(price);
         quotation1.setDetail(detail);
         quotation1.setDate(date);
+        quotation1.setCustomer(customer);
+        quotation1.setEmployee(employee);
+        quotation1.setBuyItem(buyItem);
 
-        return  quotationRepository.save(quotation);
+        return  quotationRepository.save(quotation1);
     }
 
 }
