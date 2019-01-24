@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+.mat-toolbar{
+    position: initial;
+    z-index: 2;
+    width: 100%;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.sidebar-container{
+    flex: 1;
+}
+.sidebar-menu{
+    width: 300px;
+}
+.mat-sidenav-content{
+    margin: 30px;
+}
+li{
+    cursor: pointer;
+}
