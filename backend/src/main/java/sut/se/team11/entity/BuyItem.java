@@ -14,7 +14,7 @@ public class BuyItem {
     @Id
     @SequenceGenerator(name = "buy_seq", sequenceName = "buy_seq")
     @GeneratedValue(generator = "buy_seq", strategy = GenerationType.SEQUENCE)
-    private Long butItemId;
+    private Long buyItemId;
     private @NonNull String itemName;
     private @NonNull double price;
     private @NonNull int amount;
