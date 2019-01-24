@@ -14,6 +14,7 @@ import sut.se.team11.repository.CategoryRepository;
 import sut.se.team11.repository.UnitRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class BuyItemController {
     @Autowired
     private BuyItemRepository buyItemRepository;
