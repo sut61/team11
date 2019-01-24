@@ -53,4 +53,14 @@ class CustomerController {
     }
 
 
+    //B5804658
+    @GetMapping(path = "/findCustomer/{customerId}")
+    private ResponseEntity<Customer> findCustomer(@PathVariable long customerId){
+        Customer c = customerRepository.findById(customerId);
+        if(c == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(c);
+    }
+
 }
