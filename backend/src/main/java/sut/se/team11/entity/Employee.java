@@ -1,5 +1,6 @@
 package sut.se.team11.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ public class Employee {
     private String title;
     private String eName;
     private int age;
+    @JsonFormat (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date bDate;
     private String tel;
     private String address;
