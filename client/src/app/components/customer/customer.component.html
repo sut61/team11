@@ -1,0 +1,63 @@
+<div class= "content">
+  <mat-card class="example-card">
+    <mat-card-header>
+        <h2>สมัครสมาชิก ลูกค้า</h2>    
+     <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> --> 
+    </mat-card-header>
+    
+    <mat-card class="card mat-elevation-z8">
+        <mat-card-content class="content">
+        <form #regisForm="ngForm" (ngSubmit)="save()">
+            <div class="example-container">
+            
+                <mat-form-field class="name-input">
+                  <mat-select placeholder="สาขา" name="branch" [(ngModel)]="customer.branch" required>
+                    <mat-option *ngFor="let branch of branchs" [value]="branch">
+                      {{branch.bname}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+                <mat-form-field  class="name-input">
+                  <mat-label>ชื่อ - นามสกุล</mat-label>
+                  <input matInput placeholder="ชื่อ - นามสกุล" [(ngModel)]="customer.customername" name="name" required>
+                </mat-form-field>
+  
+                <mat-form-field  class="name-input">
+                  <mat-label>เบอร์โทรศัพท์</mat-label>
+                  <input matInput placeholder="เบอร์โทรศัพท์" [(ngModel)]="customer.tel" name="tel" required>
+                </mat-form-field>
+  
+                <mat-form-field class="name-input">
+                  <mat-select placeholder="อาชืพ" name="career" [(ngModel)]="customer.career" required>
+                    <mat-option *ngFor="let career of careers" [value]="career">
+                      {{career.cname}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+             
+  
+              <mat-form-field  class="name-input">
+                  <mat-label>ที่อยู่</mat-label>
+                  <input matInput placeholder="ที่อยู่" [(ngModel)]="customer.address" name="address" required>
+                </mat-form-field>
+  
+                <mat-form-field class="name-input">
+                  <mat-select placeholder="จังหวัด" name="province" [(ngModel)]="customer.province" required>
+                    <mat-option *ngFor="let province of provinces" [value]="province">
+                      {{province.pname}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            
+            </div> <!--example-container-->
+            <div class="button-submit">
+              <button mat-flat-button color="warn" id="reg" [disabled]="regisForm.invalid || checkSelected == false" >
+                บันทึก
+              </button>
+            </div>
+          </form>
+    </mat-card-content>
+    </mat-card>
+  </mat-card>
+  </div>
