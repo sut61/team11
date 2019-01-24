@@ -11,6 +11,7 @@ import sut.se.team11.repository.CustomerRepository;
 import java.util.Date;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class CartController {
     @Autowired
     private CustomerRepository customerRepository;
