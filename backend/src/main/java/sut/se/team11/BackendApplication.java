@@ -23,6 +23,8 @@ public class BackendApplication {
 	){
 		return  args -> {
 
+
+
 			Stream.of("สาขา 1","สาขา 2","สาขา 3").forEach(bName -> {
 
 				Branch branch = new Branch();
@@ -139,6 +141,24 @@ public class BackendApplication {
 				employee3.setPosition(position3);
 				employee3.setEducation(education3);
 				employeeRepository.save(employee3);
+
+			});
+
+			Stream.of("545").forEach(cName -> {
+
+				Customer customer = new Customer();
+
+				Branch branch = branchRepository.findById(1);
+				Career career = careerRepository.findById(5);
+				Province province = provinceRepository.findById(10);
+
+				customer.setCustomerName("นายภัทรวิตต์ พรหมเงิน");
+				customer.setTel("0854156774");
+				customer.setAddress("111/1");
+				customer.setBranch(branch);
+				customer.setCareer(career);
+				customer.setProvince(province);
+				customerRepository.save(customer);
 
 			});
 
