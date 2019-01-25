@@ -27,6 +27,10 @@
 li{
     cursor: pointer;
 }
-.botton1{
-    font-size: 20px;
+.button1{
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    
+   
 }
