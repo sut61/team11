@@ -12,6 +12,7 @@ export class CreateCartComponent implements OnInit {
   cart: Cart = new Cart();
   customer: Customer = new Customer();
   id: any;
+  carts: Cart;
   constructor(
     private find: FindCustomerService,
     private router: Router,
@@ -34,6 +35,8 @@ export class CreateCartComponent implements OnInit {
   onSubmit(){
     this.create.createCart(this.customer.customerId,this.cart).subscribe((res) => {
       console.log(res);
+      this.carts = res;
+      this.router.navigate([`${this.carts.cartId}/view-list`]);
     }, err => {
       console.log(err);
     });
