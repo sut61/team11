@@ -2,7 +2,7 @@
     margin: auto;
 }
 .employee-card {
-    margin: auto;
+    padding: auto;
   
 }
 
@@ -13,13 +13,17 @@
 
 .example-full-width {
     width: 100%;
-    text-align: ;
+    text-align: center;
 }
 mat-card {
     max-width: 100%;
 }
 .titleName{
     font-size: 20px;
+}
+.button-summit{
+    
+
 }
 
 
