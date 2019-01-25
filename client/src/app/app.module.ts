@@ -22,11 +22,13 @@ import { AppComponent } from './app.component';
 import { PageLayoutComponent } from './page-layout/page-layout.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { EmployeeComponent } from './components/employee/employee.component';  
+import { FindCustomerComponent } from './components/find-customer/find-customer.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
   {path: 'customer', component: CustomerComponent},
-  {path: 'employee', component: EmployeeComponent} 
+  {path: 'employee', component: EmployeeComponent},
+  {path: 'find-customer', component: FindCustomerComponent}
 ];
 
 @NgModule({
@@ -34,7 +36,8 @@ const routes: Routes = [
     AppComponent,
     PageLayoutComponent,
     CustomerComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    FindCustomerComponent
   ],
   imports: [
     BrowserModule,
