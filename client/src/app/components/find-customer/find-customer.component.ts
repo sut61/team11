@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { FindCustomerService } from '../../shared/find-customer/find-customer.service';
 import { Customer } from '../../shared/models/model-class';
 @Component({
@@ -22,7 +22,7 @@ export class FindCustomerComponent implements OnInit {
   submit(){
     this.service.findCustomer(this.id).subscribe((res) => {
       this.customer = res;
-      console.log(this.customer);
+      this.router.navigate([`${this.customer.customerId}/createCart`]);
     });
   }
 }

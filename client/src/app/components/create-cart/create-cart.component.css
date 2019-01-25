@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    text-align: center;
+}
+.create-cart{
+    width: 500px;
+    margin: 70px auto;
+    display: block;
+}
+.create-cart h2{
+    font-size: 30px;
+}
+.action button{
+    padding: 15px;
+    font-size: 18px;
+}
+.content p{
+    font-size: 18px;
+}
