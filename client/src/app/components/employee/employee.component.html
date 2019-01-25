@@ -1,3 +1,71 @@
-<p>
-  employee works!
-</p>
+
+<div class="content">
+  <mat-card class="card employee-card">
+    <mat-card-header class="header">    
+      <h2 class="title"> ข้อมูลพนักงาน    <mat-icon class="icon" >person_add </mat-icon> </h2> 
+    </mat-card-header>
+    <mat-card-content> <br> <br> <br>
+      <form class="example-form" #employeeForm="ngForm" (ngSubmit)="save"> 
+          
+        <mat-form-field class="example-full-width" >
+          <input matInput placeholder="ชื่อ-นามสกุล" >
+        </mat-form-field> 
+     
+                 
+              
+                <mat-form-field class="example-full-width" >
+                  <input matInput placeholder="ชื่อ-นามสกุล" >
+                </mat-form-field> 
+             
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="อายุ">
+                </mat-form-field> <br>
+                <mat-label style="font-size:20px">วันเกิด</mat-label> 
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="วันเกิด">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker ></mat-datepicker>
+                </mat-form-field>
+              
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="เบอร์โทรศัพท์">
+        </mat-form-field> <br>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="ที่อยู่">
+        </mat-form-field> <br>
+        <mat-form-field>
+          <mat-select placeholder="จังหวัด" [(value)]="selected" class="titlename" >
+            <mat-option value="1">   นาย</mat-option>
+            <mat-option value="2">   นาง</mat-option>
+            <mat-option value="3">   นางสาว</mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <mat-form-field>
+          <mat-select placeholder="วุฒิการศึกษา" [(value)]="selected" class="titlename" >
+            <mat-option value="1">   นาย</mat-option>
+            <mat-option value="2">   นาง</mat-option>
+            <mat-option value="3">   นางสาว</mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <mat-form-field>
+          <mat-select placeholder="สาขา" [(value)]="selected" class="titlename" >
+            <mat-option value="1">   นาย</mat-option>
+            <mat-option value="2">   นาง</mat-option>
+            <mat-option value="3">   นางสาว</mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <mat-form-field>
+          <mat-select placeholder="ตำแหน่ง" [(value)]="selected" class="titlename" >
+            <mat-option value="1">   นาย</mat-option>
+            <mat-option value="2">   นาง</mat-option>
+            <mat-option value="3">   นางสาว</mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        
+      </form>
+
+     
+    </mat-card-content>
+
+</mat-card>
+</div>

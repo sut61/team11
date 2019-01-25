@@ -13,7 +13,9 @@ import {
   MatRadioModule,
   MatCheckboxModule,
   MatIconModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -57,7 +59,9 @@ const routes: Routes = [
     MatRadioModule,
     MatCheckboxModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
 
