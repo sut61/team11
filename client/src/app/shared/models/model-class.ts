@@ -28,3 +28,7 @@ export class Customer{
     address?: string;
     tel?: any;
 }
+export class Employee{
+    eId?: any;
+    eName?: string;
+}
