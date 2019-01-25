@@ -37,13 +37,14 @@ public class SaleItemController {
     }
 
     @PostMapping(path = "/SaleItem/{itemName}/{price}/{amount}/{date}")
-    public SaleItem newSaleItem(@RequestBody SaleItem saleItem, @PathVariable String itemName, @PathVariable double price,
-                                @PathVariable int amount, @PathVariable Date date,@PathVariable long customerid,
+    public SaleItem newSaleItem(@RequestBody SaleItem saleItem, @PathVariable String itemName,
+                                @PathVariable double price, @PathVariable int amount,
+                                @PathVariable Date date,@PathVariable long customerid,
                                 @PathVariable long eId,@PathVariable long buyItemId){
 
         SaleItem saleItem1 = new SaleItem();
 
-
+        double totalPrice = saleItem1.calTotalPrice(saleItem.getPrice(), saleItem.getAmount());
 
         Employee employee = employeeRepository.findById(eId);
         BuyItem buyItem = buyItemRepository.findById(buyItemId);
@@ -56,26 +57,18 @@ public class SaleItemController {
         saleItem1.setBuyItem(buyItem);
         saleItem1.setCustomer(customer);
         saleItem1.setEmployee(employee);
+        saleItem1.setTotalPrice(totalPrice);
 
         return saleItemRepository.save(saleItem1);
     }
 
-    @GetMapping(path = "/findCustomers/{customerId}")
-    private ResponseEntity<Customer> findCustomers(@PathVariable long customerId){
-        Customer customer1 = customerRepository.findById(customerId);
-        if(customer1 == null){
+    @GetMapping(path = "/findSaleItem/{saleItemId}")
+    private ResponseEntity<SaleItem> findSaleItem(@PathVariable long saleItemId){
+        SaleItem s = saleItemRepository.findById(saleItemId);
+        if(s == null){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok().body(customer1);
-    }
-
-    @GetMapping(path = "/findEmployee/{eId}")
-    private ResponseEntity<Employee> findEmployee(@PathVariable long eId){
-        Employee employee1 = employeeRepository.findById(eId);
-        if(employee1 == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok().body(employee1);
+        return ResponseEntity.ok().body(s);
     }
 
 }
