@@ -3,6 +3,7 @@ export class Cart{
     paymentStatus?: string;
     date?: Date;
     customer?: Customer;
+    buyItems?: BuyItem[];
 }
 export class BuyItem{
     buyItemId?: any;
