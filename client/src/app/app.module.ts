@@ -24,7 +24,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 <<<<<<< HEAD
 import { FindCustomerComponent } from './components/find-customer/find-customer.component';
 =======
-import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeComponent } from './components/employee/employee.component';  
 >>>>>>> ทำ employee UI - close #89
 
 const routes: Routes = [
@@ -33,7 +33,7 @@ const routes: Routes = [
 <<<<<<< HEAD
   {path: 'find-customer', component: FindCustomerComponent}
 =======
-  {path: 'employee', component: EmployeeComponent}
+  {path: 'employee', component: EmployeeComponent}  
 >>>>>>> ทำ employee UI - close #89
 ];
 

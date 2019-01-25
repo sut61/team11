@@ -12,4 +12,4 @@ export class EmployeeComponent implements OnInit {
   ngOnInit() {
   }
 
-}
+}  
