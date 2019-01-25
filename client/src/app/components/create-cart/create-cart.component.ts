@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Customer, Cart } from '../../shared/models/model-class';
 import { FindCustomerService } from '../../shared/find-customer/find-customer.service';
+import { CreateCartService } from '../../shared/create-cart/create-cart.service';
 @Component({
   selector: 'app-create-cart',
   templateUrl: './create-cart.component.html',
@@ -15,6 +16,7 @@ export class CreateCartComponent implements OnInit {
     private find: FindCustomerService,
     private router: Router,
     private route: ActivatedRoute,
+    private create: CreateCartService
   ) { }
 
   ngOnInit() {
@@ -30,7 +32,11 @@ export class CreateCartComponent implements OnInit {
   }
 
   onSubmit(){
-    // call service create cart
+    this.create.createCart(this.customer.customerId,this.cart).subscribe((res) => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }
