@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="search">
+    <h1>ค้นหาลูกค้า</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>ป้อนไอดีลูกค้า</mat-label>
+      <input matInput [(ngModel)]="id" name="id" placeholder="ป้อนไอดีลูกค้า"  required>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button mat-raised-button color="warn" (click)="submit()" [disabled]="id == null">ค้นหา</button>
+  </div>
+</div>
