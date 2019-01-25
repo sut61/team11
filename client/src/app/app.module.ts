@@ -26,13 +26,15 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { EmployeeComponent } from './components/employee/employee.component';  
 import { FindCustomerComponent } from './components/find-customer/find-customer.component';
 import { CreateCartComponent } from './components/create-cart/create-cart.component';
+import { ViewListItemComponent } from './components/view-list-item/view-list-item.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
   {path: 'customer', component: CustomerComponent},
   {path: 'employee', component: EmployeeComponent},
   {path: 'find-customer', component: FindCustomerComponent},
-  {path: ':id/createCart', component: CreateCartComponent}
+  {path: ':id/createCart', component: CreateCartComponent},
+  {path: ':id/view-list', component: ViewListItemComponent}
 ];
 
 @NgModule({
@@ -42,7 +44,8 @@ const routes: Routes = [
     CustomerComponent,
     EmployeeComponent,
     FindCustomerComponent,
-    CreateCartComponent
+    CreateCartComponent,
+    ViewListItemComponent
   ],
   imports: [
     BrowserModule,
