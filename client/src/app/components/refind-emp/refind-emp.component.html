@@ -1,0 +1,10 @@
+  <div class="container">
+    <div class="find-employee">
+      <h1>ค้นหาพนักงาน (ผู้จ่ายเงิน)</h1>
+      <mat-form-field appearance="outline" class="inputID">
+        <mat-label>ป้อนไอดีพนักงาน</mat-label>
+        <input matInput [(ngModel)]="id" name="id" placeholder="ป้อนไอดีพนักงาน">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onClickEmp()" id="findBtn">ค้นหา</button>
+    </div>
+  </div>
