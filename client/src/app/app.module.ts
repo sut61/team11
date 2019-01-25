@@ -21,24 +21,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PageLayoutComponent } from './page-layout/page-layout.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { FindCustomerComponent } from './components/find-customer/find-customer.component';
+import { EmployeeComponent } from './components/employee/employee.component';  
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
   {path: 'customer', component: CustomerComponent},
-  {path: 'find-customer', component: FindCustomerComponent}
+  {path: 'employee', component: EmployeeComponent} 
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     PageLayoutComponent,
-
-    
     CustomerComponent,
-
-    
-    FindCustomerComponent
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,

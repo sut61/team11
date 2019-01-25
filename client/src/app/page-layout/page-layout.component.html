@@ -9,8 +9,8 @@
     <mat-sidenav-container class="sidebar-container">
       <mat-sidenav #sidenav  mode="over" class="sidebar-menu">
         <ul>
-          <li (click)="gocustomer(); sidenav.close()"><h3> สมัครสมาชิกลูกค้า </h3></li>
-          <li><button mat-raised-button color="primary" routerLink="/find-customer">ซื้อและจำแนกประเภทสินค้า</button></li>
+          <li (click)="gocustomer(); sidenav.close()"><h3> สมัครสมาชิกลูกค้า </h3></li><br>
+          <button mat-button class="button1"(click)="addemployee(); sidenav.close()" >เพิ่มข้อมูลพนักงาน</button>
          <!-- <li (click)="goPage2(); sidenav.close()">PAGE2</li>-->
         </ul>
       </mat-sidenav>

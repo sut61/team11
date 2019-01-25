@@ -16,5 +16,10 @@ export class PageLayoutComponent implements OnInit {
       
     });
   }
+  addemployee(){
+    this.router.navigate(['/employee']).then(() => {
+      
+    });
+  }
 
 }
