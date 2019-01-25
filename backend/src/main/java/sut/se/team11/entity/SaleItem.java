@@ -21,6 +21,7 @@ public class SaleItem {
     private @NonNull double price;
     private @NonNull int amount;
     private @NonNull Date date;
+    private @NonNull double totalPrice;
 
 
     @ManyToOne
@@ -34,5 +35,10 @@ public class SaleItem {
     @ManyToOne
     @JoinColumn(name = "buyItemId")
     private BuyItem buyItem;
+
+    public double calTotalPrice(double price, int amount){
+        return price * amount;
+    }
+
 
 }
