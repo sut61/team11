@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="create-cart">
+    <div class="show-customer-detail">
+      <mat-list role="list">
+        <mat-list-item role="listitem">Employee ID : {{employee.eid}}</mat-list-item>
+        <mat-list-item role="listitem">Employee Name : {{employee.ename}}</mat-list-item>
+      </mat-list>
+    </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="create-cart">
+      <h1>ค้นหาใบรายการสินค้า</h1>
+      <mat-form-field appearance="outline" class="inputID">
+        <mat-label>ป้อนไอดีใบรายการสินค้า</mat-label>
+        <input matInput [(ngModel)]="id" name="id" placeholder="ป้อนไอดีใบรายการสินค้า">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onClickCart()" id="findBtn">ค้นหา</button>
+    </div>
+  </div>
