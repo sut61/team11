@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FindCustomerService } from '../../shared/find-customer/find-customer.service';
+import { Customer } from '../../shared/models/model-class';
 @Component({
   selector: 'app-find-customer',
   templateUrl: './find-customer.component.html',
@@ -8,12 +10,19 @@ import {} from '@angular/router';
 export class FindCustomerComponent implements OnInit {
 
   id: any;
-  constructor() { }
+  customer: Customer = new Customer();
+  constructor(
+    private service:FindCustomerService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   submit(){
-    // console.log(this.id);
+    this.service.findCustomer(this.id).subscribe((res) => {
+      this.customer = res;
+      console.log(this.customer);
+    });
   }
 }
