@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../../shared/models/model-class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { RefindEmpService } from '../../shared/refind-emp/refind-emp.service';
+import { Employee } from 'src/app/shared/quotation/quotation.service';
+import { EmpService } from 'src/app/shared/emp/emp.service';
+
 @Component({
-  selector: 'app-refind-emp',
-  templateUrl: './refind-emp.component.html',
-  styleUrls: ['./refind-emp.component.css']
+  selector: 'app-emp',
+  templateUrl: './emp.component.html',
+  styleUrls: ['./emp.component.css']
 })
-export class RefindEmpComponent implements OnInit {
+export class EmpComponent implements OnInit {
   id: any;
   employee: Employee = new Employee();
   sub: Subscription;
 
   constructor(
-    private find: RefindEmpService,
+    private find: EmpService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -26,8 +27,8 @@ export class RefindEmpComponent implements OnInit {
     this.sub = this.find.reFindEmployee(this.id).subscribe((res) => {
       // console.log(res);
       this.employee = res;
-      console.log(this.employee.eId);
-      this.router.navigate([`${this.employee.eId}/RefindCart`]);
+      console.log(this.employee.eid);
+      this.router.navigate([`${this.employee.eid}/QUOTATION`]);
     },err => {
       console.log('Error happen!!!', err);
     });

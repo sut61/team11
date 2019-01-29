@@ -2,6 +2,7 @@ package sut.se.team11.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sut.se.team11.entity.Customer;
@@ -36,11 +37,10 @@ public class QuotationController {
 
     }
 
-    @PostMapping("/Quotation/{price}/{detail}/{date}/{customerId}/{employeeId}/{buyItemId}")
+    @PostMapping("/Quotation/{employeeId}/{customerId}/{buyItemId}/{detail}/{price}")
     public Quotation quotation(@RequestBody Quotation quotation,
                                @PathVariable Double price,
                                @PathVariable String detail,
-                               @PathVariable Date date,
                                @PathVariable long customerId,
                                @PathVariable long employeeId,
                                @PathVariable long buyItemId){
@@ -54,12 +54,18 @@ public class QuotationController {
 
         quotation1.setPrice(price);
         quotation1.setDetail(detail);
-        quotation1.setDate(date);
+        quotation1.setDate(new Date());
         quotation1.setCustomer(customer);
         quotation1.setEmployee(employee);
         quotation1.setBuyItem(buyItem);
 
         return  quotationRepository.save(quotation1);
     }
+
+    @GetMapping("/BuyItem")
+    public Collection <BuyItem> BuyItem() {
+        return buyItemRepository.findAll().stream().collect(Collectors.toList());
+    }
+
 
 }

@@ -29,7 +29,7 @@ export class RefindCartComponent implements OnInit {
     this.sub = this.route.params.subscribe(param => {
       this.id2 = param['id'];
       // console.log(this.id);
-      this.find2.refindEmployee(this.id2).subscribe((data) => {
+      this.find2.reFindEmployee(this.id2).subscribe((data) => {
         this.employee = data;
       });
     }, err => {
