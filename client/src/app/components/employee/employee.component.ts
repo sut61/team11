@@ -10,11 +10,15 @@ import { EmployeeService } from 'src/app/shared/employee/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
+  public API: string = "http://localhost:8080";
+
   employee : Employee = new Employee();
   branchs : Array<any>;
   positions : Array<any>;
   educations : Array<any>;
   provinces : Array<any>;
+  bdate : Date;
+
 
   constructor(private service : EmployeeService , private httpClient: HttpClient
     ) { }
@@ -37,21 +41,40 @@ export class EmployeeComponent implements OnInit {
         console.log(this.provinces);
       });
     }
-  save(){
-    console.log(this.employee.bdate);
-    this.httpClient.post('//localhost:8080/Employee/' + this.employee.title + '/'+
-    this.employee.eName + '/' + this.employee.age + '/' + this.employee.bdate + '/' + 
-    this.employee.tel + '/' + this.employee.address + '/'+ this.employee.province.pid + '/' + 
-    this.employee.education.edid + '/' + this.employee.branch.bid + '/' + this.employee.position.psid
-    ,this.employee).subscribe(
-      data => {
-        console.log('Save Successful, Congratulations ', data);
-      },
-      error => {
-        console.log('!!!! Warning, Error !!!!!', error);
-      }
+  // save(){
+  //   console.log(this.employee);
+  //   //console.log(this.employee.bdate);
+    
+    
+  //   this.httpClient.post('//localhost:8080/Employee/' + this.employee.title + '/'+
+  //   this.employee.eName + '/' + this.employee.age + '/' +'25-02-2556' + '/' + 
+  //   this.employee.tel + '/' + this.employee.address + '/'+ this.employee.province.pid + '/' + 
+  //   this.employee.education.edId + '/' + this.employee.branch.bid + '/' + this.employee.position.psId
+  //   ,this.employee).subscribe(
+  //     data => {
+  //       console.log('Save Successful, Congratulations ', data);
+  //     }
+  //   ,
+  //     error => {
+  //       console.log('!!!! Warning, Error !!!!!', error);
+  //     }
        
-    );
+  //   );
+  // }
+
+  // save(){
+  //   this.httpClient.post(this.API + '/Employee/' + this.employee.title + '/' + this.employee.eName + '/' + "25-02-2562" + '/' + this.employee.age + '/' + this.employee.tel + '/' + this.employee.address + '/' + this.employee.province.pid + '/' + this.employee.education.edId + '/' + this.employee.branch.bid + '/' + this.employee.position.psId, this.employee).subscribe((da) => {
+  //     console.log(da);
+  //   });
+  // }
+
+  save(){
+    this.httpClient.post(this.API + '/newEmp', this.employee).subscribe((data) => {
+      console.log(data);
+      
+    }, err => {
+      console.log("Error Happen!!!!");
+    });
   }
 
 }  

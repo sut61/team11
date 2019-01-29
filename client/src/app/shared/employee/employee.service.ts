@@ -42,12 +42,12 @@ export class Branch {
   bname: String;
 }
 export class Position {
-  psid:any;
-  psname:String;
+  psId:any;
+  psName:String;
 }
 export class Education {
-  edid: any;
-  edname : String;
+  edId: any;
+  edName : String;
 }
 export class Province { 
   pid : any;
@@ -56,8 +56,8 @@ export class Province {
 export class Employee {
   eId : any;
   title : any ;
-  eName : any;
-  bdate : any;
+  ename : any;
+  bDate : Date;
   age : any;
   tel :any ;
   address : any;

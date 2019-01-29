@@ -32,26 +32,31 @@ class EmployeeController {
         return employeeRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @PostMapping("/Employee/{title}/{name}/{bdate}/{age}/{tel}/{address}/{pId}/{edId}/{bId}/{psId}")
-    public Employee newEmployee(@RequestBody Employee newEmployee, @PathVariable String title, @PathVariable String name,
-                                @PathVariable Date bdate, @PathVariable int age, @PathVariable String tel, @PathVariable String address,
-                                @PathVariable long pId, @PathVariable long edId, @PathVariable long bId, @PathVariable long psId) {
-        Province province = provinceRepository.findById(pId);
-        Education education = educationRepository.findById(edId);
-        Branch branch = branchRepository.findById(bId);
-        Position position = positionRepository.findById(psId);
 
-        newEmployee.setTitle(title);
-        newEmployee.setEName(name);
-//        newEmployee.setBDate(bdate);
-        newEmployee.setAge(age);
-        newEmployee.setTel(tel);
-        newEmployee.setAddress(address);
-        newEmployee.setProvince(province);
-        newEmployee.setEducation(education);
-        newEmployee.setBranch(branch);
-        newEmployee.setPosition(position);
+    @PostMapping(path = "/newEmp")
+    private Employee newEmp(@RequestBody Employee employee){
+        Employee e = new Employee();
+        long ps = employee.getPosition().getPsId();
+        long p = employee.getProvince().getPId();
+        long ed = employee.getEducation().getEdId();
+        long b = employee.getBranch().getBId();
 
-        return employeeRepository.save(newEmployee);
+        Position ps1 = positionRepository.findById(ps);
+        Province p1 = provinceRepository.findById(p);
+        Education e1 = educationRepository.findById(ed);
+        Branch br = branchRepository.findById(b);
+
+        e.setBDate(employee.getBDate());
+        e.setEducation(e1);
+        e.setPosition(ps1);
+        e.setBranch(br);
+        e.setProvince(p1);
+        e.setTel(employee.getTel());
+        e.setAddress(employee.getAddress());
+        e.setAge(employee.getAge());
+        e.setEName(employee.getEName());
+        e.setTitle(employee.getTitle());
+
+        return employeeRepository.save(e);
     }
 }
