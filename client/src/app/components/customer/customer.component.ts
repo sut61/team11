@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
 import { CustomerService, Customer } from '../../shared/customer/customer.service';
+import { Router } from '@angular/router';
+
 export interface Animal {
   name: string;
   name1: string;
@@ -28,7 +30,7 @@ export class CustomerComponent implements OnInit {
   ];
 
   constructor(
-    private service: CustomerService , private httpClient: HttpClient) { }
+    private service: CustomerService , private httpClient: HttpClient,private router: Router) { }
 
   ngOnInit() {
     this.service.getBranch().subscribe(data => {
@@ -51,9 +53,14 @@ export class CustomerComponent implements OnInit {
     });
 
   }
+  gocustomer(){
+    this.router.navigate(['/customer']).then(() => {
+      
+    });
+  }
+
   save() {
-    // this.report.athleteRegistration = this.report.payment.athleteRegistration;
-    // this.report.athlete = this.report.payment.athleteRegistration.athlete; // set athlete ID
+//  if(this.customer.customername != null){
     console.log(this.customer.customername);
     console.log(this.customer.address);
     this.httpClient.post('//localhost:8080/Customer/' + this.customer.branch.bid + '/' + this.customer.customername +'/'+ this.customer.tel + '/'
@@ -67,6 +74,11 @@ export class CustomerComponent implements OnInit {
             console.log('Rrror', error);
         }
       );
+      this.router.navigate(['/customer']).then(() => {
+      });
       
+      // }else{
+      //   console.log("คุณกรอกข้อมูลไม่ครบ");
+      // }
   }
 }
