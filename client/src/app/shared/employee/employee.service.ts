@@ -35,6 +35,8 @@ export class EmployeeService {
    
   }
 }
+
+
 export class Branch {
   bid:any;
   bname: String;
@@ -63,8 +65,6 @@ export class Employee {
   education : Education;
   branch : Branch;
   position : Position;
-
-
 }
 
 
