@@ -5,28 +5,25 @@
       <h2 class="title"> ข้อมูลพนักงาน    <mat-icon class="icon" >person_add </mat-icon> </h2> 
     </mat-card-header>
     <mat-card-content> <br> <br> <br>
-      <form class="example-form" #employeeForm="ngForm" (ngSubmit)="save"> 
+      <form class="example-form" #employeeForm="ngForm" > 
           
         <mat-form-field class="example-full-width" >
           <input matInput placeholder="คำนำหน้า"  [(ngModel)]="employee.title" name="title" required >
         </mat-form-field> 
-     
-                 
-              
+   
                 <mat-form-field class="example-full-width" >
-                  <input matInput placeholder="ชื่อ-นามสกุล"  [(ngModel)]="employee.eName" name="name" required >
+                  <input matInput placeholder="ชื่อ-นามสกุล"  [(ngModel)]="employee.ename" name="name" required >
                 </mat-form-field> 
              
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="อายุ"  [(ngModel)]="employee.age" name="age" required>
                 </mat-form-field> <br>
-<!--                 
-                <mat-label style="font-size:20px">วันเกิด</mat-label> 
+
                 <mat-form-field>
-                  <input matInput [matDatepicker]="bdate" placeholder="วันเกิด">
-                  <mat-datepicker-toggle matSuffix [for]="bdate"></mat-datepicker-toggle>
-                  <mat-datepicker #mybdate  ></mat-datepicker>
-                </mat-form-field> -->
+                  <input matInput [matDatepicker]="picker" placeholder="วันเกิด" [(ngModel)]="employee.bdate" name="date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> 
               
         <mat-form-field class="example-full-width">
           <input matInput placeholder="เบอร์โทรศัพท์"  [(ngModel)]="employee.tel" name="tel" required>
@@ -50,7 +47,7 @@
               {{education.edName}}
             </mat-option>
          </mat-select>
-        </mat-form-field><br>
+        </mat-form-field><br>  
 
         <mat-form-field>
           <mat-select placeholder="สาขา" name="branch" [(ngModel)]="employee.branch" required>
@@ -70,7 +67,7 @@
         
       </form>
       <div class="button-submit">
-        <button mat-flat-button  id="emp" [disabled]="employeeForm.invalid || checkSelected == false" >
+        <button mat-flat-button   [disabled]="employeeForm.invalid || checkSelected == false" (click)="save()" >
           บันทึก
         </button>
       </div>
