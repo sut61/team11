@@ -27,6 +27,10 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { FindCustomerComponent } from './components/find-customer/find-customer.component';
 import { CreateCartComponent } from './components/create-cart/create-cart.component';
 import { ViewListItemComponent } from './components/view-list-item/view-list-item.component';
+import { EmpComponent } from './components/emp/emp.component';
+import { QUOTATIONComponent } from './components/quotation/quotation.component';
+import { RefindCartComponent } from './components/refind-cart/refind-cart.component';
+import { RefindEmpComponent } from './components/refind-emp/refind-emp.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
@@ -34,7 +38,11 @@ const routes: Routes = [
   {path: 'employee', component: EmployeeComponent},
   {path: 'find-customer', component: FindCustomerComponent},
   {path: ':id/createCart', component: CreateCartComponent},
-  {path: ':id/view-list', component: ViewListItemComponent}
+  {path: ':id/view-list', component: ViewListItemComponent},
+  {path: 'Emp', component: EmpComponent},
+  {path: ':id/QUOTATION', component: QUOTATIONComponent},
+  {path: 'RefindEmp', component: RefindEmpComponent},
+  {path: ':id/RefindCart', component: RefindCartComponent}
 ];
 
 @NgModule({
@@ -45,7 +53,11 @@ const routes: Routes = [
     EmployeeComponent,
     FindCustomerComponent,
     CreateCartComponent,
-    ViewListItemComponent
+    ViewListItemComponent,
+    QUOTATIONComponent,
+    EmpComponent,
+    RefindCartComponent,
+    RefindEmpComponent
   ],
   imports: [
     BrowserModule,

@@ -21,5 +21,14 @@ export class PageLayoutComponent implements OnInit {
       
     });
   }
-
+  addemp(){
+    this.router.navigate(['/Emp']).then(() =>{
+    
+    });
+  }
+  RefindEmp(){
+    this.router.navigate(['/RefindEmp']).then(() =>{
+    
+    });
+  }
 }
