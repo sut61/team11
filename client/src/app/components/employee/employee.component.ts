@@ -14,7 +14,7 @@ export class EmployeeComponent implements OnInit {
   branchs : Array<any>;
   positions : Array<any>;
   educations : Array<any>;
-  province : Array<any>;
+  provinces : Array<any>;
 
   constructor(private service : EmployeeService , private httpClient: HttpClient
     ) { }
@@ -22,15 +22,19 @@ export class EmployeeComponent implements OnInit {
     ngOnInit() {
       this.service.getBranch().subscribe(data => {
         this.branchs = data;
+        console.log(this.branchs);
       });
       this.service.getEducation().subscribe(data => {
         this.educations = data;
+        console.log( this.educations);
       });
       this.service.getPosition().subscribe(data => {
         this.positions = data;
+        console.log(this.positions);
       });
       this.service.getProvince().subscribe(data => {
-        this.province = data;
+        this.provinces = data;
+        console.log(this.provinces);
       });
     }
   save(){
