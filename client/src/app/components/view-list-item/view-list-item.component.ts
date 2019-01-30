@@ -26,15 +26,11 @@ export class ViewListItemComponent implements OnInit {
         this.cart = data;
         this.buyItems = [];
         this.cart.buyItems.forEach(el =>{
-          // console.log(el);
           this.buyItems.push(el);
         });
-        // console.log(this.cart);
-        // console.log(this.buyItems);
       });
     }, err => {
       console.log(err);
-      this.router.navigate(['/create-cart']);
     });
   }
 

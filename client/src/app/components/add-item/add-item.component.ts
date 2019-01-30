@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cart, BuyItem, Category, Unit } from '../../shared/models/model-class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CreateCartService } from '../../shared/create-cart/create-cart.service';
+import { AddItemService } from '../../shared/add-item/add-item.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-item',
@@ -20,7 +21,8 @@ export class AddItemComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private create: CreateCartService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private add: AddItemService
   ) { }
 
   ngOnInit() {
@@ -29,16 +31,25 @@ export class AddItemComponent implements OnInit {
       this.id = param['id'];
       this.create.getCart(this.id).subscribe((data) => {
         this.cart = data;
-        console.log(this.cart);
       });
     }, err => {
       console.log(err);
     });
+    this.add.getCategory().subscribe((cate) => {
+      this.categories = cate;
+    });
+    this.add.getUnit().subscribe((unit) => {
+      this.units =  unit;
+    });
   }
 
   submit(){
-    console.log(this.form.value);
-    //
+    this.buy = Object.assign({}, this.form.value);
+    this.add.newItem(this.id, this.buy).subscribe(() => {
+      this.router.navigate([`${this.id}/view-list`]);
+    }, err => {
+      console.log(err);
+    });
   }
 
   createForm(){
