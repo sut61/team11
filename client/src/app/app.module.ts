@@ -31,6 +31,8 @@ import { EmpComponent } from './components/emp/emp.component';
 import { QUOTATIONComponent } from './components/quotation/quotation.component';
 import { RefindCartComponent } from './components/refind-cart/refind-cart.component';
 import { RefindEmpComponent } from './components/refind-emp/refind-emp.component';
+import { ViewCartItemComponent } from './components/view-cart-item/view-cart-item.component';
+import { CreateReceiptComponent } from './components/create-receipt/create-receipt.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
@@ -41,8 +43,10 @@ const routes: Routes = [
   {path: ':id/view-list', component: ViewListItemComponent},
   {path: 'Emp', component: EmpComponent},
   {path: ':id/QUOTATION', component: QUOTATIONComponent},
-  {path: 'RefindEmp', component: RefindEmpComponent},
-  {path: ':id/RefindCart', component: RefindCartComponent}
+  {path: 'refind-emp', component: RefindEmpComponent},
+  {path: ':id/RefindCart', component: RefindCartComponent},
+  {path: ':id/view-cart-item', component: ViewCartItemComponent},
+  {path: ':id/create-receipt', component: CreateReceiptComponent}
 ];
 
 @NgModule({
@@ -57,7 +61,9 @@ const routes: Routes = [
     QUOTATIONComponent,
     EmpComponent,
     RefindCartComponent,
-    RefindEmpComponent
+    RefindEmpComponent,
+    ViewCartItemComponent,
+    CreateReceiptComponent
   ],
   imports: [
     BrowserModule,
