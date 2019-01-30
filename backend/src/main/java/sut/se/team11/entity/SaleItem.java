@@ -1,5 +1,6 @@
 package sut.se.team11.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -20,6 +21,7 @@ public class SaleItem {
     private @NonNull String itemName;
     private @NonNull double price;
     private @NonNull int amount;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private @NonNull Date date;
     private @NonNull double totalPrice;
 

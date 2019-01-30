@@ -1,6 +1,7 @@
 package sut.se.team11.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sut.se.team11.entity.*;
 import sut.se.team11.repository.*;
@@ -58,5 +59,14 @@ class EmployeeController {
         e.setTitle(employee.getTitle());
 
         return employeeRepository.save(e);
+    }
+    @GetMapping(path = "/findEmployee/{eId}")
+    private ResponseEntity<Employee> findEmployee(@PathVariable long eId){
+        System.out.println(eId);
+        Employee employee = employeeRepository.findById(eId);
+        if(employee == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(employee);
     }
 }
