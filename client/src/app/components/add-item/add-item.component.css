@@ -1,0 +1,22 @@
+.container{
+    display: block;
+    text-align: center;
+}
+.form-add{
+    display: flex;
+}
+.form-add .card{
+    margin: auto;
+    width: 50%;
+}
+.form-add .card .header h2{
+    margin: auto;
+    margin-bottom: 20px;
+}
+.form-add .card .content{
+    display: block;
+}
+.form-add .card .content mat-form-field{
+    display: block;
+    margin: auto;
+}

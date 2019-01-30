@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="form-add">
+    <mat-card class="card">
+      <mat-card-header class="header">
+        <h2>เพิ่มรายการสินค้า</h2>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+
+          <mat-form-field appearance="outline">
+            <mat-label>ป้อนชื่อ</mat-label>
+            <input matInput formControlName="itemName" name="itemName" id="name" placeholder="ป้อนชื่อ">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="เลือกหมวดหมู่" formControlName="category">
+              <mat-option *ngFor="let cate of categories" [value]="cate" id="cate.categoryId">
+                {{cate.categoryName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>ป้อนราคา</mat-label>
+            <input matInput formControlName="price" name="price" id="price" placeholder="ป้อนราคา">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="เลือกหน่วย" formControlName="unit">
+              <mat-option *ngFor="let unit of units" [value]="unit" id="unit.unitId">
+                {{unit.unitName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>ป้อนจำนวน</mat-label>
+            <input matInput formControlName="amount" name="amount" id="amount" placeholder="ป้อนจำนวน">
+          </mat-form-field>
+
+          <button mat-raised-button color="warn" id="addItem">บันทึก</button>
+        </form>
+      </mat-card-content>
+    </mat-card>    
+  </div>
+</div>

@@ -24,9 +24,9 @@ export class ViewListItemComponent implements OnInit {
       this.id = param['id'];
       this.create.getCart(this.id).subscribe((data) => {
         this.cart = data;
+        this.buyItems = [];
         this.cart.buyItems.forEach(el =>{
           // console.log(el);
-          this.buyItems = [];
           this.buyItems.push(el);
         });
         // console.log(this.cart);
@@ -36,6 +36,11 @@ export class ViewListItemComponent implements OnInit {
       console.log(err);
       this.router.navigate(['/create-cart']);
     });
+  }
+
+  
+  goAddItem(){
+    this.router.navigate([`${this.cart.cartId}/add-item`]);
   }
 
 }
