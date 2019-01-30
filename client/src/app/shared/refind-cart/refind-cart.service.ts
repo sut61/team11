@@ -14,6 +14,31 @@ export class RefindCartService {
   refindCart(cartId: any): Observable<any>{
     // console.log(customerId);
     // return this.http.get(this.API + `{/findCustomer/${customerId}}`);
-    return this.http.get(this.API + '/refindCart/' + cartId);
+    return this.http.get(this.API + '/reFindCart/' + cartId);
   }
+  getCustomer(): Observable<any> {
+    return this.http.get(this.API + '/Customer');
+  }
+}
+export class Cart{
+  cartId?: any;
+  paymentStatus?: string;
+  buyItems?: BuyItem[];
+  customer?: Customer;
+}
+export class BuyItem{
+  buyItemId?: any;
+  itemName?: string;
+  totalPrice?: any;
+}
+export class Branch {
+  bid?: any;
+  bname?: string;
+}
+export class Customer {
+  customerid?: any;
+  tel?: any;
+  branch?: Branch;
+  customername?: any;
+  address?: any;
 }
