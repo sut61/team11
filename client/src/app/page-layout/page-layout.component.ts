@@ -31,4 +31,9 @@ export class PageLayoutComponent implements OnInit {
     
     });
   }
+  gofindemployee(){
+    this.router.navigate(['/find-employee']).then(() => {
+      
+    });
+  }
 }
