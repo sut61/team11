@@ -13,6 +13,9 @@ import sut.se.team11.repository.CartRepository;
 import sut.se.team11.repository.CategoryRepository;
 import sut.se.team11.repository.UnitRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class BuyItemController {
@@ -53,4 +56,9 @@ public class BuyItemController {
         }
         return ResponseEntity.notFound().build();
     }
+    @GetMapping(path = "/BuyItems")
+    public List<BuyItem> BuyItem() {
+        return buyItemRepository.findAll().stream().collect(Collectors.toList());
+    }
+
 }
