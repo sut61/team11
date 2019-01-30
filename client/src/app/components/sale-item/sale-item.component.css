@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+} */
+ .container .saleItem{
+    margin: auto;
+}
+
+table {
+    width: 100%;
+}

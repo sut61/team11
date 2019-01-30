@@ -40,16 +40,16 @@ export class FindCustomer21Component implements OnInit {
     });
   }
   
-  // onClick(){
+  onClick(){
 
-  //     this.find2.findCustomer(this.id).subscribe((res) => {
-  //     // console.log(res);
-  //     this.customer = res;
-  //     // console.log(this.customer.customerId);
-  //     this.router.navigate([`${this.customer.customerId}/SaleItem`]);
-  //   },err => {
-  //     console.log('Error happen!!!', err);
-  //   });
-  // }
+      this.find2.findCustomer(this.id).subscribe((res) => {
+      // console.log(res);
+      this.customer = res;
+      // console.log(this.customer.customerId);
+      this.router.navigate([`${this.customer.customerId}/SaleItem`]);
+    },err => {
+      console.log('Error happen!!!', err);
+    });
+  }
 }
 
