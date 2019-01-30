@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CreateCartService } from '../../shared/create-cart/create-cart.service';
 import { AddItemService } from '../../shared/add-item/add-item.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NotificationService } from '../../shared/notification/notification.service';
 @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
@@ -22,7 +23,8 @@ export class AddItemComponent implements OnInit {
     private route: ActivatedRoute,
     private create: CreateCartService,
     private fb: FormBuilder,
-    private add: AddItemService
+    private add: AddItemService,
+    public notificaion: NotificationService
   ) { }
 
   ngOnInit() {
@@ -48,6 +50,7 @@ export class AddItemComponent implements OnInit {
     this.add.newItem(this.id, this.buy).subscribe(() => {
       this.router.navigate([`${this.id}/view-list`]);
     }, err => {
+      this.notificaion.error();
       console.log(err);
     });
   }
