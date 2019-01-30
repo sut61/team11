@@ -34,7 +34,6 @@ export class CreateCartComponent implements OnInit {
 
   onSubmit(){
     this.create.createCart(this.customer.customerId,this.cart).subscribe((res) => {
-      console.log(res);
       this.carts = res;
       this.router.navigate([`${this.carts.cartId}/view-list`]);
     }, err => {
