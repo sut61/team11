@@ -33,3 +33,14 @@ export class Employee{
     eId?: any;
     eName?: string;
 }
+
+export class SaleItem{
+    saleItemId: any;
+    itemName: string;
+    price?: any;
+    amount?: number;
+    totalPrice?: any;
+    date?: Date;
+    customer: Customer = new Customer();
+    saleItems: any;
+}
