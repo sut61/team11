@@ -2,20 +2,20 @@
 <div class= "content">
   <mat-card class="example-card">
     <mat-card-header>
-        <h2>ออกใบเสนอราคาสินค้า</h2>    
-     <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> --> 
+        <h2>ออกใบเสนอราคาสินค้า</h2>
+     <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
     </mat-card-header>
-    
+
     <mat-card class="card mat-elevation-z8">
         <mat-card-content class="content">
 
             <form #regisForm="ngForm" (ngSubmit)="save()">
                 <div class="example-container">
-                
+
                     <mat-list role="list">
                         <mat-list-item role="listitem">วันที่ออกใบเสนอราคาสินค้า  : {{date | date: 'dd/MM/yyyy'}}</mat-list-item>
                       </mat-list>
-                      
+
                       <!-- <mat-form-field class="name-input">
                           <mat-select placeholder="ชื่อพนักงาน" name="employee" [(ngModel)]="quotation.employee" required>
                             <mat-option *ngFor="let employee of employees" [value]="employee">
@@ -27,7 +27,7 @@
                        <mat-list-item role="listitem">ชื่อพนักงาน : {{employee.ename}}</mat-list-item>
                    </mat-list>
 
-                      
+
                     <mat-form-field class="name-input">
                         <mat-select placeholder="ชื่อลูกค้า" name="customer" [(ngModel)]="quotation.customer" required>
                           <mat-option *ngFor="let customer of customers" [value]="customer">
@@ -35,7 +35,7 @@
                           </mat-option>
                         </mat-select>
                       </mat-form-field>
-    
+
                         <mat-form-field class="name-input">
                             <mat-select placeholder="ประเภทสินค้า" name="buyItem" [(ngModel)]="quotation.buyItem" required>
                               <mat-option *ngFor="let buyItem of buyItems" [value]="buyItem">
@@ -43,23 +43,26 @@
                               </mat-option>
                             </mat-select>
                           </mat-form-field>
-    
-      
+
+
                     <mat-form-field  class="name-input">
                       <mat-label>รายละเอียดสินค้า</mat-label>
                       <input matInput placeholder="รายละเอียดสินค้า" [(ngModel)]="quotation.detail" name="detail" required>
                     </mat-form-field>
-      
+
                     <mat-form-field  class="name-input">
                       <mat-label>ราคาเสนอสินค้า</mat-label>
                       <input matInput placeholder="ราคาเสนอสินค้า" [(ngModel)]="quotation.price" name="price" required>
                     </mat-form-field>
-                
+
                 </div> <!--example-container-->
                 <div class="button-submit">
                   <button mat-flat-button color="warn" id="reg" [disabled]="regisForm.invalid || checkSelected == false" >
                     บันทึก
                   </button>
+
+
+                  
                 </div>
               </form>
     </mat-card-content>
