@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Customer, Cart } from '../../shared/models/model-class';
 import { FindCustomerService } from '../../shared/find-customer/find-customer.service';
 import { CreateCartService } from '../../shared/create-cart/create-cart.service';
+import { NotificationService } from '../../shared/notification/notification.service';
 @Component({
   selector: 'app-create-cart',
   templateUrl: './create-cart.component.html',
@@ -17,7 +18,8 @@ export class CreateCartComponent implements OnInit {
     private find: FindCustomerService,
     private router: Router,
     private route: ActivatedRoute,
-    private create: CreateCartService
+    private create: CreateCartService,
+    public notification: NotificationService
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class CreateCartComponent implements OnInit {
       this.carts = res;
       this.router.navigate([`${this.carts.cartId}/view-list`]);
     }, err => {
+      this.notification.error();
       console.log(err);
     });
   }

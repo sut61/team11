@@ -6,3 +6,15 @@ body {
  margin: 0;
  /* font-family: Kanit, sans-serif; */
 }
+
+snack-bar-container.error {
+    margin-top: 10%;
+    background-color: #d42020;
+    color : #fff;
+}
+
+snack-bar-container.warn {
+    margin-top: 10%;
+    background-color: #f99157;
+    color : #fff;
+}
