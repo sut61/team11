@@ -18,12 +18,12 @@ public class Employee {
     private long eId;
     private String title;
     private String eName;
-    @Min(0)
+    //@Min(0)
     private int age;
     @JsonFormat (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @NotNull
     private Date bDate;
-    @Pattern(regexp = "[0-9]{10}")
+    //@Pattern(regexp = "[0-9]{10}")
     private String tel;
     private String address;
 
