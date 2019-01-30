@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../../shared/models/model-class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { RefindEmpService } from '../../shared/refind-emp/refind-emp.service';
+import { RefindEmpService, Employee } from '../../shared/refind-emp/refind-emp.service';
 @Component({
   selector: 'app-refind-emp',
   templateUrl: './refind-emp.component.html',
@@ -14,20 +13,22 @@ export class RefindEmpComponent implements OnInit {
   sub: Subscription;
 
   constructor(
-    private find: RefindEmpService,
+    private service: RefindEmpService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
+
   }
+
   
   onClickEmp(){
-    this.sub = this.find.reFindEmployee(this.id).subscribe((res) => {
-      // console.log(res);
+    this.sub = this.service.reFindEmployee(this.id).subscribe((res) => {
+      console.log(res);
       this.employee = res;
-      console.log(this.employee.eId);
-      this.router.navigate([`${this.employee.eId}/RefindCart`]);
+      console.log(this.employee.eid);
+      this.router.navigate([`${this.employee.eid}/refind-cart`]);
     },err => {
       console.log('Error happen!!!', err);
     });
