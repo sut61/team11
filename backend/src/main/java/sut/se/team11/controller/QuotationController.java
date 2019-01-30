@@ -64,6 +64,7 @@ public class QuotationController {
 
     @GetMapping("/BuyItem")
     public Collection <BuyItem> BuyItem() {
+
         return buyItemRepository.findAll().stream().collect(Collectors.toList());
     }
 
