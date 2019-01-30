@@ -45,7 +45,7 @@ export class CreateReceiptComponent implements OnInit {
     this.sub2 = this.route.params.subscribe(param => {
       this.employee.eid = param['id'];
       console.log('EMP ID :',this.employee.eid);
-      this.findEmp.refindEmployee(this.employee.eid).subscribe((data) => {
+      this.findEmp.reFindEmployee(this.employee.eid).subscribe((data) => {
         this.employee = data;
       });
     }, err => {
@@ -65,7 +65,7 @@ export class CreateReceiptComponent implements OnInit {
     this.sub = this.route.params.subscribe(param => {
       this.id2 = param['id'];
       console.log(this.id2);
-      this.findEmp.refindEmployee(this.id2).subscribe((data) => {
+      this.findEmp.reFindEmployee(this.id2).subscribe((data) => {
         this.employee.branch = data;
       });
     }, err => {
