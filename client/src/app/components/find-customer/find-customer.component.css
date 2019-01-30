@@ -4,9 +4,12 @@
 }
 .container .search{
     margin: 70px auto;
+    width: 100%;
 }
 .container .search mat-form-field{
-   width: 500px;
+   max-width: 500px;
+   margin: auto;
+   display: block;
 }
 .search button{
     margin: auto;
