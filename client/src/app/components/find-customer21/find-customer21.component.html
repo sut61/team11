@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="find-custome2">
+    <div class="show-employee-detail">
+      <mat-list role="list">
+        <mat-list-item role="listitem">Employee ID : {{employee.eid}}</mat-list-item>
+        <mat-list-item role="listitem">Employee Name : {{employee.ename}}</mat-list-item>
+      </mat-list>
+    </div>   
+  </div>
+</div>
+
+<div class="container">
+  <div class="find-custome2">
+    <h1>ค้นหาลูกค้า</h1>
+    <mat-form-field appearance="outline" class="inputID">
+      <mat-label>ป้อนไอดีลูกค้า</mat-label>
+      <input matInput [(ngModel)]="id" name="id" placeholder="ป้อนไอดีลูกค้า">
+    </mat-form-field>
+    <div>
+      <!-- <button mat-raised-button color="primary" (click)="onClick()" id="findBtn">ค้นหา</button> -->
+    </div>
+  </div>
+</div>

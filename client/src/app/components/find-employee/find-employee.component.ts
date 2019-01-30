@@ -32,7 +32,7 @@ export class FindEmployeeComponent implements OnInit {
         // console.log(res);
         this.employee = res;
         // console.log(this.employee.eId);
-        this.router.navigate([`${this.employee.eId}/findCustomer`]);
+        this.router.navigate([`${this.employee.eid}/findCustomer`]);
     },err => {
       console.log('Error happen!!!', err);
     });
