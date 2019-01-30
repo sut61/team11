@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart,Employee } from '../../shared/models/model-class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { RefindCartService } from '../../shared/refind-cart/refind-cart.service';
-import { RefindEmpService } from '../../shared/refind-emp/refind-emp.service';
+import { RefindCartService, Cart} from '../../shared/refind-cart/refind-cart.service';
+import { RefindEmpService, Employee } from '../../shared/refind-emp/refind-emp.service';
 @Component({
   selector: 'app-refind-cart',
   templateUrl: './refind-cart.component.html',
@@ -19,17 +18,17 @@ export class RefindCartComponent implements OnInit {
   sub2: Subscription;
   
   constructor(
-    private find: RefindCartService,
-    private find2: RefindEmpService,
+    private findCart: RefindCartService,
+    private findEmp: RefindEmpService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(param => {
+    this.sub2 = this.route.params.subscribe(param => {
       this.id2 = param['id'];
-      // console.log(this.id);
-      this.find2.reFindEmployee(this.id2).subscribe((data) => {
+      console.log(this.id);
+      this.findEmp.reFindEmployee(this.id2).subscribe((data) => {
         this.employee = data;
       });
     }, err => {
@@ -38,13 +37,13 @@ export class RefindCartComponent implements OnInit {
   }
   
   onClickCart(){
-    // this.sub = this.find.refindCart(this.id).subscribe((res) => {
-    //   console.log(res);
-    //   this.cart = res;
-    //   console.log(this.cart.cartId);
-    //   this.router.navigate([`${this.cart.cartId}/refind-cart`]);
-    // },err => {
-    //   console.log('Error happen!!!', err);
-    // });
+    this.sub = this.findCart.refindCart(this.id).subscribe((res) => {
+      console.log(res);
+      this.cart = res;
+      console.log(this.cart.cartId);
+      this.router.navigate([`${this.cart.cartId}/view-cart-item`]);
+    },err => {
+      console.log('Error happen!!!', err);
+    });
   }
 }
