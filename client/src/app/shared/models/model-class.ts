@@ -30,8 +30,8 @@ export class Customer{
     tel?: any;
 }
 export class Employee{
-    eId?: any;
-    eName?: string;
+    eid?: any;
+    ename?: string;
 }
 
 export class SaleItem{

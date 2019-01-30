@@ -35,6 +35,7 @@ import { ViewCartItemComponent } from './components/view-cart-item/view-cart-ite
 import { CreateReceiptComponent } from './components/create-receipt/create-receipt.component';
 import { FindEmployeeComponent } from './components/find-employee/find-employee.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
+import { FindCustomer21Component } from './components/find-customer21/find-customer21.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
@@ -50,7 +51,8 @@ const routes: Routes = [
   {path: ':id/view-cart-item', component: ViewCartItemComponent},
   {path: ':id/create-receipt', component: CreateReceiptComponent},
   {path: 'find-employee', component: FindEmployeeComponent},
-  {path: ':id/add-item', component: AddItemComponent}
+  {path: ':id/add-item', component: AddItemComponent},
+  {path: ':id/findCustomer', component: FindCustomer21Component}
 ];
 
 @NgModule({
@@ -69,7 +71,8 @@ const routes: Routes = [
     ViewCartItemComponent,
     CreateReceiptComponent,
     FindEmployeeComponent,
-    AddItemComponent
+    AddItemComponent,
+    FindCustomer21Component
   ],
   imports: [
     BrowserModule,
