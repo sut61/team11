@@ -37,9 +37,9 @@
                       </mat-form-field>
 
                         <mat-form-field class="name-input">
-                            <mat-select placeholder="ประเภทสินค้า" name="buyItem" [(ngModel)]="quotation.buyItem" required>
-                              <mat-option *ngFor="let buyItem of buyItems" [value]="buyItem">
-                                {{buyItem.category.categoryName}}
+                            <mat-select placeholder="ประเภทสินค้า" name="category" [(ngModel)]="quotation.category" required>
+                              <mat-option *ngFor="let category of category" [value]="category">
+                                {{category.categoryName}}
                               </mat-option>
                             </mat-select>
                           </mat-form-field>

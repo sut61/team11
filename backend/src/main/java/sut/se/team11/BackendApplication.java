@@ -19,7 +19,7 @@ public class BackendApplication {
 	@Bean
 	ApplicationRunner init(CustomerRepository customerRepository, BranchRepository branchRepository, CareerRepository careerRepository,
 						   ProvinceRepository provinceRepository, CategoryRepository categoryRepository,
-						   UnitRepository unitRepository, EducationRepository educationRepository, PositionRepository positionRepository,EmployeeRepository employeeRepository
+						   UnitRepository unitRepository, EducationRepository educationRepository, PositionRepository positionRepository, BuyItemRepository buyItemRepository  ,EmployeeRepository employeeRepository
 	){
 		return  args -> {
 
