@@ -135,7 +135,7 @@ public class BackendApplication {
 				employee3.setAge(28);
 				employee3.setBDate(new Date() );
 				employee3.setAddress("99 หมู่ 9  ");
-				employee3.setTel("099999999");
+				employee3.setTel("0999999999");
 				employee3.setProvince(province3);
 				employee3.setBranch(branch3);
 				employee3.setPosition(position3);

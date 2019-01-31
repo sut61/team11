@@ -4,7 +4,7 @@
     <mat-card-header class="header">    
       <h2 class="title"> ข้อมูลพนักงาน    <mat-icon class="icon" >person_add </mat-icon> </h2> 
     </mat-card-header>
-    <mat-card-content> <br> <br> <br>
+    <mat-card-content> <br> <br> 
       <form class="example-form" #employeeForm="ngForm" > 
           
         <mat-form-field class="example-full-width" >
@@ -19,7 +19,7 @@
                   <input matInput placeholder="อายุ"  [(ngModel)]="employee.age" name="age" required>
                 </mat-form-field> <br>
 
-                <mat-form-field>
+                <mat-form-field class="example-full-width">
                   <input matInput [matDatepicker]="picker" placeholder="วันเกิด" [(ngModel)]="employee.bdate" name="date">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
@@ -33,7 +33,7 @@
           <input matInput placeholder="ที่อยู่"  [(ngModel)]="employee.address" name="address" required>
         </mat-form-field> <br>
 
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
           <mat-select placeholder="จังหวัด" name="province" [(ngModel)]="employee.province" required >
             <mat-option *ngFor="let province of provinces" [value]="province">
               {{province.pname}}
@@ -41,7 +41,7 @@
           </mat-select>
         </mat-form-field><br>
 
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
           <mat-select placeholder="วุฒิการศึกษา"  name="education"  [(ngModel)]="employee.education" required >
             <mat-option *ngFor="let education of educations" [value]="education">   
               {{education.edName}}
@@ -49,7 +49,7 @@
          </mat-select>
         </mat-form-field><br>  
 
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
           <mat-select placeholder="สาขา" name="branch" [(ngModel)]="employee.branch" required>
             <mat-option *ngFor="let branch of branchs" [value]="branch">
               {{branch.bname}}
@@ -57,7 +57,7 @@
           </mat-select>
         </mat-form-field><br> 
 
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
           <mat-select placeholder="ตำแหน่ง" name="position" [(ngModel)]="employee.position" required >
             <mat-option *ngFor="let position of positions" [value]="position">   
               {{position.psName}}

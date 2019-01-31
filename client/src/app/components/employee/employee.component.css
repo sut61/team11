@@ -1,12 +1,15 @@
 .content{
-    margin: auto;
-}
-.employee-card {
-    padding: auto;
-  
-}
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -300px;
+    margin-left: -200px;
+    border-radius: 5px;
 
-
+}
 .title {
     margin: auto;
 }
@@ -21,9 +24,9 @@ mat-card {
 .titleName{
     font-size: 20px;
 }
-.button-summit{
-    
-
+.button-submit{
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
 }
-
 

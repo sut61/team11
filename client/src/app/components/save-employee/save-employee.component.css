@@ -1,0 +1,40 @@
+.frame{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 5px;
+  box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, 0.6);
+  background: #201c29;
+
+
+}
+.img{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 65px;
+    left: 120px;
+}
+.button{
+    position: absolute;
+    width: 200px;
+    height: 40px;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+    border: 3px solid #ecf0f1;
+    color: #ecf0f1;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 20px;
+  
+}

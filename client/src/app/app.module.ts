@@ -15,7 +15,9 @@ import {
   MatIconModule,
   MatSidenavModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatDialogModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,6 +33,7 @@ import { EmpComponent } from './components/emp/emp.component';
 import { QUOTATIONComponent } from './components/quotation/quotation.component';
 import { RefindCartComponent } from './components/refind-cart/refind-cart.component';
 import { RefindEmpComponent } from './components/refind-emp/refind-emp.component';
+import { SaveEmployeeComponent } from './components/save-employee/save-employee.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
@@ -42,7 +45,8 @@ const routes: Routes = [
   {path: 'Emp', component: EmpComponent},
   {path: ':id/QUOTATION', component: QUOTATIONComponent},
   {path: 'RefindEmp', component: RefindEmpComponent},
-  {path: ':id/RefindCart', component: RefindCartComponent}
+  {path: ':id/RefindCart', component: RefindCartComponent},
+  {path: 'save-employee', component: SaveEmployeeComponent}
 ];
 
 @NgModule({
@@ -57,7 +61,9 @@ const routes: Routes = [
     QUOTATIONComponent,
     EmpComponent,
     RefindCartComponent,
-    RefindEmpComponent
+    RefindEmpComponent,
+    SaveEmployeeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -79,7 +85,9 @@ const routes: Routes = [
     MatIconModule,
     MatSidenavModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule,
+    MatSnackBarModule 
   ],
   providers: [
 
