@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/shared/employee/employee.service';
 import { HttpClient} from '@angular/common/http';
 import { EmployeeService } from 'src/app/shared/employee/employee.service';
+import {DialogService} from 'src/app/shared/dialog/dialog.service';
+import { from } from 'rxjs';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -20,7 +23,10 @@ export class EmployeeComponent implements OnInit {
   bdate : Date;
 
 
-  constructor(private service : EmployeeService , private httpClient: HttpClient
+  constructor(private service : EmployeeService,
+     private httpClient: HttpClient,
+     private dialog: DialogService,
+     private router: Router
     ) { }
 
     ngOnInit() {
@@ -40,40 +46,19 @@ export class EmployeeComponent implements OnInit {
         this.provinces = data;
         console.log(this.provinces);
       });
+      
     }
-  // save(){
-  //   console.log(this.employee);
-  //   //console.log(this.employee.bdate);
-    
-    
-  //   this.httpClient.post('//localhost:8080/Employee/' + this.employee.title + '/'+
-  //   this.employee.eName + '/' + this.employee.age + '/' +'25-02-2556' + '/' + 
-  //   this.employee.tel + '/' + this.employee.address + '/'+ this.employee.province.pid + '/' + 
-  //   this.employee.education.edId + '/' + this.employee.branch.bid + '/' + this.employee.position.psId
-  //   ,this.employee).subscribe(
-  //     data => {
-  //       console.log('Save Successful, Congratulations ', data);
-  //     }
-  //   ,
-  //     error => {
-  //       console.log('!!!! Warning, Error !!!!!', error);
-  //     }
-       
-  //   );
-  // }
-
-  // save(){
-  //   this.httpClient.post(this.API + '/Employee/' + this.employee.title + '/' + this.employee.eName + '/' + "25-02-2562" + '/' + this.employee.age + '/' + this.employee.tel + '/' + this.employee.address + '/' + this.employee.province.pid + '/' + this.employee.education.edId + '/' + this.employee.branch.bid + '/' + this.employee.position.psId, this.employee).subscribe((da) => {
-  //     console.log(da);
-  //   });
-  // }
-
   save(){
     this.httpClient.post(this.API + '/newEmp', this.employee).subscribe((data) => {
+      console.log("Congratulations^^");
       console.log(data);
+      this.router.navigate(['/save-employee']).then(() => {
+      });
+     
       
     }, err => {
       console.log("Error Happen!!!!");
+      this.dialog.foundNull();
     });
   }
 

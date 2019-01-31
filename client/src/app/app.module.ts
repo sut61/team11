@@ -16,6 +16,10 @@ import {
   MatSidenavModule,
   MatDatepickerModule,
   MatNativeDateModule,
+<<<<<<< HEAD
+=======
+  MatDialogModule,
+>>>>>>> issue-117
   MatSnackBarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,12 +36,18 @@ import { EmpComponent } from './components/emp/emp.component';
 import { QUOTATIONComponent } from './components/quotation/quotation.component';
 import { RefindCartComponent } from './components/refind-cart/refind-cart.component';
 import { RefindEmpComponent } from './components/refind-emp/refind-emp.component';
+<<<<<<< HEAD
 import { ViewCartItemComponent } from './components/view-cart-item/view-cart-item.component';
 import { CreateReceiptComponent } from './components/create-receipt/create-receipt.component';
 import { FindEmployeeComponent } from './components/find-employee/find-employee.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { FindCustomer21Component } from './components/find-customer21/find-customer21.component';
 import { SaleItemComponent } from './components/sale-item/sale-item.component';
+=======
+>>>>>>> issue-117
+
+
+import { SaveEmployeeComponent } from './components/save-employee/save-employee.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
@@ -48,6 +58,7 @@ const routes: Routes = [
   {path: ':id/view-list', component: ViewListItemComponent},
   {path: 'Emp', component: EmpComponent},
   {path: ':id/QUOTATION', component: QUOTATIONComponent},
+<<<<<<< HEAD
   {path: 'refind-emp', component: RefindEmpComponent},
   {path: ':id/RefindCart', component: RefindCartComponent},
   {path: ':id/view-cart-item', component: ViewCartItemComponent},
@@ -56,6 +67,11 @@ const routes: Routes = [
   {path: ':id/add-item', component: AddItemComponent},
   {path: ':id/findCustomer', component: FindCustomer21Component},
   {path: ':id/SaleItem', component: SaleItemComponent}
+=======
+  {path: 'RefindEmp', component: RefindEmpComponent},
+  {path: ':id/RefindCart', component: RefindCartComponent},
+  {path: 'save-employee', component: SaveEmployeeComponent}
+>>>>>>> issue-117
 ];
 
 @NgModule({
@@ -71,12 +87,17 @@ const routes: Routes = [
     EmpComponent,
     RefindCartComponent,
     RefindEmpComponent,
+<<<<<<< HEAD
     ViewCartItemComponent,
     CreateReceiptComponent,
     FindEmployeeComponent,
     AddItemComponent,
     FindCustomer21Component,
     SaleItemComponent
+=======
+    SaveEmployeeComponent,
+    
+>>>>>>> issue-117
   ],
   imports: [
     BrowserModule,
@@ -99,7 +120,12 @@ const routes: Routes = [
     MatSidenavModule,
     MatDatepickerModule,
     MatNativeDateModule,
+<<<<<<< HEAD
     MatSnackBarModule
+=======
+    MatDialogModule,
+    MatSnackBarModule 
+>>>>>>> issue-117
   ],
   providers: [
 
