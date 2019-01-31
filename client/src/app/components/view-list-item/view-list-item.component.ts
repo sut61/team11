@@ -39,4 +39,8 @@ export class ViewListItemComponent implements OnInit {
     this.router.navigate([`${this.cart.cartId}/add-item`]);
   }
 
+  exit(){
+    this.router.navigate(['/find-customer']);
+  }
+
 }

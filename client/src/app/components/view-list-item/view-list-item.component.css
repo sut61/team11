@@ -6,3 +6,10 @@ table {
   margin-bottom: 15px;
   float: right;
 }
+#exit{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  float: left;
+  background: mediumvioletred;
+  color: #ffff;
+}
