@@ -36,15 +36,12 @@ import { EmpComponent } from './components/emp/emp.component';
 import { QUOTATIONComponent } from './components/quotation/quotation.component';
 import { RefindCartComponent } from './components/refind-cart/refind-cart.component';
 import { RefindEmpComponent } from './components/refind-emp/refind-emp.component';
-<<<<<<< HEAD
 import { ViewCartItemComponent } from './components/view-cart-item/view-cart-item.component';
 import { CreateReceiptComponent } from './components/create-receipt/create-receipt.component';
 import { FindEmployeeComponent } from './components/find-employee/find-employee.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { FindCustomer21Component } from './components/find-customer21/find-customer21.component';
 import { SaleItemComponent } from './components/sale-item/sale-item.component';
-=======
->>>>>>> issue-117
 
 
 import { SaveEmployeeComponent } from './components/save-employee/save-employee.component';
