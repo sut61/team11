@@ -55,7 +55,6 @@ const routes: Routes = [
   {path: ':id/view-list', component: ViewListItemComponent},
   {path: 'Emp', component: EmpComponent},
   {path: ':id/QUOTATION', component: QUOTATIONComponent},
-<<<<<<< HEAD
   {path: 'refind-emp', component: RefindEmpComponent},
   {path: ':id/RefindCart', component: RefindCartComponent},
   {path: ':id/view-cart-item', component: ViewCartItemComponent},
@@ -63,12 +62,10 @@ const routes: Routes = [
   {path: 'find-employee', component: FindEmployeeComponent},
   {path: ':id/add-item', component: AddItemComponent},
   {path: ':id/findCustomer', component: FindCustomer21Component},
-  {path: ':id/SaleItem', component: SaleItemComponent}
-=======
+  {path: ':id/SaleItem', component: SaleItemComponent},
   {path: 'RefindEmp', component: RefindEmpComponent},
   {path: ':id/RefindCart', component: RefindCartComponent},
   {path: 'save-employee', component: SaveEmployeeComponent}
->>>>>>> issue-117
 ];
 
 @NgModule({
@@ -84,17 +81,14 @@ const routes: Routes = [
     EmpComponent,
     RefindCartComponent,
     RefindEmpComponent,
-<<<<<<< HEAD
     ViewCartItemComponent,
     CreateReceiptComponent,
     FindEmployeeComponent,
     AddItemComponent,
     FindCustomer21Component,
-    SaleItemComponent
-=======
-    SaveEmployeeComponent,
+    SaleItemComponent,
+    SaveEmployeeComponent
     
->>>>>>> issue-117
   ],
   imports: [
     BrowserModule,
@@ -117,12 +111,8 @@ const routes: Routes = [
     MatSidenavModule,
     MatDatepickerModule,
     MatNativeDateModule,
-<<<<<<< HEAD
-    MatSnackBarModule
-=======
-    MatDialogModule,
+    MatSnackBarModule,
     MatSnackBarModule 
->>>>>>> issue-117
   ],
   providers: [
 
