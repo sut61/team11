@@ -13,6 +13,7 @@ export class ViewListItemComponent implements OnInit {
   customer: Customer = new Customer();
   id: any;
   buyItems: Array<BuyItem>;
+  len: boolean = false;
   displayedColumns: string[] = ['itemName', 'price', 'amount', 'totalPrice', 'category', 'unit'];
   constructor(
     private router: Router,
@@ -27,6 +28,9 @@ export class ViewListItemComponent implements OnInit {
         this.buyItems = [];
         this.cart.buyItems.forEach(el =>{
           this.buyItems.push(el);
+          if(this.buyItems.length > 0){
+            this.len = true;
+          }
         });
       });
     }, err => {

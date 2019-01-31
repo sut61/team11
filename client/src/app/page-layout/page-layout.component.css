@@ -20,17 +20,17 @@
 }
 .sidebar-menu{
     width: 300px;
-}
-.mat-sidenav-content{
-    margin: 30px;
-}
-li{
-    cursor: pointer;
+    display: block;
 }
 .button1{
-    width: 100%;
-    font-size: 18px;
+    width: 250px;
+    font-size: 16px;
     cursor: pointer;
-    
-   
+    margin: 25px auto;
+    display: block;
+    transition: all 0.3s ease 0s;
 }
+.button1:hover{
+    background: salmon;
+}
+

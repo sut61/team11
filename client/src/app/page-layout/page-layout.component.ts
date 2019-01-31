@@ -11,6 +11,9 @@ export class PageLayoutComponent implements OnInit {
 
   ngOnInit() {
   }
+  goBuyItem(){
+    this.router.navigate(['/find-customer']);
+  }
   gocustomer(){
     this.router.navigate(['/customer']).then(() => {
       
