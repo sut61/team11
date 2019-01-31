@@ -1,13 +1,16 @@
 .container{
-    display: block;
+    display: flex;
     text-align: center;
+    margin: 30px;
 }
 .form-add{
-    display: flex;
+    margin: 60px auto;
+    width: 100%;
 }
 .form-add .card{
+    max-width: 500px;
     margin: auto;
-    width: 50%;
+    display: block;
 }
 .form-add .card .header h2{
     margin: auto;

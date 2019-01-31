@@ -1,18 +1,21 @@
 .container{
     display: flex;
     text-align: center;
+    margin: 15px;
 }
 .create-cart{
     width: 500px;
-    margin: 70px auto;
+    margin: 8em auto;
     display: block;
 }
 .create-cart h2{
     font-size: 30px;
 }
 .action button{
-    padding: 15px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 15px;
+    background: forestgreen;
+    color: #ffff;
 }
 .content p{
     font-size: 18px;
