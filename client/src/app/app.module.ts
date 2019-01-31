@@ -16,10 +16,6 @@ import {
   MatSidenavModule,
   MatDatepickerModule,
   MatNativeDateModule,
-<<<<<<< HEAD
-=======
-  MatDialogModule,
->>>>>>> issue-117
   MatSnackBarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
