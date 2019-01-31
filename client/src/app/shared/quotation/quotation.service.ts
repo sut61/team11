@@ -27,8 +27,8 @@ getEmployee(): Observable<any> {
   return this.http.get(this.API + '/Employee');
 }
 
-BuyItem(): Observable<any> {
-return this.http.get(this.API + '/BuyItem');
+getCategory(): Observable<any> {
+return this.http.get(this.API + '/Category');
 }
 
 getCustomer(): Observable<any> {
@@ -36,9 +36,9 @@ getCustomer(): Observable<any> {
 }
 }
 
-export class BuyItem {
-  buyItemId: any;
-  itemName: string;
+export class Category {
+  categoryId: any;
+  categoryName: string;
 }
 export class Quotation {
   quotationidId: any;
@@ -47,7 +47,7 @@ export class Quotation {
   date:Date;
   customer: Customer;
   employee:Employee;
-  buyItem: BuyItem;
+  category: Category;
 }
 export class Customer {
   customerId: any;

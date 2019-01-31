@@ -33,8 +33,8 @@ public class Quotation {
 
 
     @ManyToOne
-    @JoinColumn(name = "BuyItemId")
-    private BuyItem buyItem;
+    @JoinColumn(name = "Category")
+    private Category category;
 
 
 }

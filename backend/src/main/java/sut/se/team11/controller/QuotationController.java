@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import sut.se.team11.entity.Customer;
 import sut.se.team11.entity.Quotation;
 import sut.se.team11.entity.Employee;
-import sut.se.team11.entity.BuyItem;
-import sut.se.team11.repository.BuyItemRepository;
+import sut.se.team11.entity.Category;
+import sut.se.team11.repository.CategoryRepository;
 import sut.se.team11.repository.CustomerRepository;
 import sut.se.team11.repository.EmployeeRepository;
 import sut.se.team11.repository.QuotationRepository;
@@ -25,7 +25,7 @@ public class QuotationController {
     @Autowired
     private QuotationRepository quotationRepository;
     @Autowired
-    private BuyItemRepository buyItemRepository;
+    private CategoryRepository categoryRepository;
     @Autowired
     private EmployeeRepository employeeRepository;
     @Autowired
@@ -37,17 +37,17 @@ public class QuotationController {
 
     }
 
-    @PostMapping("/Quotation/{employeeId}/{customerId}/{buyItemId}/{detail}/{price}")
+    @PostMapping("/Quotation/{employeeId}/{customerId}/{categoryId}/{detail}/{price}")
     public Quotation quotation(@RequestBody Quotation quotation,
                                @PathVariable Double price,
                                @PathVariable String detail,
                                @PathVariable long customerId,
                                @PathVariable long employeeId,
-                               @PathVariable long buyItemId){
+                               @PathVariable long categoryId){
 
         Customer customer = customerRepository.findById(customerId);
         Employee employee = employeeRepository.findById(employeeId);
-        BuyItem  buyItem =  buyItemRepository.findById(buyItemId);
+        Category  category =  categoryRepository.findById(categoryId);
 
 
         Quotation quotation1 = new Quotation();
@@ -57,15 +57,15 @@ public class QuotationController {
         quotation1.setDate(new Date());
         quotation1.setCustomer(customer);
         quotation1.setEmployee(employee);
-        quotation1.setBuyItem(buyItem);
+        quotation1.setCategory(category);
 
         return  quotationRepository.save(quotation1);
     }
 
-    @GetMapping("/BuyItem")
-    public Collection <BuyItem> BuyItem() {
+    @GetMapping("/Category")
+    public Collection <Category> Category() {
 
-        return buyItemRepository.findAll().stream().collect(Collectors.toList());
+        return categoryRepository.findAll().stream().collect(Collectors.toList());
     }
 
 

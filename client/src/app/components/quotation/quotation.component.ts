@@ -20,7 +20,7 @@ export class QUOTATIONComponent implements OnInit {
 
   quotation: Quotation = new Quotation();
   quotations: Array<any>;
-  buyItems: Array<any>;
+  category: Array<any>;
   customers: Array<any>;
   employees: Array<any>;
   date: Date;
@@ -44,9 +44,10 @@ export class QUOTATIONComponent implements OnInit {
       this.employees = data;
       console.log(this.employees);
     });
-    this.service.BuyItem().subscribe(data => {
-        this.buyItems = data;
-        console.log(this.buyItems);
+    this.service.getCategory().subscribe(data => {
+        this.category = data;
+        console.log(this.category);
+        // console.log(this.buyItems.ca)
     });
     this.service.getCustomer().subscribe(data => {
       this.customers = data;
@@ -69,7 +70,7 @@ export class QUOTATIONComponent implements OnInit {
   save(){
     // console.log(this.quotation.employee.eid);
     this.httpClient.post('//localhost:8080/Quotation/' + this.id2 + '/'+ this.quotation.customer.customerId + '/' +
-     this.quotation.buyItem.buyItemId+ '/' + this.quotation.detail+ '/'
+     this.quotation.category.categoryId+ '/' + this.quotation.detail+ '/'
       +this.quotation.price,this.quotation)
     .subscribe(
         data => {
