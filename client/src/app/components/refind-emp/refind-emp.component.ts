@@ -28,7 +28,7 @@ export class RefindEmpComponent implements OnInit {
       console.log(res);
       this.employee = res;
       console.log(this.employee.eid);
-      this.router.navigate([`${this.employee.eid}/refind-cart`]);
+      this.router.navigate([`${this.employee.eid}/RefindCart`]);
     },err => {
       console.log('Error happen!!!', err);
     });
