@@ -24,9 +24,12 @@ mat-card {
 .titleName{
     font-size: 20px;
 }
-.button-submit{
-    width: 100%;
-    height: 50px;
-    font-size: 20px;
+.button{
+    position: relative;
+    font-size: 30px;
+    width: 200px;
+    height: 40px;
+	top: 90%;
+	left: 75%;   
 }
 
