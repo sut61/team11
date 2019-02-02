@@ -31,7 +31,7 @@ export class SaveSaleitemComponent implements OnInit {
     private fb: FormBuilder,
     private add: AddItemService,
     private save: SaveSaleitemService,
-    public notificaion: NotificationService
+    public notification: NotificationService
   ) { }
 
   ngOnInit() {
@@ -63,20 +63,19 @@ export class SaveSaleitemComponent implements OnInit {
     //console.log(this.saveitem);
     let a = this.buy.amount - this.saveitem.amount;
     if(a < 0){
-      this.notificaion.over();
+      this.notification.over();
     }else{
       this.save.SaveSaleItem(this.id2,this.id3,this.id, this.saveitem).subscribe(() => {
-        this.notificaion.success();
+        this.notification.success();
       }, err => {
-        this.notificaion.error();
-        console.log(err);
+        this.notification.error();  
       });
     }
   }
 
   createForm(){
       this.form = this.fb.group({
-      itemName: ['', Validators.required],      
+      // itemName: ['', Validators.required],      
       price: ['', Validators.required],
       amount: ['', Validators.required]
     });

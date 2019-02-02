@@ -17,7 +17,7 @@
       <input matInput [(ngModel)]="id" name="id" placeholder="ป้อนไอดีลูกค้า">
     </mat-form-field>
     <div>
-      <button mat-raised-button color="primary" (click)="onClick(id2)" id="findBtn">ค้นหา</button>
+      <button mat-raised-button color="warn" (click)="onClick(id2)" [disabled]="id == null">ค้นหา</button>
     </div>
   </div>
 </div>

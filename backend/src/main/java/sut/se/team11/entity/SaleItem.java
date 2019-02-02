@@ -17,8 +17,8 @@ public class SaleItem {
     @Id
     @SequenceGenerator(name = "sale_seq", sequenceName = "sale_seq")
     @GeneratedValue(generator = "sale_seq", strategy = GenerationType.SEQUENCE)
+    
     private Long saleItemId;
-    private @NonNull String itemName;
     private @NonNull double price;
     private @NonNull int amount;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
