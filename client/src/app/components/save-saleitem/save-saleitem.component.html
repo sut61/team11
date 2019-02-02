@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="form-save">
+    <mat-card class="card">
+      <mat-card-header class="header">
+        <h2>ขายสินค้า</h2>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+
+          <mat-form-field appearance="outline">
+            <mat-label>ป้อนราคา</mat-label>
+            <input matInput formControlName="price" name="price" id="price" placeholder="ป้อนราคา">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>ป้อนจำนวน</mat-label>
+            <input matInput formControlName="amount" name="amount" id="amount" placeholder="ป้อนจำนวน">
+          </mat-form-field>
+
+          <button mat-raised-button color="warn" id="addItem" >บันทึก</button>
+        </form>
+      </mat-card-content>
+    </mat-card>    
+  </div>
+</div>

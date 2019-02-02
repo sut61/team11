@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    text-align: center;
+    margin: 30px;
+}
+.form-save{
+    margin: 60px auto;
+    width: 100%;
+}
+.form-save .card{
+    max-width: 500px;
+    margin: auto;
+    display: block;
+}
+.form-save .card .header h2{
+    margin: auto;
+    margin-bottom: 20px;
+}
+.form-save .card .content{
+    display: block;
+}
+.form-save .card .content mat-form-field{
+    display: block;
+    margin: auto;
+}
