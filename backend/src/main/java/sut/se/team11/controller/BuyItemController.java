@@ -13,6 +13,7 @@ import sut.se.team11.repository.CartRepository;
 import sut.se.team11.repository.CategoryRepository;
 import sut.se.team11.repository.UnitRepository;
 
+import javax.xml.ws.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,6 +60,15 @@ public class BuyItemController {
     @GetMapping(path = "/BuyItems")
     public List<BuyItem> BuyItem() {
         return buyItemRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "find/{buyItemId}")
+    private ResponseEntity<BuyItem> findBuy(@PathVariable long buyItemId){
+        BuyItem b = buyItemRepository.findById(buyItemId);
+        if(b == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(b);
     }
 
 }

@@ -36,7 +36,7 @@ public class SaleItemController {
 //        return saleItemRepository.findAll().stream().collect(Collectors.toList());
 //    }
 
-    @PostMapping(path = "/{customerId}/{eId}/{buyItemId}/newSaleItem")
+    @PostMapping(path = "/{customerId}/{eId}/{buyItemId}/saleItem")
     private ResponseEntity<SaleItem> newSaleItem(@RequestBody SaleItem saleItem, @PathVariable long customerId, @PathVariable long eId,
                                                  @PathVariable long buyItemId){
 

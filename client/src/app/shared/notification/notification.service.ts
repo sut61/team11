@@ -23,4 +23,12 @@ export class NotificationService {
     this.config['panelClass'] = ['notification','error'];
     this.snackBar.open('มีบางอย่างผิดพลาด, ลองใหม่อีกครั้ง !!!','', this.config);
   }
+  over(){
+    this.config['panelClass'] = ['notification','error'];
+    this.snackBar.open('ระบุจำนวนมากกว่าสินค้าที่มีอยู่','', this.config);
+  }
+  success(){
+    this.config['panelClass'] = ['notification','error'];
+    this.snackBar.open('Save Success!!','', this.config);
+  }
 }
