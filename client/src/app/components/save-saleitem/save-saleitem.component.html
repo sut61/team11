@@ -17,7 +17,7 @@
             <input matInput formControlName="amount" name="amount" id="amount" placeholder="ป้อนจำนวน">
           </mat-form-field>
 
-          <button mat-raised-button color="warn" id="addItem" >บันทึก</button>
+          <button mat-raised-button color="warn" [disabled]="form.invalid" >บันทึก</button>
         </form>
       </mat-card-content>
     </mat-card>    

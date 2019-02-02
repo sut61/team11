@@ -31,10 +31,6 @@ public class SaleItemController {
     @Autowired
     private BuyItemRepository buyItemRepository;
 
-//    @GetMapping(path = "/SaleItem")
-//    public Collection<SaleItem> SaleItem() {
-//        return saleItemRepository.findAll().stream().collect(Collectors.toList());
-//    }
 
     @PostMapping(path = "/{customerId}/{eId}/{buyItemId}/saleItem")
     private ResponseEntity<SaleItem> newSaleItem(@RequestBody SaleItem saleItem, @PathVariable long customerId, @PathVariable long eId,
@@ -42,13 +38,7 @@ public class SaleItemController {
 
         SaleItem s = new SaleItem();
 
-//        Customer customer1 = customerRepository.findById(customerId);
-//        if(customer1 == null){
-//            return ResponseEntity.notFound().build();
-//        }
 
-//        long customerId = saleItem.getCustomer().getCustomerId();
-//        long eId = saleItem.getEmployee().getEId();
 
         double totalPrice = s.calTotalPrice(saleItem.getPrice(), saleItem.getAmount());
 
@@ -58,7 +48,7 @@ public class SaleItemController {
 
         if(customer  != null && employee != null && buyItem != null) {
 
-            s.setItemName(saleItem.getItemName());
+
             s.setPrice(saleItem.getPrice());
             s.setAmount(saleItem.getAmount());
             s.setDate(new Date());
@@ -72,15 +62,5 @@ public class SaleItemController {
         }
         return ResponseEntity.notFound().build();
     }
-
-//    @GetMapping(path = "/findSaleItem/{saleItemId}")
-//    private ResponseEntity<SaleItem> findSaleItem(@PathVariable long saleItemId){
-//        System.out.println(saleItemId);
-//        SaleItem s = saleItemRepository.findById(saleItemId);
-//        if(s == null){
-//            return ResponseEntity.notFound().build();
-//        }
-//        return ResponseEntity.ok().body(s);
-//    }
 
 }
