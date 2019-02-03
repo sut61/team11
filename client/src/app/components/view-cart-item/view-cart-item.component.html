@@ -1,14 +1,16 @@
+<mat-card class="container">
+  <h1 class="container">Cart Detail</h1><br><br>
+</mat-card>
 <mat-card class="">
   <div class="container">
-    <h2>CART DETAIL :</h2>
+    <h2>Customer Detail:</h2>
     <div class="view-cart-item">
       <div class="container">
         <mat-list role="list">
-          <mat-list-item role="listitem"> ID : {{cart.customer.customerId}}</mat-list-item>
-          <mat-list-item role="listitem"> Name : {{cart.customer.customerName}}</mat-list-item>
-          <mat-list-item role="listitem"> Telephone Number : {{cart.customer.tel}}</mat-list-item>
-          <mat-list-item role="listitem"> Address : {{cart.customer.address}}</mat-list-item>
-
+          <mat-list-item role="listitem"> ID : {{cart.customer?.customerId}}</mat-list-item>
+          <mat-list-item role="listitem"> Name : {{cart.customer?.customerName}}</mat-list-item>
+          <mat-list-item role="listitem"> Telephone Number : {{cart.customer?.tel}}</mat-list-item>
+          <mat-list-item role="listitem"> Address : {{cart.customer?.address}}</mat-list-item>
         </mat-list>
       </div>
       </div>
@@ -36,15 +38,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </mat-card>
-
 <mat-card class="container">
-    <!-- <mat-list role="list">
-        <mat-list-item role="listitem"> NET PRICE : {{netP.netPrice}}</mat-list-item>
-        <mat-list-item role="listitem"> Name : {{cart.customer.customerName}}</mat-list-item>
-        <mat-list-item role="listitem"> Telephone Number : {{cart.customer.tel}}</mat-list-item>
-        <mat-list-item role="listitem"> Address : {{cart.customer.address}}</mat-list-item>
-      </mat-list> -->
   <div class="container">
-    <button mat-raised-button color="primary" (click)="netPrice()" id="findBtn">คำนวณ</button>
+    <button mat-raised-button color="primary" (click)="netPrice()" id="findBtn" class="container"> คำนวณ</button>
   </div>
 </mat-card>

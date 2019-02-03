@@ -24,9 +24,10 @@ public class ReceiptController {
     @Autowired
     private BuyItemRepository buyItemRepository;
 
-    @PostMapping(path = "/newReceipt/{netPrice}")
+    @PostMapping(path = "/newReceipt/{netPrice}/{eId}/{bId}/{cartId}")
     public Receipt newReceipt(@RequestBody Receipt receipt,
-                              @PathVariable long eId,
+                              @PathVariable double netPrice,
+		    	      @PathVariable long eId,
                               @PathVariable long bId,
                               @PathVariable long cartId){
         Receipt newReceipt = new Receipt();
@@ -38,11 +39,11 @@ public class ReceiptController {
         newReceipt.setBranch(branch);
         newReceipt.setCart(cart);
         newReceipt.setEmployee(employee);
-        newReceipt.setDate(new Date()); //??
-        double netPrice = newReceipt.sumTotalPrice();
+        newReceipt.setDate(new Date());
+        //double netPrice = newReceipt.sumTotalPrice();
         newReceipt.setNetPrice(netPrice);
 
-        return receiptRepository.save(receipt);
+        return receiptRepository.save(newReceipt);
     }
 
     @PutMapping(path ="/reUpdate/{cartId}")
@@ -74,4 +75,5 @@ public class ReceiptController {
         }
         return ResponseEntity.ok().body(cart);
     }
+
 }
