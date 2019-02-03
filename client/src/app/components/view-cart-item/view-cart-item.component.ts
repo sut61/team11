@@ -5,6 +5,7 @@ import { ViewCartItemService, Receipt} from '../../shared/view-cart-item/view-ca
 import { Subscription } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
 import { CustomerService } from '../../shared/customer/customer.service';
+import { Employee } from 'src/app/shared/refind-emp/refind-emp.service';
 
 @Component({
   selector: 'app-view-cart-item',
@@ -12,72 +13,66 @@ import { CustomerService } from '../../shared/customer/customer.service';
   styleUrls: ['./view-cart-item.component.css']
 })
 export class ViewCartItemComponent implements OnInit {
-  id2: any;
+  id2:any;
+  employee: Employee = new Employee();
   cart: Cart = new Cart();
-  sub2: Subscription;
   id: any;
-  // customers: Customer = new Customer;
+  sub: Subscription;
   buyItems: Array<BuyItem>;
   netP: Receipt = new Receipt;
-  totalP: any;
-  sub: Subscription;
-  // ne: any;
-  customer1s: Array<any>;
-
+  sumttp: any;
+  
   displayedColumns: string[] = ['id','itemName','totalPrice',];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private findCart: RefindCartService,
-    // private sumNP: ViewCartItemService,
-    // private service: CustomerService ,
     private httpClient: HttpClient
   ) { }
+
   ngOnInit() {
+    this.showIteminCart();
+    this.setEMP();
+  }
 
-
-    this.sub2 = this.route.params.subscribe(param => {
-      this.id2 = param['id'];
-      console.log(this.id2);
-      this.findCart.refindCart(this.id2).subscribe((data) => {
-        this.cart = data;
-      });
-    }, err => {
-      console.log(err + "Errororororor");
-    });
-
+  showIteminCart(){
     this.route.params.subscribe(param => {
       this.id = param['id'];
       this.findCart.refindCart(this.id).subscribe((data) => {
-
         this.buyItems = []; 
         this.cart = data;
+        console.log(this.cart);
         this.cart.buyItems.forEach(el =>{
           this.buyItems.push(el);
         });
       });
     }, err => {
-      console.log(err);
-      // this.router.navigate(['/refind-cart']);
+      console.log('Error' + err);
     });
-    // this.cart.
   }
+
+  setEMP(){
+    this.route.params.subscribe(param => {
+      this.id2 = param['id2'];
+      console.log('PAGE3_employee_ID: '+this.id2);
+    }, err => {
+      console.log('Error' + err);
+    });
+  }
+  
   netPrice(){
     this.sub = this.findCart.refindCart(this.id).subscribe((res) => {
-
       this.buyItems = []; 
-      this.totalP = 0;
-      this.netP.netPrice = 0;
+      this.sumttp = 0;
       this.cart.buyItems.forEach(el =>{
-        this.netP.netPrice += el.totalPrice;
-        this.totalP += el.totalPrice;
-
+        this.sumttp += el.totalPrice;
       });
-
-      console.log(this.netP.netPrice);
       this.cart = res;
-      console.log(this.cart.cartId);
-      this.router.navigate([`${this.cart.cartId}/create-receipt`]);
+      console.log('PAGE3_NETPRICE: ' + this.sumttp);
+      console.log('PAGE3_CART_ID: ' + this.cart.cartId);
+      console.log('PAGE3_EMP_ID: ' + this.id2);
+      console.log('PAGE3_BRANCH_ID: ' + this.cart.customer.branch.bid);
+      this.router.navigate([`${this.sumttp}/${this.cart.cartId}/${this.id2}/${this.cart.customer.branch.bid}/create-receipt`]);
     },err => {
       console.log('Error happen!!!', err);
     });

@@ -1,27 +1,24 @@
-<!-- <mat-card class="">
-    <div class="container">
-      <h2>RECEIPT DETAIL :</h2>
-      <div class="view-cart-item">
-        <div class="">
-          <mat-list role="list">
-            <mat-list-item role="listitem"> ID : {{cart.customer.customernID}}</mat-list-item>
-            <mat-list-item role="listitem"> Name : {{cart.customer.customerName}}</mat-list-item>
-            <mat-list-item role="listitem"> Telephone Number : {{cart.customer.tel}}</mat-list-item>
-            <mat-list-item role="listitem"> Address : {{cart.customer.address}}</mat-list-item>
-  
-          </mat-list>
-        </div>
-        </div>
-    </div>
-  </mat-card> -->
-  
+<mat-card class="container">
+  <h1 class="container">Individual receipt</h1><br><br>
+</mat-card>
+<mat-card class="container">
+  <div class="container">
+    <h2>Information: </h2>
+    <div class="view-cart-item">
+      <div class="container">
+        <mat-list role="list">
+          <mat-list-item role="listitem"> ID : {{cart.cartId}}</mat-list-item>
+          <mat-list-item role="listitem"> Branch ID : {{branch.bid}}</mat-list-item>
+          <mat-list-item role="listitem"> Employee ID : {{employee.eid}}</mat-list-item>
+          <mat-list-item role="listitem"> Net Price : {{createR.netPrice}}</mat-list-item>
+        </mat-list>
+      </div>
+      </div>
+  </div>
+</mat-card>
+
 <mat-card>
   <div class="container">
-    <!-- <button mat-flat-button color="warn" id="reg" [disabled]="regisForm.invalid || checkSelected == false" >
-      บันทึก
-    </button> -->
-    <!-- <button mat-raised-button (click)="SaveAndUpdate()">SUBMIT</button> -->
-    <button mat-raised-button color="primary" (click)="SaveAndUpdate()" id="findBtn">SUBMIT</button>
-
+    <button mat-raised-button color="primary" (click)="SaveAndUpdate()" id="findBtn" class="container">SUBMIT</button>
   </div>
 </mat-card>

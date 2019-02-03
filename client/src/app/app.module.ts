@@ -43,6 +43,7 @@ import { SaleItemComponent } from './components/sale-item/sale-item.component';
 import { SaveEmployeeComponent } from './components/save-employee/save-employee.component';
 import { SaveSaleitemComponent } from './components/save-saleitem/save-saleitem.component';
 
+
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
   {path: 'customer', component: CustomerComponent},
@@ -54,8 +55,8 @@ const routes: Routes = [
   {path: ':id/QUOTATION', component: QUOTATIONComponent},
   {path: 'refind-emp', component: RefindEmpComponent},
   {path: ':id/RefindCart', component: RefindCartComponent},
-  {path: ':id/view-cart-item', component: ViewCartItemComponent},
-  {path: ':id/create-receipt', component: CreateReceiptComponent},
+  {path: ':id/:id2/view-cart-item', component: ViewCartItemComponent},
+  {path: ':id/:id2/:id3/:id4/create-receipt', component: CreateReceiptComponent},
   {path: 'find-employee', component: FindEmployeeComponent},
   {path: ':id/add-item', component: AddItemComponent},
   {path: ':id/findCustomer', component: FindCustomer21Component},

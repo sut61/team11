@@ -2,27 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Receipt } from '../view-cart-item/view-cart-item.service';
+import { Cart } from '../refind-cart/refind-cart.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreateReceiptService {
-  public API: string = "http://localhost:8080";
+  public API: string = "//localhost:8080";
   constructor(    private http: HttpClient
     ) { }
 
-  getReceipt(netP: any,eId: any, bId: any, cartId: any, receipt: Receipt): Observable<any>{
-    // console.log(id);
-    // return this.http.get(this.API + `{/findCustomer/${customerId}}`);
-    return this.http.get(this.API + '/newReceipt/'+ netP + '/' + eId + '/' + bId + '/' + cartId);
+  reUpdate(cartId: any,cart: Cart){
+    console.log(cart);
+    return this.http.put(this.API + '/reUpdate/' + cart.cartId, cart);
   }
-  getBranch(): Observable<any> {
-    return this.http.get(this.API + '/Branch');
-  }
-  getEmployee(): Observable<any> {
-    return this.http.get(this.API + '/Employee');
-  }
-  getCart(id: any): Observable<any>{
-    return this.http.get(this.API + '/getCart/' + id);
+
+  create(netPrice: any, eid: any, bid: any, cartId: any, receipt: Receipt){
+    console.log(receipt);
+    return this.http.post(this.API + '/newReceipt/' + receipt.netPrice + '/' + eid + '/' + bid + '/' + cartId, receipt);
   }
 }

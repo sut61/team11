@@ -12,8 +12,6 @@ export class RefindCartService {
   ) { }
 
   refindCart(cartId: any): Observable<any>{
-    // console.log(customerId);
-    // return this.http.get(this.API + `{/findCustomer/${customerId}}`);
     return this.http.get(this.API + '/reFindCart/' + cartId);
   }
   getCustomer(): Observable<any> {
@@ -36,9 +34,9 @@ export class Branch {
   bname?: string;
 }
 export class Customer {
-  customerid?: any;
+  customerId?: any;
   tel?: any;
   branch?: Branch;
-  customername?: any;
+  customerName?: any;
   address?: any;
 }

@@ -27,13 +27,13 @@ public class Receipt {
     @JoinColumn(name = "cartId")
     private Cart cart;
 
-    public double sumTotalPrice() {
-        BuyItem buyItem = new BuyItem();
-        int itemAmount = cart.getBuyItems().size();
-        for(int i = 0; i < itemAmount; i++){
-            netPrice =+ buyItem.getTotalPrice();;
-        }
-        return netPrice ;
-    }
+
+
+
+
+
+
+
+
 }
 
