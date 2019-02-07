@@ -42,6 +42,7 @@ import { SaleItemComponent } from './components/sale-item/sale-item.component';
 
 import { SaveEmployeeComponent } from './components/save-employee/save-employee.component';
 import { SaveSaleitemComponent } from './components/save-saleitem/save-saleitem.component';
+import { CheckEmployeeComponent } from './components/check-employee/check-employee.component';
 
 
 const routes: Routes = [
@@ -64,7 +65,8 @@ const routes: Routes = [
   {path: 'RefindEmp', component: RefindEmpComponent},
   {path: ':id/RefindCart', component: RefindCartComponent},
   {path: 'save-employee', component: SaveEmployeeComponent},
-  {path: ':id/save-saleitem/:id2/:id3', component: SaveSaleitemComponent}
+  {path: ':id/save-saleitem/:id2/:id3', component: SaveSaleitemComponent},
+  {path: 'CheckEmployee', component: CheckEmployeeComponent}
 ];
 
 @NgModule({
@@ -87,7 +89,8 @@ const routes: Routes = [
     FindCustomer21Component,
     SaleItemComponent,
     SaveEmployeeComponent,
-    SaveSaleitemComponent
+    SaveSaleitemComponent,
+    CheckEmployeeComponent
     
   ],
   imports: [

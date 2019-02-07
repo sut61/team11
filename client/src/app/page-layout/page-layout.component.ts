@@ -34,6 +34,11 @@ export class PageLayoutComponent implements OnInit {
     
     });
   }
+  CheckEmployee(){
+    this.router.navigate(['/CheckEmployee']).then(() =>{
+    
+    });
+  }
   gofindemployee(){
     this.router.navigate(['/find-employee']).then(() => {
       
