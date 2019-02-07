@@ -19,7 +19,9 @@ public class BackendApplication {
 	@Bean
 	ApplicationRunner init(CustomerRepository customerRepository, BranchRepository branchRepository, CareerRepository careerRepository,
 						   ProvinceRepository provinceRepository, CategoryRepository categoryRepository,
-						   UnitRepository unitRepository, EducationRepository educationRepository, PositionRepository positionRepository, BuyItemRepository buyItemRepository  ,EmployeeRepository employeeRepository
+						   UnitRepository unitRepository, EducationRepository educationRepository,
+						   PositionRepository positionRepository, BuyItemRepository buyItemRepository
+						   ,EmployeeRepository employeeRepository,CategorizeRepository categorizeRepository
 	){
 		return  args -> {
 
@@ -32,6 +34,15 @@ public class BackendApplication {
 				branchRepository.save(branch);
 
 			});
+			Stream.of("Reduce","Reuse","Recycle","Repair").forEach(categorizeName -> {
+
+				Categorize categorize = new Categorize();
+				categorize.setCategorizeName(categorizeName);
+
+				categorizeRepository.save(categorize);
+
+			});
+
 
 			Stream.of("ข้าราชการ/รัฐวิสาหกิจ","ธุรกิจส่วนตัว/ค้าขาย","เกษตรกร","รับจ้าง/พนักงานบริษัทเอกชน","นักเรียน/นักศึกษา","อื่น ๆ").forEach(cName -> {
 
