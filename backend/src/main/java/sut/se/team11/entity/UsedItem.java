@@ -1,5 +1,6 @@
 package sut.se.team11.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,11 +22,12 @@ public class UsedItem {
 
     @ManyToOne
     @JoinColumn(name = "stockId")
+    @JsonIgnore
     private Stock stock;
     @ManyToOne
     @JoinColumn(name = "repairmanId")
     private Repairman repairman;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "checksId")
     private Checks checks;
 
