@@ -18,4 +18,15 @@ public class UsedItem {
     private double price;
     @NotNull
     private String details;
+
+    @ManyToOne
+    @JoinColumn(name = "stockId")
+    private Stock stock;
+    @ManyToOne
+    @JoinColumn(name = "repairmanId")
+    private Repairman repairman;
+    @OneToOne
+    @JoinColumn(name = "checksId")
+    private Checks checks;
+
 }

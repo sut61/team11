@@ -13,4 +13,7 @@ public class Checks {
     @SequenceGenerator(name = "checks_seq", sequenceName = "checks_seq")
     @GeneratedValue(generator = "checks_seq", strategy = GenerationType.SEQUENCE)
     private Long checksId;
+
+    @OneToOne(mappedBy = "checks")
+    private UsedItem usedItem;
 }

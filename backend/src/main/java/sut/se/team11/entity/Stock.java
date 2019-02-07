@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,4 +18,7 @@ public class Stock {
     @NotNull
     private String stockName;
     private String description;
+
+    @OneToMany(mappedBy = "stock")
+    private List<UsedItem> usedItems;
 }
