@@ -27,9 +27,33 @@ public API = '//localhost:8080';
   getCategorize(): Observable<any> {
     return this.http.get(this.API + '/Categorize');
   }
+  getChecks(): Observable<any> {
+    return this.http.get(this.API + '/Checks');
+  }
 
 }
 export class Categorize{
   categorizeId?: any;
   categorizeName?: string;
+}
+
+export class BuyItem{
+  buyItemId?: any;
+  itemName?: string;
+  price?: any;
+  amount?: number;
+  totalPrice?: any;
+}
+export class Employee{
+  eid?: any;
+  ename?: string;
+}
+
+export class Checks{
+  checksId:any;
+  evaluate:any;
+  weight:any;
+  employee:Employee;
+  buyItem:BuyItem;
+  categorize:Categorize;
 }
