@@ -7,7 +7,6 @@ import { Branch } from '../refind-cart/refind-cart.service';
   providedIn: 'root'
 })
 export class CheckEmployeeService {
-
   public API: string = "http://localhost:8080";
 
   constructor(

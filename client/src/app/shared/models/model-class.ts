@@ -44,3 +44,4 @@ export class SaleItem{
     customer: Customer = new Customer();
     saleItems: any;
 }
+
