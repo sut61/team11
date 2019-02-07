@@ -4,6 +4,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -13,6 +16,22 @@ public class Checks {
     @SequenceGenerator(name = "checks_seq", sequenceName = "checks_seq")
     @GeneratedValue(generator = "checks_seq", strategy = GenerationType.SEQUENCE)
     private Long checksId;
+
+    private @NotNull String evaluate;
+
+
+    @NotNull
+    @Size(min = 2, max = 5)
+    @Pattern(regexp = "\\d+")
+    private String weight;
+
+    @ManyToOne
+    private  Employee employee;
+    @ManyToOne
+    private BuyItem buyItem;
+    @ManyToOne
+    private Categorize categorize;
+
 
     @OneToOne(mappedBy = "checks")
     private UsedItem usedItem;
