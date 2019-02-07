@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Employee } from '../../shared/models/model-class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { CheckEmployeeService,Employee } from 'src/app/shared/checkEmployee/check-employee.service';
 
 
-import { CheckEmployeeService } from 'src/app/shared/shared/check-employee.service';
 
 @Component({
   selector: 'app-check-employee',
@@ -34,7 +33,7 @@ export class CheckEmployeeComponent implements OnInit {
         // console.log(res);
         this.employee = res;
         // console.log(this.employee.eId);
-        this.router.navigate([`${this.employee.eid}/findCustomer`]);
+        this.router.navigate([`${this.employee.eid}/Check`]);
     },err => {
    
       console.log(err);
