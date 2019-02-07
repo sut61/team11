@@ -1,5 +1,6 @@
 package sut.se.team11.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import sut.se.team11.entity.*;
@@ -43,6 +44,15 @@ public class ChecksController {
 
         return checksRepository.save(newCheck);
 
+    }
+
+    @GetMapping(path = "/checkEmployee/{eId}")
+    private ResponseEntity<Employee> checkEmployee(@PathVariable long eId){
+        Employee employee = employeeRepository.findById(eId);
+        if(employee == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(employee);
     }
 
 
