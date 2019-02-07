@@ -3,6 +3,7 @@ import {FormControl, Validators} from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
 import { CustomerService, Customer } from '../../shared/customer/customer.service';
 import { Router } from '@angular/router';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 export interface Animal {
   name: string;
@@ -30,8 +31,13 @@ export class CustomerComponent implements OnInit {
   ];
 
   constructor(
-    private service: CustomerService , private httpClient: HttpClient,private router: Router) { }
+    private service: CustomerService , private httpClient: HttpClient,private router: Router,public snackBar: MatSnackBar) { }
 
+    config: MatSnackBarConfig = {
+      duration: 5000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
+    }
   ngOnInit() {
     this.service.getBranch().subscribe(data => {
       this.branchs = data;
@@ -61,6 +67,7 @@ export class CustomerComponent implements OnInit {
 
   save() {
 //  if(this.customer.customername != null){
+    this.checkerror()
     console.log(this.customer.customername);
     console.log(this.customer.address);
     this.httpClient.post('//localhost:8080/Customer/' + this.customer.branch.bid + '/' + this.customer.customername +'/'+ this.customer.tel + '/'
@@ -80,5 +87,10 @@ export class CustomerComponent implements OnInit {
       // }else{
       //   console.log("คุณกรอกข้อมูลไม่ครบ");
       // }
+  }
+
+  checkerror(){
+    this.config['panelClass'] = ['notification','error'];
+    this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
   }
 }
