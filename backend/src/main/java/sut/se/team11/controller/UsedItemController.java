@@ -2,10 +2,7 @@ package sut.se.team11.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sut.se.team11.entity.Checks;
 import sut.se.team11.entity.Repairman;
 import sut.se.team11.entity.Stock;
@@ -16,6 +13,7 @@ import sut.se.team11.repository.StockRepository;
 import sut.se.team11.repository.UsedItemRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class UsedItemController {
     @Autowired
     private UsedItemRepository usedItemRepository;
