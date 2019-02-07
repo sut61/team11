@@ -6,4 +6,5 @@ import sut.se.team11.entity.Repairman;
 
 @RepositoryRestResource
 public interface RepairmanRepository extends JpaRepository<Repairman, Long> {
+    Repairman findById(long repairmanId);
 }
