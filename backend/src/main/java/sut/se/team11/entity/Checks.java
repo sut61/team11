@@ -33,6 +33,6 @@ public class Checks {
     private Categorize categorize;
 
 
-    @OneToOne(mappedBy = "checks")
+    @OneToOne(mappedBy = "checks", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UsedItem usedItem;
 }

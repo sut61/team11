@@ -21,7 +21,9 @@ public class BackendApplication {
 						   ProvinceRepository provinceRepository, CategoryRepository categoryRepository,
 						   UnitRepository unitRepository, EducationRepository educationRepository,
 						   PositionRepository positionRepository, BuyItemRepository buyItemRepository
-						   ,EmployeeRepository employeeRepository,CategorizeRepository categorizeRepository
+						   ,EmployeeRepository employeeRepository,CategorizeRepository categorizeRepository,
+						   RepairmanRepository repairmanRepository, StockRepository stockRepository,
+						   ChecksRepository checksRepository
 	){
 		return  args -> {
 
@@ -171,6 +173,34 @@ public class BackendApplication {
 				customer.setProvince(province);
 				customerRepository.save(customer);
 
+			});
+			Stream.of("Robert XML","Jacky Jason").forEach(name -> {
+				Repairman repairman = new Repairman();
+				repairman.setRepairmanName(name);
+				repairmanRepository.save(repairman);
+			});
+			Stream.of("สเก็บินค้าทีมือสอง่ซ่อมแซมไม่มาก", "เก็บสินค้ามือสองที่ซ่อมแซมหลายจุด").forEach(desc -> {
+				if (desc == "สเก็บินค้าทีมือสอง่ซ่อมแซมไม่มาก"){
+					Stock s = new Stock();
+					s.setStockName("สินค้า Grade A");
+					s.setDescription(desc);
+					stockRepository.save(s);
+				}else{
+					Stock s = new Stock();
+					s.setStockName("สินค้า Grade B");
+					s.setDescription(desc);
+					stockRepository.save(s);
+				}
+			});
+			Stream.of(2,5).forEach(el -> {
+				Checks c = new Checks();
+				c.setBuyItem(null);
+				c.setCategorize(null);
+				c.setEmployee(null);
+				c.setEvaluate("AAAA");
+				c.setWeight("3333");
+
+				checksRepository.save(c);
 			});
 
 		};
