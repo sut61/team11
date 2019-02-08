@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/shared/quotation/quotation.service';
 import { EmpService } from 'src/app/shared/emp/emp.service';
+import { NotificationService } from '../../shared/notification/notification.service';
 
 @Component({
   selector: 'app-emp',
@@ -17,7 +18,8 @@ export class EmpComponent implements OnInit {
   constructor(
     private find: EmpService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public notification: NotificationService
   ) { }
 
   ngOnInit() {
@@ -29,8 +31,14 @@ export class EmpComponent implements OnInit {
       this.employee = res;
       console.log(this.employee.eid);
       this.router.navigate([`${this.employee.eid}/QUOTATION`]);
-    },err => {
-      console.log('Error happen!!!', err);
-    });
-  }
-}
+    }, err => {
+           if(err.error == null){
+             this.notification.notFound();
+           }else{
+             this.notification.error();
+           }
+           console.log(err);
+         });
+       }
+     }
+
