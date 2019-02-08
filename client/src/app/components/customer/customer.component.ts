@@ -34,7 +34,7 @@ export class CustomerComponent implements OnInit {
     private service: CustomerService , private httpClient: HttpClient,private router: Router,public snackBar: MatSnackBar) { }
 
     config: MatSnackBarConfig = {
-      duration: 5000,
+      duration: 1000,
       horizontalPosition: 'right',
       verticalPosition: 'top'
     }

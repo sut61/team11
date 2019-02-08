@@ -10,7 +10,7 @@
         <mat-card-content class="content">
 
             <form #regisForm="ngForm" (ngSubmit)="save()">
-                <div class="example-container">
+                <!-- <div class="example-container"> -->
 
                     <mat-list role="list">
                         <mat-list-item role="listitem">วันที่ตรวจสอบสภาพสินค้า  : {{date | date: 'dd/MM/yyyy'}}</mat-list-item>
@@ -20,44 +20,41 @@
                        <mat-list-item role="listitem">ชื่อพนักงาน : {{employee.ename}}</mat-list-item>
                    </mat-list>
 
-
                     <mat-form-field class="name-input">
-                        <mat-select placeholder="สินค้า" name="BuyItem" [(ngModel)]="checks.BuyItem" required>
-                          <mat-option *ngFor="let BuyItem of BuyItems" [value]="BuyItem">
-                            {{BuyItem.itemName}}
+                        <mat-select placeholder="สินค้า" name="buyItem" [(ngModel)]="check.buyItem" required>
+                          <mat-option *ngFor="let buyItem of buyItems" [value]="buyItem">
+                            {{buyItem.itemName}}
                           </mat-option>
                         </mat-select>
                       </mat-form-field>
 
                       <mat-form-field  class="name-input">
                         <mat-label>รายละเอียด</mat-label>
-                        <input matInput placeholder="รายละเอียด" [(ngModel)]="checks.evaluate" name="evaluate" required>
+                        <input matInput placeholder="รายละเอียด" [(ngModel)]="check.evaluate" name="evaluate" required>
                       </mat-form-field>
 
                       <mat-form-field  class="name-input">
                         <mat-label>น้ำหนักสินค้า</mat-label>
-                        <input matInput placeholder="น้ำหนักสินค้า" [(ngModel)]="checks.weight" name="weight" required>
+                        <input matInput placeholder="น้ำหนักสินค้า" [(ngModel)]="check.weight" name="weight" required>
                       </mat-form-field>
 
                       <mat-form-field class="name-input">
-                        <mat-select placeholder="สินค้า" name="Categorize" [(ngModel)]="checks.Categorize" required>
-                          <mat-option *ngFor="let Categorize of Categorizes" [value]="Categorize">
-                            {{Categorize.categorizeName}}
+                        <mat-select placeholder="สินค้า" name="categorize" [(ngModel)]="check.categorize" required>
+                          <mat-option *ngFor="let categorize of categorizes" [value]="categorize">
+                            {{categorize.categorizeName}}
                           </mat-option>
                         </mat-select>
                       </mat-form-field>
 
 
-                  </div> 
-                <!-- 
+                  <!-- </div>  -->
+                
                 <div class="button-submit">
-                  <button mat-flat-button color="warn" id="reg" [disabled]="regisForm.invalid || checkSelected == false" >
+                  <button mat-flat-button color="warn" id="reg"  >
                     บันทึก
                   </button>
 
-
-
-                </div> -->
+                </div>
               </form>
     </mat-card-content>
     </mat-card>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import sut.se.team11.entity.*;
 import sut.se.team11.repository.*;
 import java.util.Collection;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
@@ -38,6 +39,7 @@ public class ChecksController {
 
         newCheck.setEvaluate(evaluate);
         newCheck.setWeight(weight);
+        newCheck.setDate(new Date());
         newCheck.setBuyItem(buyItem);
         newCheck.setEmployee(employee);
         newCheck.setCategorize(categorize);
