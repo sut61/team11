@@ -1,0 +1,44 @@
+<div class= "content">
+    <mat-card class="example-card">
+            <mat-card-header>
+                <h2>แบบฟอร์มแจ้งปัญหา</h2>
+            </mat-card-header>
+            <mat-card class="card mat-elevation-z8">
+                <mat-card-content class="content">
+                <form #regisForm="ngForm" (ngSubmit)="save()">
+                    <div class="example-container">
+                        <mat-list role="list">
+                            <mat-list-item role="listitem">Employee ID : {{employee.eid}}</mat-list-item>
+                            <mat-list-item role="listitem">Employee Name : {{employee.ename}}</mat-list-item>
+                        </mat-list>
+
+                        <mat-form-field class="name-input">
+                            <mat-select placeholder="แผนก/หน่วยงาน" name="department" [(ngModel)]="report.department" required>
+                                <mat-option *ngFor="let department of departments" [value]="department">
+                                    {{department.depName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="name-input">
+                            <mat-select placeholder="ประเภทปัญหา" name="department" [(ngModel)]="report.problemType" required>
+                                <mat-option *ngFor="let problemType of problemTypes" [value]="problemType">
+                                    {{problemType.ptName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field  class="name-input">
+                            <mat-label>ราละเอียด</mat-label>
+                            <input matInput placeholder="รายละเอียด" [(ngModel)]="report.rpDetail" name="rpDetail" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="button-submit">
+                        <button mat-flat-button color="warn" id="reg" [disabled]="regisForm.invalid || checkSelected == false">
+                            บันทึก
+                        </button>
+                    </div>
+                </form>
+                </mat-card-content>       
+            </mat-card>
+    </mat-card> 
+</div>
