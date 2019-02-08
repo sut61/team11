@@ -47,4 +47,7 @@ export class PageLayoutComponent implements OnInit {
       
     });
   }
+  goReportP(){
+    this.router.navigate(['/view-list-report']).then(() =>{})
+  }
 }

@@ -46,6 +46,10 @@ import { CheckEmployeeComponent } from './components/check-employee/check-employ
 import { CheckComponent } from './components/check/check.component';
 import { UsedItemFormComponent } from './components/used-item-form/used-item-form.component';
 
+import { RpfindEmpComponent } from './components/rpfind-emp/rpfind-emp.component';
+import { CreateRpComponent } from './components/create-rp/create-rp.component';
+import { ViewListReportComponent } from './components/view-list-report/view-list-report.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
@@ -70,7 +74,10 @@ const routes: Routes = [
   {path: ':id/save-saleitem/:id2/:id3', component: SaveSaleitemComponent},
   {path: 'CheckEmployee', component: CheckEmployeeComponent},
   {path: ':id/Check', component: CheckComponent},
-  {path: 'used-item-form', component: UsedItemFormComponent}
+  {path: 'used-item-form', component: UsedItemFormComponent},
+  {path: 'rpfindEmp', component: RpfindEmpComponent},
+  {path: ':id/create-rp', component: CreateRpComponent},
+  {path: 'view-list-report', component: ViewListReportComponent}
 ];
 
 @NgModule({
@@ -96,7 +103,10 @@ const routes: Routes = [
     SaveSaleitemComponent,
     CheckEmployeeComponent,
     CheckComponent,
-    UsedItemFormComponent
+    UsedItemFormComponent,
+    RpfindEmpComponent,
+    CreateRpComponent,
+    ViewListReportComponent
     
   ],
   imports: [
