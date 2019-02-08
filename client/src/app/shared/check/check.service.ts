@@ -32,6 +32,14 @@ public API = '//localhost:8080';
   }
 
 }
+export class Checks{
+  checksId:any;
+  evaluate:string;
+  weight:any;
+  employee:Employee;
+  buyItem:BuyItem;
+  categorize:Categorize;
+}
 export class Categorize{
   categorizeId?: any;
   categorizeName?: string;
@@ -49,11 +57,3 @@ export class Employee{
   ename?: string;
 }
 
-export class Checks{
-  checksId:any;
-  evaluate:any;
-  weight:any;
-  employee:Employee;
-  buyItem:BuyItem;
-  categorize:Categorize;
-}
