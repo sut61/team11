@@ -44,6 +44,7 @@ import { SaveEmployeeComponent } from './components/save-employee/save-employee.
 import { SaveSaleitemComponent } from './components/save-saleitem/save-saleitem.component';
 import { CheckEmployeeComponent } from './components/check-employee/check-employee.component';
 import { CheckComponent } from './components/check/check.component';
+import { UsedItemFormComponent } from './components/used-item-form/used-item-form.component';
 
 
 const routes: Routes = [
@@ -68,7 +69,8 @@ const routes: Routes = [
   {path: 'save-employee', component: SaveEmployeeComponent},
   {path: ':id/save-saleitem/:id2/:id3', component: SaveSaleitemComponent},
   {path: 'CheckEmployee', component: CheckEmployeeComponent},
-  {path: ':id/Check', component: CheckComponent}
+  {path: ':id/Check', component: CheckComponent},
+  {path: 'used-item-form', component: UsedItemFormComponent}
 ];
 
 @NgModule({
@@ -93,7 +95,8 @@ const routes: Routes = [
     SaveEmployeeComponent,
     SaveSaleitemComponent,
     CheckEmployeeComponent,
-    CheckComponent
+    CheckComponent,
+    UsedItemFormComponent
     
   ],
   imports: [
