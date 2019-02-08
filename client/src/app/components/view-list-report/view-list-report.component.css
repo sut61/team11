@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    text-align: center;
+    /* justify-content: center; */
+    margin: auto
+}
+.container .find-customer{
+    display: block;
+    margin: auto;
+    width: 500px;
+}
+.container .find-customer .inputID{
+    width: 100%;
+}
+.container #findBtn{
+    padding: 10px;
+    width: 100px;
+    font-size: 20px;
+}
+table {
+    width: 100%;
+  }
