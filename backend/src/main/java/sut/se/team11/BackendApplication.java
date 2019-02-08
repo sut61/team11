@@ -23,7 +23,8 @@ public class BackendApplication {
 						   PositionRepository positionRepository, BuyItemRepository buyItemRepository
 						   ,EmployeeRepository employeeRepository,CategorizeRepository categorizeRepository,
 						   RepairmanRepository repairmanRepository, StockRepository stockRepository,
-						   ChecksRepository checksRepository,UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository
+						   ChecksRepository checksRepository,UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository,
+						   ProblemTypeRepository problemTypeRepository, DepartmentRepository departmentRepository
 	){
 		return  args -> {
 
@@ -221,6 +222,19 @@ public class BackendApplication {
 
 			});
 
+			Stream.of("อุปกรณ์ชำรุด","ระบบอินเทอร์เน็ต","เครื่องจักรชำรุด","ทั่วไป").forEach(ptName -> {
+				ProblemType problemType = new ProblemType();
+				problemType.setPtName(ptName);
+				problemTypeRepository.save(problemType);
+
+			});
+
+			Stream.of("แผนกบัญชี","แผนกจัดส่ง","แผนกคลังสินค้า","แผนกขาย","แผนกรับซื้อ").forEach(depName -> {
+				Department department = new Department();
+				department.setDepName(depName);
+				departmentRepository.save(department);
+
+			});
 		};
 	}
 }
