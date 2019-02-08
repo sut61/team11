@@ -68,6 +68,7 @@ export class QUOTATIONComponent implements OnInit {
   }
 
   save(){
+    
     // console.log(this.quotation.employee.eid);
     this.httpClient.post('//localhost:8080/Quotation/' + this.id2 + '/'+ this.quotation.customer.customerId + '/' +
      this.quotation.category.categoryId+ '/' + this.quotation.detail+ '/'
