@@ -24,7 +24,7 @@ public class BackendApplication {
 						   ,EmployeeRepository employeeRepository,CategorizeRepository categorizeRepository,
 						   RepairmanRepository repairmanRepository, StockRepository stockRepository,
 						   ChecksRepository checksRepository,UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository,
-						   ProblemTypeRepository problemTypeRepository, DepartmentRepository departmentRepository
+						   ProblemTypeRepository problemTypeRepository, DepartmentRepository departmentRepository, TypePromotionRepository typePromotionRepository
 	){
 		return  args -> {
 
@@ -226,6 +226,14 @@ public class BackendApplication {
 				ProblemType problemType = new ProblemType();
 				problemType.setPtName(ptName);
 				problemTypeRepository.save(problemType);
+
+			});
+			Stream.of("เงินสด","เปอร์เซ็นต์","ฟรีค่าจัดส่ง","เเถมสินค้า").forEach(typePromotionName -> {
+
+				TypePromotion typePromotion = new TypePromotion();
+				typePromotion.setTypePromotionName(typePromotionName);
+				typePromotionRepository.save(typePromotion);
+
 
 			});
 
