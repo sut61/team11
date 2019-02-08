@@ -1,0 +1,47 @@
+<mat-card class="container">
+  <div class="container">
+    <h1>รายการใบเเจ้งปัญหา</h1>
+  </div>
+</mat-card>
+<mat-card class="">
+  <table mat-table [dataSource]="reports" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID. </th>
+      <td mat-cell *matCellDef="let element"> {{element.rpId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date/time </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="eName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.employee.ename}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <td mat-cell *matCellDef="let element"> {{element.department.depName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="problemType">
+      <th mat-header-cell *matHeaderCellDef> ProblemType </th>
+      <td mat-cell *matCellDef="let element"> {{element.problemType.ptName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="rpDetail">
+      <th mat-header-cell *matHeaderCellDef> Detail </th>
+      <td mat-cell *matCellDef="let element"> {{element.rpDetail}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
+<mat-card class="container">
+  <div class="container">
+    <button mat-raised-button color="primary" (click)="goEmp()" id="findBtn" class="container">เเจ้งปัญหา</button>
+  </div>
+</mat-card>
