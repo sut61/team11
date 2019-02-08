@@ -23,7 +23,7 @@ public class BackendApplication {
 						   PositionRepository positionRepository, BuyItemRepository buyItemRepository
 						   ,EmployeeRepository employeeRepository,CategorizeRepository categorizeRepository,
 						   RepairmanRepository repairmanRepository, StockRepository stockRepository,
-						   ChecksRepository checksRepository
+						   ChecksRepository checksRepository,UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository
 	){
 		return  args -> {
 
@@ -179,8 +179,8 @@ public class BackendApplication {
 				repairman.setRepairmanName(name);
 				repairmanRepository.save(repairman);
 			});
-			Stream.of("สเก็บินค้าทีมือสอง่ซ่อมแซมไม่มาก", "เก็บสินค้ามือสองที่ซ่อมแซมหลายจุด").forEach(desc -> {
-				if (desc == "สเก็บินค้าทีมือสอง่ซ่อมแซมไม่มาก"){
+			Stream.of("เก็บสินค้าทีมือสองซ่อมแซมไม่มาก", "เก็บสินค้ามือสองที่ซ่อมแซมหลายจุด").forEach(desc -> {
+				if (desc == "เก็บสินค้าทีมือสองซ่อมแซมไม่มาก"){
 					Stock s = new Stock();
 					s.setStockName("สินค้า Grade A");
 					s.setDescription(desc);
@@ -201,6 +201,24 @@ public class BackendApplication {
 				c.setWeight("3333");
 
 				checksRepository.save(c);
+			});
+			Stream.of("").forEach(sp -> {
+				SavePrice priceTag = new SavePrice();
+
+				Category c1 = categoryRepository.findById(1);
+				Category c2 = categoryRepository.findById(2);
+				UsedItem ut = usedItemRepository.findById(1);
+				Employee emp = employeeRepository.findById(1);
+
+				priceTag.setCategoryOne(c1);
+				priceTag.setPriceOne(230);
+				priceTag.setCategoryTwo(c2);
+				priceTag.setPriceTwo(300);
+				priceTag.setUsedItem(ut);
+				priceTag.setExplain("Good Quality");
+				priceTag.setEmployee(emp);
+				savePriceRepository.save(priceTag);
+
 			});
 
 		};
