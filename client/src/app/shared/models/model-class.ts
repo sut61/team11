@@ -1,3 +1,5 @@
+import { Checks } from '../check/check.service';
+
 export class Cart{
     cartId?: any;
     paymentStatus?: string;
@@ -44,4 +46,22 @@ export class SaleItem{
     customer: Customer = new Customer();
     saleItems: any;
 }
+export class Stock{
+    stockId?: any;
+    stockName?: string;
+    description?: string;
+}
+export class Repairman{
+    repairmanId?: any;
+    repairmanName?: string;
+}
+export class UsedItem{
+    usedItemId?: any;
+    price?: any;
+    details?: string;
+    stock?: Stock;
+    repairman?: Repairman;
+    checks?: Checks;
+}
+
 
