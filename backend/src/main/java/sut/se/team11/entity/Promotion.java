@@ -3,9 +3,13 @@ package sut.se.team11.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
+
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 
 
@@ -18,11 +22,18 @@ public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long promotionId;
-    private @NonNull String promotionName;
-    private @NonNull Integer numberOfTime;
-    private @NonNull String detailPromotion;
-    private @NonNull Date dateIn;
-    private @NonNull Date dateOut;
+
+    private @NotNull String promotionName;
+
+    @NotNull
+    @Min(value = 1)
+    @Max(value = 10)
+    @Positive
+    private Integer numberOfTime;
+
+    private @NotNull String detailPromotion;
+    private @NotNull Date dateIn;
+    private @NotNull Date dateOut;
 
 
     @ManyToOne
