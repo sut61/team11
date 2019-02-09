@@ -6,6 +6,7 @@ import { QuotationService, Quotation } from 'src/app/shared/quotation/quotation.
 import { HttpClient} from '@angular/common/http';
 import { Employee } from 'src/app/shared/models/model-class';
 import { RefindEmpService } from 'src/app/shared/refind-emp/refind-emp.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 
 @Component({
@@ -30,10 +31,17 @@ export class QUOTATIONComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
+    public snackBar: MatSnackBar,
     private service: QuotationService
   ) { 
     
     this.date = new Date();
+  }
+
+  config: MatSnackBarConfig = {
+    duration: 5000,
+    horizontalPosition: 'right',
+    verticalPosition: 'top'
   }
 
   ngOnInit() {
@@ -68,18 +76,36 @@ export class QUOTATIONComponent implements OnInit {
   }
 
   save(){
+    if( this.id2 != null && this.quotation.customer.customerId != null 
+      && this.quotation.category.categoryId != null && this.quotation.detail != null
+      && this.quotation.price){
     
     // console.log(this.quotation.employee.eid);
     this.httpClient.post('//localhost:8080/Quotation/' + this.id2 + '/'+ this.quotation.customer.customerId + '/' +
      this.quotation.category.categoryId+ '/' + this.quotation.detail+ '/'
       +this.quotation.price,this.quotation)
-    .subscribe(
+      .subscribe(
         data => {
             console.log('PUT Request is successful', data);
+            this.config['panelClass'] = ['notification','er'];
+            this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
         },
+        
         error => {
-            console.log('Rrror', error);
+            // console.log('Rrror', error);
+            this.config['panelClass'] = ['notification','error'];
+            this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+            
         }
-      ); 
+      );
+      this.router.navigate(['/Emp']).then(() => {
+      });
+      
+      }else{
+        console.log("คุณกรอกข้อมูลไม่ครบ");
+        this.config['panelClass'] = ['notification','error'];
+        this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+      }
   }
+
 }
