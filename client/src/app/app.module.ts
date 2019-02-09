@@ -51,10 +51,11 @@ import { RpfindEmpComponent } from './components/rpfind-emp/rpfind-emp.component
 import { CreateRpComponent } from './components/create-rp/create-rp.component';
 import { ViewListReportComponent } from './components/view-list-report/view-list-report.component';
 import { FindChecksComponent } from './components/find-checks/find-checks.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/customer', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'customer', component: CustomerComponent},
   {path: 'employee', component: EmployeeComponent},
   {path: 'empPromotion', component: EmpPromotionComponent},
@@ -84,7 +85,8 @@ const routes: Routes = [
   {path: ':id/create-rp', component: CreateRpComponent},
   {path: 'view-list-report', component: ViewListReportComponent},
   {path: 'promotion', component: PromotionComponent},
-  {path: 'findChecks', component: FindChecksComponent}
+  {path: 'findChecks', component: FindChecksComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
@@ -116,7 +118,8 @@ const routes: Routes = [
     CreateRpComponent,
     ViewListReportComponent,
     FindChecksComponent,
-    PromotionComponent
+    PromotionComponent,
+    LoginComponent
     
   ],
   imports: [

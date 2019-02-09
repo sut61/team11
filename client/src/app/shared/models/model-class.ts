@@ -65,3 +65,12 @@ export class UsedItem{
 }
 
 
+// Login
+export class Account{
+    accId?: any;
+    username?: string;
+    password?: string;
+    isLogin?: boolean;
+    employee?: Employee;
+}
+

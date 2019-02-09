@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    text-align: center;
+    margin: 15px;
+}
+.login{
+    width: 500px;
+    margin: 60px auto;
+    display: block;
+}
+.login mat-form-field{
+    display: block;
+    width: 100%;
+}
+.login .card .header h2{
+    font-size: 30px;
+    margin: auto;
+}
+.content{
+    margin-top: 25px;
+}
+.content p{
+    font-size: 18px;
+}
