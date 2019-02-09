@@ -28,6 +28,7 @@ public class UsedItem {
     private Repairman repairman;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "checksId")
+    @JsonIgnore
     private Checks checks;
 
 }
