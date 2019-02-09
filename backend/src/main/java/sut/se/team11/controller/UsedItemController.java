@@ -48,7 +48,6 @@ public class UsedItemController {
         u.setRepairman(r);
         UsedItem save = usedItemRepository.save(u);
         return ResponseEntity.ok().body(save);
-
     }
 
     @GetMapping(path = "/findChecks/{checksId}")
