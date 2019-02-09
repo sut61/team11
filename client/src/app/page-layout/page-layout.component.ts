@@ -42,6 +42,11 @@ export class PageLayoutComponent implements OnInit {
     
     });
   }
+  addempPromotion(){
+    this.router.navigate(['/EmpPromotion']).then(() =>{
+    
+    });
+  }
   gofindemployee(){
     this.router.navigate(['/find-employee']).then(() => {
       
@@ -49,5 +54,11 @@ export class PageLayoutComponent implements OnInit {
   }
   goReportP(){
     this.router.navigate(['/view-list-report']).then(() =>{})
+  }
+
+  gopromotion(){
+    this.router.navigate(['/promotion']).then(() => {
+      
+    });
   }
 }

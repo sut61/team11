@@ -42,3 +42,4 @@ export class NotificationService {
     this.snackBar.open('มีบางอย่างผิดพลาด, โปรดตรวจสอบว่าไอดีใบตรวจสภาพยังไม่ถูกใช้งาน','', this.config);
   }
 }
+
