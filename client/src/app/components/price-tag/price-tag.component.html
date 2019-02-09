@@ -1,3 +1,37 @@
-<p>
-  price-tag works!
-</p>
+<mat-card class="outCard">
+  <mat-card class="inCardOne">
+    <mat-card-header class="head1">
+      ราคาขายสินค้าแต่ละประเภท
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item *ngFor="let saveprice of saveprices">
+              <h4 mat-line>{{saveprice.categoryOne.categoryName}}</h4>
+              <h4 mat-line>ราคาเริ่มต้น: {{saveprice.priceOne}} </h4>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+
+  </mat-card>
+  <br><br>
+  <mat-card class="inCardTwo">
+    <mat-card-header>
+      สินค้ามือสอง 
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item *ngFor="let saveprice of saveprices">
+              <h4 mat-line>{{saveprice.usedItem.details}}</h4>
+              <p mat-line>ราคาเริ่มต้น: {{saveprice.usedItem.price}} </p>
+            </mat-list-item>
+        </mat-list>
+
+    </mat-card-content>
+
+  </mat-card>
+  <br><br>
+  <button mat-flat-button class="bt" (click)="saveprice()">แก้ไขราคา</button>
+
+
+</mat-card>

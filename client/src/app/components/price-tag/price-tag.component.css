@@ -1,0 +1,13 @@
+.outCard{
+     
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -200px;
+    border-radius: 5px;
+}
+.bt{
+    color:primary;
+    left: 50%;
+}
