@@ -60,14 +60,15 @@ export class CheckComponent implements OnInit {
 }
 
 save() {
-    this.evaluate = this.check.evaluate;
-    // console.log(this.evaluate);
-      this.checkerror()
+
+     if( this.check.categorize != null && this.check.weight != null && this.check.weight != 0){
       this.httpClient.post('//localhost:8080/Checks/' + this.id2 + '/' + this.check.buyItem.buyItemId + '/' + this.check.categorize.categorizeId,
       this.check)
       .subscribe(
           data => {
               console.log('PUT Request is successful', data);
+              this.config['panelClass'] = ['notification','er'];
+              this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
           },
           error => {
               console.log('Rrror', error);
@@ -75,17 +76,12 @@ save() {
               this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
           }
         );
-        // this.router.navigate(['/customer']).then(() => {
-        // });
-        
-        // }else{
-        //   console.log("คุณกรอกข้อมูลไม่ครบ");
-        // }
-    }
-  
-    checkerror(){
-      this.config['panelClass'] = ['notification','er'];
-      this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
+
+        }else{
+          console.log("คุณกรอกข้อมูลไม่ครบ");
+          this.config['panelClass'] = ['notification','error'];
+          this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+        }
     }
 
 }

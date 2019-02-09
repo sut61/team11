@@ -1,7 +1,6 @@
 package sut.se.team11.entity;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,7 +10,6 @@ import java.util.Date;
 
 @Data
 @Entity
-@NoArgsConstructor
 public class Checks {
     @Id
     @SequenceGenerator(name = "checks_seq", sequenceName = "checks_seq")
@@ -37,4 +35,8 @@ public class Checks {
 
     @OneToOne(mappedBy = "checks", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UsedItem usedItem;
+    public Checks() {
+
+    }
 }
+

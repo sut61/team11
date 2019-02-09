@@ -17,12 +17,12 @@ public class Customer {
     @SequenceGenerator(name = "customer_seq", sequenceName = "customer_seq")
     @GeneratedValue(generator = "customer_seq", strategy = GenerationType.SEQUENCE)
     private Long customerId;
-    private @NonNull String customerName;
-    private @NonNull String address;
+    private @NotNull String customerName;
+    private @NotNull String address;
     @NotNull
     @Size(min = 10, max = 10)
     @Pattern(regexp = "\\d+")
-    private @NonNull String tel;
+    private  String tel;
 
     @ManyToOne
     private Branch branch;
