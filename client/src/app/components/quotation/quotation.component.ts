@@ -89,17 +89,19 @@ export class QUOTATIONComponent implements OnInit {
             console.log('PUT Request is successful', data);
             this.config['panelClass'] = ['notification','er'];
             this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
+            this.router.navigate(['/Emp']).then(() =>{});
         },
         
         error => {
             // console.log('Rrror', error);
             this.config['panelClass'] = ['notification','error'];
             this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+            this.router.navigate(['/QUOTATION']).then(() =>{});
             
         }
       );
-      this.router.navigate(['/Emp']).then(() => {
-      });
+      // this.router.navigate(['/Emp']).then(() => {
+      // });
       
       }else{
         console.log("คุณกรอกข้อมูลไม่ครบ");

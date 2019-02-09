@@ -84,17 +84,19 @@ export class PromotionComponent implements OnInit {
           console.log('PUT Request is successful', data);
           this.config['panelClass'] = ['notification','er'];
           this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
+          this.router.navigate(['/EmpPromotion']).then(() => {});
       },
       
       error => {
           // console.log('Rrror', error);
           this.config['panelClass'] = ['notification','error'];
           this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+          this.router.navigate(['/Promotion']).then(() => {
+          });
           
       }
     );
-    this.router.navigate(['/EmpPromotion']).then(() => {
-    });
+   
     
     }else{
       console.log("คุณกรอกข้อมูลไม่ครบ");
