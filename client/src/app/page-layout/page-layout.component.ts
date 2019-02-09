@@ -77,4 +77,9 @@ export class PageLayoutComponent implements OnInit {
       
     });
   }
+  pricetag(){
+    this.router.navigate(['/priceTag']).then(() =>{
+
+    });
+  }
 }
