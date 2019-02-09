@@ -31,8 +31,6 @@ public class SavePrice {
     private int priceTwo;
     @ManyToOne
     private UsedItem usedItem;
-    @NotNull
-    private String explain;
     @ManyToOne
     private Employee employee;
 }
