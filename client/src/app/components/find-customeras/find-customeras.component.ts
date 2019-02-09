@@ -26,7 +26,7 @@ export class FindCustomerasComponent implements OnInit {
       this.customer = res;
       console.log(res);
       console.log(this.customer.customerId);
-      // this.router.navigate([`${this.customer.customerId}/assignment`]);
+      this.router.navigate([`${this.customer.customerId}/assignment`]);
     }, err => {
       if(err.error == null){
         this.notification.notFound();

@@ -27,7 +27,7 @@ public class BackendApplication {
 						   ChecksRepository checksRepository,UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository,
 						   ProblemTypeRepository problemTypeRepository, DepartmentRepository departmentRepository,
 						   TypePromotionRepository typePromotionRepository, CartRepository cartRepository,
-						   AccountRepository accountRepository
+						   AccountRepository accountRepository,ScoreAssignmentReposistory scoreAssignmentRepository
 	){
 		return  args -> {
 
@@ -292,6 +292,14 @@ public class BackendApplication {
 				account.setPassword("111111");
 
 				accountRepository.save(account);
+
+			});
+
+			Stream.of("5.ดีเยี่ยม","4.ดี","3.พอใช้","2.น้อย","1.น้อยที่สุด").forEach(level -> {
+
+				ScoreAssignment scoreAssignment = new ScoreAssignment();
+				scoreAssignment.setLevel(level);
+				scoreAssignmentRepository.save(scoreAssignment);
 
 			});
 		};

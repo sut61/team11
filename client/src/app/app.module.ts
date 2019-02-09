@@ -56,6 +56,7 @@ import { LoginGuard } from './shared/login/login.guard';
 import { PriceTagComponent } from './components/price-tag/price-tag.component';
 import { SavePriceComponent } from './components/save-price/save-price.component';
 import { FindCustomerasComponent } from './components/find-customeras/find-customeras.component';
+import { AssignmentComponent } from './components/assignment/assignment.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -92,7 +93,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'priceTag', component:PriceTagComponent},
   {path: 'saveprice', component:SavePriceComponent},
-  {path: 'find-customeras', component: FindCustomerasComponent}
+  {path: 'find-customeras', component: FindCustomerasComponent},
+  {path: ':id/assignment', component: AssignmentComponent}
   
 ];
 
@@ -129,7 +131,8 @@ const routes: Routes = [
     LoginComponent,
     PriceTagComponent,
     SavePriceComponent,
-    FindCustomerasComponent
+    FindCustomerasComponent,
+    AssignmentComponent
     
   ],
   imports: [
