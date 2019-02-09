@@ -23,7 +23,7 @@ export class CheckComponent implements OnInit {
   evaluate:any;
   constructor(private service:CheckService,
     private find2: CheckEmployeeService,
-    // private route: Router,
+    private ro: Router,
     private httpClient: HttpClient,
     private route: ActivatedRoute,
     public snackBar: MatSnackBar
@@ -82,6 +82,6 @@ save() {
           this.config['panelClass'] = ['notification','error'];
           this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
         }
-    }
+     }
 
-}
+  }
