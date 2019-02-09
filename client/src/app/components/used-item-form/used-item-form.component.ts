@@ -34,6 +34,7 @@ export class UsedItemFormComponent implements OnInit {
       this.idChecks = param['id'];
       this.findCheck.findChecks(this.idChecks).subscribe((res) => {
         this.checks = res;
+        console.log(this.checks.checksId);
       });
     }, err => {
       console.log(err);
@@ -49,11 +50,10 @@ export class UsedItemFormComponent implements OnInit {
   submit(){
     this.usedItem = Object.assign({}, this.form.value);
     this.usedService.insertUsedItem(this.checks.checksId, this.usedItem).subscribe((res) => {
-      console.log(res);
       this.notification.saveSuccess();
       this.form.reset();
     },error => {
-      console.log(error);
+      this.notification.errorMore();
     });
   }
 
