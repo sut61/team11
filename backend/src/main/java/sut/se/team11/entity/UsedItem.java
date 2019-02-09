@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -14,10 +16,13 @@ public class UsedItem {
     @Id
     @SequenceGenerator(name = "used_seq", sequenceName = "used_seq")
     @GeneratedValue(generator = "used_seq", strategy = GenerationType.SEQUENCE)
+    @Column(unique = true)
     private Long usedItemId;
     @NotNull
     private double price;
     @NotNull
+    @Size(min = 10, max = 50)
+    @Pattern(regexp = "^[A-Za-z_ -]")
     private String details;
 
     @ManyToOne
