@@ -3,6 +3,7 @@ import { Account } from '../../shared/models/model-class';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../shared/login/login.service';
+import { NotificationService } from 'src/app/shared/notification/notification.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   rec: Account;
   formLogin: FormGroup;
   constructor(
-    private router: Router,
+    private notification: NotificationService,
     private fb: FormBuilder,
     private _login: LoginService
   ) {}
@@ -26,17 +27,10 @@ export class LoginComponent implements OnInit {
   submit(){
     this.account = this.formLogin.value;
     this._login.submit(this.account.username, this.account.password).subscribe((res) => {
-      console.log(res);
       this.rec = res;
-      this._login.login(this.rec.accId).subscribe((login) => {
-        localStorage.setItem('account',JSON.stringify(login));
-        this.router.navigate(['/customer']);
-        console.log(login);
-      }, err => {
-        console.log(err + 'IN');
-      });
+      this._login.login(this.rec.accId);
     }, er => {
-      console.log(er + 'OUT');
+      this.notification.error();
     });
   }
 
@@ -48,10 +42,6 @@ export class LoginComponent implements OnInit {
         Validators.minLength(6)
       ])]
     });
-  }
-
-  login(){
-
   }
 
 }

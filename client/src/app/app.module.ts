@@ -52,40 +52,40 @@ import { CreateRpComponent } from './components/create-rp/create-rp.component';
 import { ViewListReportComponent } from './components/view-list-report/view-list-report.component';
 import { FindChecksComponent } from './components/find-checks/find-checks.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { LoginGuard } from './shared/login/login.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'customer', component: CustomerComponent},
-  {path: 'employee', component: EmployeeComponent},
-  {path: 'empPromotion', component: EmpPromotionComponent},
-  {path: 'find-customer', component: FindCustomerComponent},
-  {path: ':id/createCart', component: CreateCartComponent},
-  {path: ':id/view-list', component: ViewListItemComponent},
-  {path: 'Emp', component: EmpComponent},
-  {path: 'EmpPromotion', component: EmpPromotionComponent},
-  {path: ':id/QUOTATION', component: QUOTATIONComponent},
-  {path: ':id/Promotion', component: PromotionComponent},
-  {path: 'refind-emp', component: RefindEmpComponent},
-  {path: ':id/RefindCart', component: RefindCartComponent},
-  {path: ':id/:id2/view-cart-item', component: ViewCartItemComponent},
-  {path: ':id/:id2/:id3/:id4/create-receipt', component: CreateReceiptComponent},
-  {path: 'find-employee', component: FindEmployeeComponent},
-  {path: ':id/add-item', component: AddItemComponent},
-  {path: ':id/findCustomer', component: FindCustomer21Component},
-  {path: ':id/SaleItem/:id2', component: SaleItemComponent},
-  {path: 'RefindEmp', component: RefindEmpComponent},
-  {path: ':id/RefindCart', component: RefindCartComponent},
-  {path: 'save-employee', component: SaveEmployeeComponent},
-  {path: ':id/save-saleitem/:id2/:id3', component: SaveSaleitemComponent},
-  {path: 'CheckEmployee', component: CheckEmployeeComponent},
-  {path: ':id/Check', component: CheckComponent},
-  {path: ':id/used-item-form', component: UsedItemFormComponent},
-  {path: 'rpfindEmp', component: RpfindEmpComponent},
-  {path: ':id/create-rp', component: CreateRpComponent},
-  {path: 'view-list-report', component: ViewListReportComponent},
-  {path: 'promotion', component: PromotionComponent},
-  {path: 'findChecks', component: FindChecksComponent},
+  {path: 'customer', component: CustomerComponent, canActivate: [LoginGuard]},
+  {path: 'employee', component: EmployeeComponent, canActivate: [LoginGuard]},
+  {path: 'empPromotion', component: EmpPromotionComponent, canActivate: [LoginGuard]},
+  {path: 'find-customer', component: FindCustomerComponent, canActivate: [LoginGuard]},
+  {path: ':id/createCart', component: CreateCartComponent, canActivate: [LoginGuard]},
+  {path: ':id/view-list', component: ViewListItemComponent, canActivate: [LoginGuard]},
+  {path: 'Emp', component: EmpComponent, canActivate: [LoginGuard]},
+  {path: 'EmpPromotion', component: EmpPromotionComponent, canActivate: [LoginGuard]},
+  {path: ':id/QUOTATION', component: QUOTATIONComponent, canActivate: [LoginGuard]},
+  {path: ':id/Promotion', component: PromotionComponent, canActivate: [LoginGuard]},
+  {path: 'refind-emp', component: RefindEmpComponent, canActivate: [LoginGuard]},
+  {path: ':id/RefindCart', component: RefindCartComponent, canActivate: [LoginGuard]},
+  {path: ':id/:id2/view-cart-item', component: ViewCartItemComponent, canActivate: [LoginGuard]},
+  {path: ':id/:id2/:id3/:id4/create-receipt', component: CreateReceiptComponent, canActivate: [LoginGuard]},
+  {path: 'find-employee', component: FindEmployeeComponent, canActivate: [LoginGuard]},
+  {path: ':id/add-item', component: AddItemComponent, canActivate: [LoginGuard]},
+  {path: ':id/findCustomer', component: FindCustomer21Component, canActivate: [LoginGuard]},
+  {path: ':id/SaleItem/:id2', component: SaleItemComponent, canActivate: [LoginGuard]},
+  {path: 'RefindEmp', component: RefindEmpComponent, canActivate: [LoginGuard]},
+  {path: ':id/RefindCart', component: RefindCartComponent, canActivate: [LoginGuard]},
+  {path: 'save-employee', component: SaveEmployeeComponent, canActivate: [LoginGuard]},
+  {path: ':id/save-saleitem/:id2/:id3', component: SaveSaleitemComponent, canActivate: [LoginGuard]},
+  {path: 'CheckEmployee', component: CheckEmployeeComponent, canActivate: [LoginGuard]},
+  {path: ':id/Check', component: CheckComponent, canActivate: [LoginGuard]},
+  {path: ':id/used-item-form', component: UsedItemFormComponent, canActivate: [LoginGuard]},
+  {path: 'rpfindEmp', component: RpfindEmpComponent, canActivate: [LoginGuard]},
+  {path: ':id/create-rp', component: CreateRpComponent, canActivate: [LoginGuard]},
+  {path: 'view-list-report', component: ViewListReportComponent, canActivate: [LoginGuard]},
+  {path: 'promotion', component: PromotionComponent, canActivate: [LoginGuard]},
+  {path: 'findChecks', component: FindChecksComponent, canActivate: [LoginGuard]},
   {path: 'login', component: LoginComponent}
 ];
 
@@ -147,8 +147,6 @@ const routes: Routes = [
     MatSnackBarModule 
   ],
   providers: [
-
-
   ],
   bootstrap: [AppComponent]
 })

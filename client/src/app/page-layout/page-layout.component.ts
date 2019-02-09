@@ -10,22 +10,22 @@ import { Account } from '../shared/models/model-class';
 export class PageLayoutComponent implements OnInit {
 
   acc: Account;
+  allow: any;
   constructor(
     private router: Router,
     private login: LoginService
     ) { 
       this.acc = JSON.parse(localStorage.getItem('account'));
+      this.login.allowed;
     }
 
   ngOnInit() {
     this.acc = JSON.parse(localStorage.getItem('account'));
+    this.login.allowed;
   }
   logout(){
-    console.log(this.acc.accId);
-    this.login.logout(this.acc.accId).subscribe(() => {
-      localStorage.clear();
-      this.router.navigate(['/login']);
-    });
+    this.acc = JSON.parse(localStorage.getItem('account'));
+    this.login.logout(this.acc.accId);
   }
   goBuyItem(){
     this.router.navigate(['/find-customer']);

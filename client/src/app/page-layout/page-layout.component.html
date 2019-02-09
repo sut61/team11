@@ -1,9 +1,9 @@
 <div class="container">
   <mat-toolbar color="primary" class="mat-toolbar">
-      <button mat-icon-button style="margin-right: 10px" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+      <button mat-icon-button style="margin-right: 10px" (click)="sidenav.toggle()" *ngIf="login.allowed"><mat-icon>menu</mat-icon></button>
          <span>ระบบรับซื้อของเก่า</span>
        <span class="example-spacer"></span>
-      <button mat-raised-button (click)="logout()" color="warn">Logout</button>
+      <button mat-raised-button (click)="logout()" color="warn" *ngIf="login.allowed">Logout</button>
     </mat-toolbar>
 
     <mat-sidenav-container class="sidebar-container">
