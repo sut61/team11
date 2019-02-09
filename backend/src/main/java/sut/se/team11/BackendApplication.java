@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import sut.se.team11.entity.*;
 
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.Date;
 import java.util.stream.Stream;
 
@@ -24,7 +25,8 @@ public class BackendApplication {
 						   ,EmployeeRepository employeeRepository,CategorizeRepository categorizeRepository,
 						   RepairmanRepository repairmanRepository, StockRepository stockRepository,
 						   ChecksRepository checksRepository,UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository,
-						   ProblemTypeRepository problemTypeRepository, DepartmentRepository departmentRepository, TypePromotionRepository typePromotionRepository
+						   ProblemTypeRepository problemTypeRepository, DepartmentRepository departmentRepository,
+						   TypePromotionRepository typePromotionRepository, CartRepository cartRepository
 	){
 		return  args -> {
 
@@ -63,7 +65,7 @@ public class BackendApplication {
 
 			});
 
-
+			//B5804658
 			Stream.of("เครื่องใช้ไฟฟ้า","อุปกรณ์อิเล็คทรอนิกส์").forEach(name -> {
 				Category category = new Category();
 				category.setCategoryName(name);
@@ -89,6 +91,8 @@ public class BackendApplication {
 
 				customerRepository.save(customer);
 			});
+			//B5804658
+
 			Stream.of("ประถมศึกษา","มัธยมศึกษา","ปวช.","ปวส.","ปริญญาตรี","ปริญญาโท","ปริญญาเอก").forEach(edName ->{
 
 				Education education = new Education();
@@ -175,6 +179,8 @@ public class BackendApplication {
 				customerRepository.save(customer);
 
 			});
+
+			//B5804658
 			Stream.of("Robert XML","Jacky Jason").forEach(name -> {
 				Repairman repairman = new Repairman();
 				repairman.setRepairmanName(name);
@@ -193,16 +199,46 @@ public class BackendApplication {
 					stockRepository.save(s);
 				}
 			});
-			Stream.of(2,5).forEach(el -> {
+			Stream.of("Good").forEach(el -> {
 				Checks c = new Checks();
-				c.setBuyItem(null);
-				c.setCategorize(null);
-				c.setEmployee(null);
-				c.setEvaluate("AAAA");
+				Categorize cr = categorizeRepository.findById(1);
+				Employee e = employeeRepository.findById(1);
+				BuyItem b = buyItemRepository.findById(1);
+				c.setBuyItem(b);
+				c.setCategorize(cr);
+				c.setEmployee(e);
+				c.setEvaluate(el);
 				c.setWeight("3333");
 
 				checksRepository.save(c);
 			});
+			Stream.of("Pending").forEach(status -> {
+				Cart c = new Cart();
+				Customer cus = customerRepository.findById(1);
+				c.setPaymentStatus(status);
+				c.setDate(new Date());
+				c.setCustomer(cus);
+
+				cartRepository.save(c);
+			});
+			Stream.of("Radio").forEach(name -> {
+				BuyItem b = new BuyItem();
+				Cart c = cartRepository.findById(1);
+				Category cate = categoryRepository.findById(1);
+				Unit u = unitRepository.findById(1);
+
+				b.setItemName(name);
+				b.setAmount(1);
+				b.setPrice(100);
+				b.setTotalPrice(100);
+				b.setCart(c);
+				b.setCategory(cate);
+				b.setUnit(u);
+
+				buyItemRepository.save(b);
+			});
+			//B5804658
+
 			Stream.of("").forEach(sp -> {
 				SavePrice priceTag = new SavePrice();
 
