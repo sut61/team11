@@ -75,7 +75,7 @@ const routes: Routes = [
   {path: ':id/save-saleitem/:id2/:id3', component: SaveSaleitemComponent},
   {path: 'CheckEmployee', component: CheckEmployeeComponent},
   {path: ':id/Check', component: CheckComponent},
-  {path: 'used-item-form', component: UsedItemFormComponent},
+  {path: ':id/used-item-form', component: UsedItemFormComponent},
   {path: 'rpfindEmp', component: RpfindEmpComponent},
   {path: ':id/create-rp', component: CreateRpComponent},
   {path: 'view-list-report', component: ViewListReportComponent},
