@@ -169,7 +169,7 @@ public class CustomerTest {
         }
     }
     @Test(expected = javax.persistence.PersistenceException.class)
-    public void testCustomerID() {
+    public void testCustomerUniqu() {
 
         Customer customer = new Customer();
         customer.setCustomerId((long)1);
