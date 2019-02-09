@@ -17,30 +17,31 @@ public class BackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
 	}
+
 	@Bean
 	ApplicationRunner init(CustomerRepository customerRepository, BranchRepository branchRepository, CareerRepository careerRepository,
 						   ProvinceRepository provinceRepository, CategoryRepository categoryRepository,
 						   UnitRepository unitRepository, EducationRepository educationRepository,
 						   PositionRepository positionRepository, BuyItemRepository buyItemRepository
-						   ,EmployeeRepository employeeRepository,CategorizeRepository categorizeRepository,
+			, EmployeeRepository employeeRepository, CategorizeRepository categorizeRepository,
 						   RepairmanRepository repairmanRepository, StockRepository stockRepository,
-						   ChecksRepository checksRepository,UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository,
+						   ChecksRepository checksRepository, UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository,
 						   ProblemTypeRepository problemTypeRepository, DepartmentRepository departmentRepository,
 						   TypePromotionRepository typePromotionRepository, CartRepository cartRepository,
-						   AccountRepository accountRepository,ScoreAssignmentReposistory scoreAssignmentRepository
-	){
-		return  args -> {
+						   AccountRepository accountRepository, ScoreAssignmentReposistory scoreAssignmentRepository
+	)
+	{
+		return args -> {
 
 
-
-			Stream.of("สาขา 1","สาขา 2","สาขา 3").forEach(bName -> {
+			Stream.of("สาขา 1", "สาขา 2", "สาขา 3").forEach(bName -> {
 
 				Branch branch = new Branch();
 				branch.setBName(bName);
 				branchRepository.save(branch);
 
 			});
-			Stream.of("Reduce","Reuse","Recycle","Repair").forEach(categorizeName -> {
+			Stream.of("Reduce", "Reuse", "Recycle", "Repair").forEach(categorizeName -> {
 
 				Categorize categorize = new Categorize();
 				categorize.setCategorizeName(categorizeName);
@@ -50,14 +51,14 @@ public class BackendApplication {
 			});
 
 
-			Stream.of("ข้าราชการ/รัฐวิสาหกิจ","ธุรกิจส่วนตัว/ค้าขาย","เกษตรกร","รับจ้าง/พนักงานบริษัทเอกชน","นักเรียน/นักศึกษา","อื่น ๆ").forEach(cName -> {
+			Stream.of("ข้าราชการ/รัฐวิสาหกิจ", "ธุรกิจส่วนตัว/ค้าขาย", "เกษตรกร", "รับจ้าง/พนักงานบริษัทเอกชน", "นักเรียน/นักศึกษา", "อื่น ๆ").forEach(cName -> {
 
 				Career career = new Career();
 				career.setCName(cName);
 				careerRepository.save(career);
 
 			});
-			Stream.of("กาฬสินธุ์","ขอนแก่น","ชัยภูมิ","นครพนม","นครราชสีมา","บึงกาฬ","บุรีรัมย์","มหาสารคาม","มุกดาหาร","ยโสธร","ร้อยเอ็ด","เลย","ศรีสะเกษ","สกลนคร","สุรินทร์","หนองคาย","หนองบัวลำภู","อุดรธานี","อุบลราชธานี","อำนาจเจริญ").forEach(pName -> {
+			Stream.of("กาฬสินธุ์", "ขอนแก่น", "ชัยภูมิ", "นครพนม", "นครราชสีมา", "บึงกาฬ", "บุรีรัมย์", "มหาสารคาม", "มุกดาหาร", "ยโสธร", "ร้อยเอ็ด", "เลย", "ศรีสะเกษ", "สกลนคร", "สุรินทร์", "หนองคาย", "หนองบัวลำภู", "อุดรธานี", "อุบลราชธานี", "อำนาจเจริญ").forEach(pName -> {
 
 
 				Province province = new Province();
@@ -67,12 +68,12 @@ public class BackendApplication {
 			});
 
 			//B5804658
-			Stream.of("เครื่องใช้ไฟฟ้า","อุปกรณ์อิเล็คทรอนิกส์").forEach(name -> {
+			Stream.of("เครื่องใช้ไฟฟ้า", "อุปกรณ์อิเล็คทรอนิกส์").forEach(name -> {
 				Category category = new Category();
 				category.setCategoryName(name);
 				categoryRepository.save(category);
 			});
-			Stream.of("เครื่อง","ชิ้น").forEach(name -> {
+			Stream.of("เครื่อง", "ชิ้น").forEach(name -> {
 				Unit unit = new Unit();
 				unit.setUnitName(name);
 				unitRepository.save(unit);
@@ -94,13 +95,13 @@ public class BackendApplication {
 			});
 			//B5804658
 
-			Stream.of("ประถมศึกษา","มัธยมศึกษา","ปวช.","ปวส.","ปริญญาตรี","ปริญญาโท","ปริญญาเอก").forEach(edName ->{
+			Stream.of("ประถมศึกษา", "มัธยมศึกษา", "ปวช.", "ปวส.", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก").forEach(edName -> {
 
 				Education education = new Education();
 				education.setEdName(edName);
 				educationRepository.save(education);
 			});
-			Stream.of("พนักงานฝ่ายขนของ","พนักงานฝ่ายบัญชี","พนักงานฝ่ายบุคคล","พนักงานฝ่ายขาย","พนักงานทำความสะอาด").forEach(psName ->{
+			Stream.of("พนักงานฝ่ายขนของ", "พนักงานฝ่ายบัญชี", "พนักงานฝ่ายบุคคล", "พนักงานฝ่ายขาย", "พนักงานทำความสะอาด").forEach(psName -> {
 				Position position = new Position();
 				position.setPsName(psName);
 				positionRepository.save(position);
@@ -134,7 +135,7 @@ public class BackendApplication {
 				employee2.setTitle("นาง");
 				employee2.setEName("สง่า รักสวย");
 				employee2.setAge(25);
-				employee2.setBDate(new Date() );
+				employee2.setBDate(new Date());
 				employee2.setAddress("848 หมู่ 8  ");
 				employee2.setTel("0898882888");
 				employee2.setProvince(province2);
@@ -152,7 +153,7 @@ public class BackendApplication {
 				employee3.setTitle("นาย");
 				employee3.setEName("อรรคพล ใจสู้");
 				employee3.setAge(28);
-				employee3.setBDate(new Date() );
+				employee3.setBDate(new Date());
 				employee3.setAddress("99 หมู่ 9  ");
 				employee3.setTel("0999999999");
 				employee3.setProvince(province3);
@@ -182,18 +183,18 @@ public class BackendApplication {
 			});
 
 			//B5804658
-			Stream.of("Robert XML","Jacky Jason").forEach(name -> {
+			Stream.of("Robert XML", "Jacky Jason").forEach(name -> {
 				Repairman repairman = new Repairman();
 				repairman.setRepairmanName(name);
 				repairmanRepository.save(repairman);
 			});
 			Stream.of("เก็บสินค้าทีมือสองซ่อมแซมไม่มาก", "เก็บสินค้ามือสองที่ซ่อมแซมหลายจุด").forEach(desc -> {
-				if (desc == "เก็บสินค้าทีมือสองซ่อมแซมไม่มาก"){
+				if (desc == "เก็บสินค้าทีมือสองซ่อมแซมไม่มาก") {
 					Stock s = new Stock();
 					s.setStockName("สินค้า Grade A");
 					s.setDescription(desc);
 					stockRepository.save(s);
-				}else{
+				} else {
 					Stock s = new Stock();
 					s.setStockName("สินค้า Grade B");
 					s.setDescription(desc);
@@ -260,13 +261,13 @@ public class BackendApplication {
 
 				checksRepository.save(c);
 			});
-			Stream.of("อุปกรณ์ชำรุด","ระบบอินเทอร์เน็ต","เครื่องจักรชำรุด","ทั่วไป").forEach(ptName -> {
+			Stream.of("อุปกรณ์ชำรุด", "ระบบอินเทอร์เน็ต", "เครื่องจักรชำรุด", "ทั่วไป").forEach(ptName -> {
 				ProblemType problemType = new ProblemType();
 				problemType.setPtName(ptName);
 				problemTypeRepository.save(problemType);
 
 			});
-			Stream.of("เงินสด","เปอร์เซ็นต์","ฟรีค่าจัดส่ง","เเถมสินค้า").forEach(typePromotionName -> {
+			Stream.of("เงินสด", "เปอร์เซ็นต์", "ฟรีค่าจัดส่ง", "เเถมสินค้า").forEach(typePromotionName -> {
 
 				TypePromotion typePromotion = new TypePromotion();
 				typePromotion.setTypePromotionName(typePromotionName);
@@ -275,7 +276,7 @@ public class BackendApplication {
 
 			});
 
-			Stream.of("แผนกบัญชี","แผนกจัดส่ง","แผนกคลังสินค้า","แผนกขาย","แผนกรับซื้อ").forEach(depName -> {
+			Stream.of("แผนกบัญชี", "แผนกจัดส่ง", "แผนกคลังสินค้า", "แผนกขาย", "แผนกรับซื้อ").forEach(depName -> {
 				Department department = new Department();
 				department.setDepName(depName);
 				departmentRepository.save(department);
@@ -295,13 +296,48 @@ public class BackendApplication {
 
 			});
 
-			Stream.of("5.ดีเยี่ยม","4.ดี","3.พอใช้","2.น้อย","1.น้อยที่สุด").forEach(level -> {
+			Stream.of("5.ดีเยี่ยม", "4.ดี", "3.พอใช้", "2.น้อย", "1.น้อยที่สุด").forEach(level -> {
 
 				ScoreAssignment scoreAssignment = new ScoreAssignment();
 				scoreAssignment.setLevel(level);
 				scoreAssignmentRepository.save(scoreAssignment);
 
 			});
+
+			Stream.of("").forEach(ut -> {
+				UsedItem usedItem = new UsedItem();
+
+				Repairman r1 = repairmanRepository.findById(1);
+				Stock s = stockRepository.findById(1);
+				Checks checks = checksRepository.findById(1);
+
+				usedItem.setPrice(365);
+				usedItem.setDetails("Radio goodlink");
+				usedItem.setStock(s);
+				usedItem.setChecks(checks);
+				usedItem.setRepairman(r1);
+				usedItemRepository.save(usedItem);
+
+
+			});
+			Stream.of("").forEach(sp -> {
+				SavePrice priceTag = new SavePrice();
+
+				Category c1 = categoryRepository.findById(1);
+				Category c2 = categoryRepository.findById(2);
+				UsedItem ut = usedItemRepository.findById(1);
+				Employee emp = employeeRepository.findById(1);
+
+				priceTag.setCategoryOne(c1);
+				priceTag.setPriceOne(230);
+				priceTag.setCategoryTwo(c2);
+				priceTag.setPriceTwo(300);
+				priceTag.setUsedItem(ut);
+				priceTag.setEmployee(emp);
+				savePriceRepository.save(priceTag);
+			});
+
 		};
 	}
 }
+

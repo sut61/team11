@@ -15,6 +15,9 @@ import sut.se.team11.repository.RepairmanRepository;
 import sut.se.team11.repository.StockRepository;
 import sut.se.team11.repository.UsedItemRepository;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class UsedItemController {
@@ -57,5 +60,10 @@ public class UsedItemController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(c);
+    }
+    @GetMapping("/UsedItem")
+    public Collection<UsedItem> UsedItem() {
+
+        return usedItemRepository.findAll().stream().collect(Collectors.toList());
     }
 }
