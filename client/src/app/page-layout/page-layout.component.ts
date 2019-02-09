@@ -82,4 +82,10 @@ export class PageLayoutComponent implements OnInit {
 
     });
   }
+
+  gofindcustomeras(){
+    this.router.navigate(['/find-customeras']).then(() => {
+      
+    });
+  }
 }

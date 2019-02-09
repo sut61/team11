@@ -55,6 +55,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './shared/login/login.guard';
 import { PriceTagComponent } from './components/price-tag/price-tag.component';
 import { SavePriceComponent } from './components/save-price/save-price.component';
+import { FindCustomerasComponent } from './components/find-customeras/find-customeras.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -90,7 +91,8 @@ const routes: Routes = [
   {path: 'findChecks', component: FindChecksComponent, canActivate: [LoginGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'priceTag', component:PriceTagComponent},
-  {path: 'saveprice', component:SavePriceComponent}
+  {path: 'saveprice', component:SavePriceComponent},
+  {path: 'find-customeras', component: FindCustomerasComponent}
   
 ];
 
@@ -126,7 +128,8 @@ const routes: Routes = [
     PromotionComponent,
     LoginComponent,
     PriceTagComponent,
-    SavePriceComponent
+    SavePriceComponent,
+    FindCustomerasComponent
     
   ],
   imports: [
