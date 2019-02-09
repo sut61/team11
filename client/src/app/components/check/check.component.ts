@@ -39,14 +39,14 @@ export class CheckComponent implements OnInit {
   ngOnInit() {
     this.service.getBuyItems().subscribe(data => {
       this.buyItems = data;
-      console.log(this.buyItems);
+      // console.log(this.buyItems);
     });
     this.service.getCategorize().subscribe(data => {
       this.categorizes = data;
     });
     this.service.getChecks().subscribe(data => {
         this.check1s = data;
-        console.log(this.check1s);
+        // console.log(this.check1s);
       });
   this.sub2 = this.route.params.subscribe(param => {
     this.id2 = param['id'];
@@ -61,10 +61,9 @@ export class CheckComponent implements OnInit {
 
 save() {
     this.evaluate = this.check.evaluate;
-    console.log(this.evaluate);
+    // console.log(this.evaluate);
       this.checkerror()
-      this.httpClient.post('//localhost:8080/Checks/' + this.id2 + '/' + this.check.buyItem.buyItemId +'/'+ this.check.evaluate + '/'
-       + this.check.weight + '/' + this.check.categorize.categorizeId,
+      this.httpClient.post('//localhost:8080/Checks/' + this.id2 + '/' + this.check.buyItem.buyItemId + '/' + this.check.categorize.categorizeId,
       this.check)
       .subscribe(
           data => {

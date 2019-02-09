@@ -29,22 +29,23 @@ public class ChecksController {
     }
 
 
-    @PostMapping("/Checks/{eId}/{buyItemId}/{evaluate}/{weight}/{categorizeId}")
-    public Checks newCheck(@RequestBody Checks newCheck,@PathVariable String evaluate,@PathVariable String weight,
+    @PostMapping("/Checks/{eId}/{buyItemId}/{categorizeId}")
+    public Checks newCheck(@RequestBody Checks newCheck,
                            @PathVariable long eId,@PathVariable long categorizeId,@PathVariable long buyItemId){
 
         Categorize categorize = categorizeRepository.findById(categorizeId);
         Employee employee = employeeRepository.findById(eId);
         BuyItem buyItem = buyItemRepository.findById(buyItemId);
 
-        newCheck.setEvaluate(evaluate);
-        newCheck.setWeight(weight);
-        newCheck.setDate(new Date());
-        newCheck.setBuyItem(buyItem);
-        newCheck.setEmployee(employee);
-        newCheck.setCategorize(categorize);
+        Checks checks = new Checks();
+        checks.setEvaluate(newCheck.getEvaluate());
+        checks.setWeight(newCheck.getWeight());
+        checks.setDate(new Date());
+        checks.setBuyItem(buyItem);
+        checks.setEmployee(employee);
+        checks.setCategorize(categorize);
 
-        return checksRepository.save(newCheck);
+        return checksRepository.save(checks);
 
     }
 

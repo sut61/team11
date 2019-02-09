@@ -47,15 +47,15 @@ export class CustomerComponent implements OnInit {
     });
     this.service.getCustomer().subscribe(data => {
         this.customer1s = data;
-        console.log(this.customer1s);
+        // console.log(this.customer1s);
     });
     this.service.getEmployee().subscribe(data => {
       this.employees = data;
-      console.log(this.employees);
+      // console.log(this.employees);
     });
     this.service.getProvince().subscribe(data => {
       this.provinces = data;
-      console.log(this.provinces);
+      // console.log(this.provinces);
     });
 
   }
@@ -68,8 +68,8 @@ export class CustomerComponent implements OnInit {
   save() {
 //  if(this.customer.customername != null){
     this.checkerror()
-    console.log(this.customer.customername);
-    console.log(this.customer.address);
+    // console.log(this.customer.customername);
+    // console.log(this.customer.address);
     this.httpClient.post('//localhost:8080/Customer/' + this.customer.branch.bid + '/' + this.customer.customername +'/'+ this.customer.tel + '/'
      + this.customer.career.cid + '/' + this.customer.address + '/' + this.customer.province.pid,
     this.customer)
