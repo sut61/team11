@@ -3,6 +3,9 @@ package sut.se.team11.entity;
 import lombok.Data;
 import lombok.NonNull;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Data
@@ -16,6 +19,9 @@ public class Customer {
     private Long customerId;
     private @NonNull String customerName;
     private @NonNull String address;
+    @NotNull
+    @Size(min = 10, max = 10)
+    @Pattern(regexp = "\\d+")
     private @NonNull String tel;
 
     @ManyToOne
