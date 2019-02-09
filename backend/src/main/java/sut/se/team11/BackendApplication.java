@@ -200,19 +200,7 @@ public class BackendApplication {
 					stockRepository.save(s);
 				}
 			});
-			Stream.of("Good").forEach(el -> {
-				Checks c = new Checks();
-				Categorize cr = categorizeRepository.findById(1);
-				Employee e = employeeRepository.findById(1);
-				BuyItem b = buyItemRepository.findById(1);
-				c.setBuyItem(b);
-				c.setCategorize(cr);
-				c.setEmployee(e);
-				c.setEvaluate(el);
-				c.setWeight("3333");
 
-				checksRepository.save(c);
-			});
 			Stream.of("Pending").forEach(status -> {
 				Cart c = new Cart();
 				Customer cus = customerRepository.findById(1);
@@ -259,6 +247,20 @@ public class BackendApplication {
 
 			});
 
+			Stream.of("Goodlink").forEach(el -> {
+				Checks c = new Checks();
+				Categorize cr = categorizeRepository.findById(1);
+				Employee e = employeeRepository.findById(1);
+				BuyItem b = buyItemRepository.findById(1);
+				c.setBuyItem(b);
+				c.setCategorize(cr);
+				c.setDate(new Date());
+				c.setEmployee(e);
+				c.setEvaluate(el);
+				c.setWeight(333);
+
+				checksRepository.save(c);
+			});
 			Stream.of("อุปกรณ์ชำรุด","ระบบอินเทอร์เน็ต","เครื่องจักรชำรุด","ทั่วไป").forEach(ptName -> {
 				ProblemType problemType = new ProblemType();
 				problemType.setPtName(ptName);
