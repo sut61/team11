@@ -1,10 +1,12 @@
 package sut.se.team11.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.format.annotation.NumberFormat;
 
+import javax.validation.constraints.*;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -17,9 +19,20 @@ public class Quotation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long quotationidId;
-    private @NonNull double price;
-    private @NonNull String detail;
-    private @NonNull Date date;
+
+
+    @NotNull
+    @Min(0)
+    @Max(1000000)
+    @NumberFormat(pattern = "#,###,###.##")
+    private double price;
+
+
+    @NotNull
+    private String detail;
+
+    @NotNull
+    private  Date date;
 
 
 
