@@ -83,6 +83,7 @@ const routes: Routes = [
   {path: 'rpfindEmp', component: RpfindEmpComponent},
   {path: ':id/create-rp', component: CreateRpComponent},
   {path: 'view-list-report', component: ViewListReportComponent},
+  {path: 'promotion', component: PromotionComponent},
   {path: 'findChecks', component: FindChecksComponent}
 ];
 
@@ -114,7 +115,8 @@ const routes: Routes = [
     RpfindEmpComponent,
     CreateRpComponent,
     ViewListReportComponent,
-    FindChecksComponent
+    FindChecksComponent,
+    PromotionComponent
     
   ],
   imports: [
