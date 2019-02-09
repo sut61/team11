@@ -18,7 +18,7 @@ public class BuyItem {
     @GeneratedValue(generator = "buy_seq", strategy = GenerationType.SEQUENCE)
     @Column(unique = true)
     private @NotNull Long buyItemId;
-    @Size(min = 5, max = 30)
+    @Size(min = 5, max = 15)
     @Pattern(regexp = "^[A-Za-z_ ]+")
     private @NotNull String itemName;
     private @NotNull double price;
