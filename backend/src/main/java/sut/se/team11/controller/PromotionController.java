@@ -48,7 +48,7 @@ public class PromotionController {
 
         promotion1.setPromotionName(promotion.getPromotionName());
         promotion1.setNumberOfTime(promotion.getNumberOfTime());
-        promotion1.setDiscountedPrice(promotion.getDiscountedPrice());
+        promotion1.setDetailPromotion(promotion.getDetailPromotion());
         promotion1.setDateIn(promotion.getDateIn());
         promotion1.setDateOut(promotion.getDateOut());
         promotion1.setEmployee(employee);

@@ -1,0 +1,67 @@
+<div class="content">
+    <mat-card class="card employee-card">
+      <mat-card-header class="header">    
+        <h2 class="title"> โปรโมชั่น <mat-icon class="icon" >local_grocery_store </mat-icon> </h2> 
+      </mat-card-header>
+      <mat-card-content> <br> <br> 
+
+
+  <mat-list role="list">
+        <mat-list-item role="listitem">ชื่อพนักงาน : {{employee.ename}}</mat-list-item>
+  </mat-list>
+
+  
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="สาขา" name="branch" [(ngModel)]="promotion.branch" required>
+      <mat-option *ngFor="let branch of branches" [value]="branch">
+        {{branch.bname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  
+  <mat-form-field  class="example-full-width">
+    <mat-label>ชื่อโปรโมชั่น</mat-label>
+    <input matInput placeholder="ชื่อโปรโมชั่น" [(ngModel)]="promotion.promotionName" name="name" required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="ประเภทโปรโมชั่น" name="typePromotion" [(ngModel)]="promotion.typePromotion" required>
+      <mat-option *ngFor="let typePromotion of typePromotions" [value]="typePromotion">
+        {{typePromotion.typePromotionName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  
+  <mat-form-field  class="example-full-width">
+    <mat-label>จำนวนครั้งที่ใช้โปรโมชั่น</mat-label>
+    <input matInput placeholder="จำนวนครั้งที่ใช้โปรโมชั่น" [(ngModel)]="promotion.numberOfTime" name="name" required>
+  </mat-form-field>
+
+  <mat-form-field  class="example-full-width">
+    <mat-label>อธิบายรายละเอียดส่วนลดโปรโมชั่น</mat-label>
+    <input matInput placeholder="อธิบายรายละเอียดส่วนลดโปรโมชั่น" [(ngModel)]="promotion.detailPromotion" name="name" required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput [matDatepicker]="picker" placeholder="วันที่เริ่มโปรโมชั่น" [(ngModel)]="promotion.dateIn" name="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field> 
+
+  
+
+  <mat-form-field class="example-full-width">
+    <input matInput [matDatepicker]="picker3" placeholder="วันที่สิ้นสุดโปรโมชั่น" [(ngModel)]="promotion.dateOut" name="date">
+    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+    <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field> 
+
+  <div class="button-submit">
+      <button mat-flat-button color="warn" (click)="save()" >  บันทึก </button>
+      
+    </div>
+  </mat-card-content>
+ 
+</mat-card>

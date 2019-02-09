@@ -24,7 +24,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PageLayoutComponent } from './page-layout/page-layout.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { EmployeeComponent } from './components/employee/employee.component';  
+import { EmployeeComponent } from './components/employee/employee.component'; 
+import { EmpPromotionComponent } from './components/empPromotion/empPromotion.component'; 
 import { FindCustomerComponent } from './components/find-customer/find-customer.component';
 import { CreateCartComponent } from './components/create-cart/create-cart.component';
 import { ViewListItemComponent } from './components/view-list-item/view-list-item.component';
@@ -38,7 +39,7 @@ import { FindEmployeeComponent } from './components/find-employee/find-employee.
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { FindCustomer21Component } from './components/find-customer21/find-customer21.component';
 import { SaleItemComponent } from './components/sale-item/sale-item.component';
-
+import { PromotionComponent } from './components/promotion/promotion.component';
 
 import { SaveEmployeeComponent } from './components/save-employee/save-employee.component';
 import { SaveSaleitemComponent } from './components/save-saleitem/save-saleitem.component';
@@ -56,11 +57,14 @@ const routes: Routes = [
   {path: '', redirectTo: '/customer', pathMatch: 'full'},
   {path: 'customer', component: CustomerComponent},
   {path: 'employee', component: EmployeeComponent},
+  {path: 'empPromotion', component: EmpPromotionComponent},
   {path: 'find-customer', component: FindCustomerComponent},
   {path: ':id/createCart', component: CreateCartComponent},
   {path: ':id/view-list', component: ViewListItemComponent},
   {path: 'Emp', component: EmpComponent},
+  {path: 'EmpPromotion', component: EmpPromotionComponent},
   {path: ':id/QUOTATION', component: QUOTATIONComponent},
+  {path: ':id/Promotion', component: PromotionComponent},
   {path: 'refind-emp', component: RefindEmpComponent},
   {path: ':id/RefindCart', component: RefindCartComponent},
   {path: ':id/:id2/view-cart-item', component: ViewCartItemComponent},
@@ -93,6 +97,7 @@ const routes: Routes = [
     ViewListItemComponent,
     QUOTATIONComponent,
     EmpComponent,
+    EmpPromotionComponent,
     RefindCartComponent,
     RefindEmpComponent,
     ViewCartItemComponent,

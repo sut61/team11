@@ -20,7 +20,7 @@ public class Promotion {
     private long promotionId;
     private @NonNull String promotionName;
     private @NonNull Integer numberOfTime;
-    private @NonNull Double discountedPrice;
+    private @NonNull String detailPromotion;
     private @NonNull Date dateIn;
     private @NonNull Date dateOut;
 
