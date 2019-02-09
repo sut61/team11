@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.container .find-customeas{
+    display: block;
+    margin: auto;
+
+}
+.container .find-customeras .inputID{
+    width: 100%;
+}
+.container #findBtn{
+    padding: 10px;
+    width: 100px;
+    font-size: 20px;
+}
