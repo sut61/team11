@@ -28,9 +28,11 @@
                         </mat-select>
                       </mat-form-field>
 
-                      <mat-form-field  class="name-input">
+
+                      <mat-form-field  hintLabel="Min 5 , Max 50 characters" class="name-input">
                         <mat-label>รายละเอียด</mat-label>
-                        <input matInput placeholder="รายละเอียด" [(ngModel)]="check.evaluate" name="evaluate" required>
+                        <input matInput #input maxlength="50" name="รายละเอียด" [(ngModel)]="check.evaluate" placeholder="รายละเอียด..." required>
+                        <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
                       </mat-form-field>
 
                       <mat-form-field  class="name-input">
