@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CheckEmployeeService,Employee } from 'src/app/shared/checkEmployee/check-employee.service';
-
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 
 @Component({
@@ -21,8 +21,13 @@ export class CheckEmployeeComponent implements OnInit {
     private find: CheckEmployeeService,
     private router: Router,
     private route: ActivatedRoute,
-    // public notification: NotificationService
+    public snackBar: MatSnackBar
   ) { }
+  config: MatSnackBarConfig = {
+    duration: 5000,
+    horizontalPosition: 'right',
+    verticalPosition: 'top'
+  }
 
   ngOnInit() {
 
@@ -34,10 +39,14 @@ export class CheckEmployeeComponent implements OnInit {
         this.employee = res;
         // console.log(this.employee.eId);
         this.router.navigate([`${this.employee.eid}/Check`]);
+
     },err => {
-   
+      this.config['panelClass'] = ['notification','error'];
+      this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
       console.log(err);
     });
+    // this.config['panelClass'] = ['notification','error'];
+    // this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
   }
 
 }
