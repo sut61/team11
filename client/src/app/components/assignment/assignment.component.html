@@ -1,0 +1,32 @@
+<div class="container">  
+  <div>
+        <mat-list-item>
+          <mat-icon mat-list-icon>face</mat-icon>
+          <h4 mat-line>ชื่อลูกค้า {{customer.customerName}}</h4>
+        </mat-list-item>   
+        <form #regisForm="ngForm" (ngSubmit)="save()">
+              <i class="material-icons">assessment</i>
+  <h3>แบบประเมิณควมพึงพอใจต่อคุณภาพสินค้าและบริการ</h3>
+
+  <mat-form-field class="name-input">
+    <mat-select placeholder="Select on Score" name="assignment" [(ngModel)]="assignment.scoreAssignment" required>
+      <mat-option *ngFor="let assignment of assignments" [value]="assignment">
+        {{assignment.level}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div>
+      <i class="material-icons">comment</i>
+      <h3>ข้อเสนอแนะเพิ่มเติม</h3>
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Leave a comment"[(ngModel)]="assignment.comment" name="comment" required>
+  </mat-form-field>
+  </div>
+    <div>
+      <button mat-raised-button color="accent" [disabled]="regisForm.invalid || checkSelected == false">
+        บันทึก
+      </button>
+    </div>
+    </form>
+  </div>
+</div>
