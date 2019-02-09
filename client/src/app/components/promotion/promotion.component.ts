@@ -73,26 +73,34 @@ export class PromotionComponent implements OnInit {
   }
 
   save(){
+
+    if( this.id2 != null && this.promotion != null ){
     
     console.log(this.promotion);
     this.httpClient.post('//localhost:8080/Promotion/' + this.id2,this.promotion)
+
     .subscribe(
       data => {
           console.log('PUT Request is successful', data);
-          this.checkerror();
+          this.config['panelClass'] = ['notification','er'];
+          this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
       },
+      
       error => {
-          console.log('Rrror', error);
+          // console.log('Rrror', error);
+          this.config['panelClass'] = ['notification','error'];
+          this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+          
       }
     );
-
-    this.router.navigate(['/empPromotion']).then(() => {
+    this.router.navigate(['/EmpPromotion']).then(() => {
     });
     
- }
-
- checkerror(){
-  this.config['panelClass'] = ['notification','error'];
-  this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
+    }else{
+      console.log("คุณกรอกข้อมูลไม่ครบ");
+      this.config['panelClass'] = ['notification','error'];
+      this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+    }
 }
+
 }
