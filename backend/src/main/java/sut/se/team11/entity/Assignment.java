@@ -20,10 +20,10 @@ public class Assignment {
     @JoinColumn(name = "customerId")
     private Customer customer;
 
-//    @ManyToOne
-//    @NonNull
-//    @JoinColumn(name = "employeeId")
-//    private Employee employee;
+    @ManyToOne
+    @NonNull
+    @JoinColumn(name = "employeeId")
+    private Employee employee;
 
     @OneToOne
     @NonNull

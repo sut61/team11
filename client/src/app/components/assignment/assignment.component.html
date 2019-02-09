@@ -6,12 +6,12 @@
         </mat-list-item>   
         <form #regisForm="ngForm" (ngSubmit)="save()">
               <i class="material-icons">assessment</i>
-  <h3>แบบประเมิณควมพึงพอใจต่อคุณภาพสินค้าและบริการ</h3>
+  <h3>แบบประเมิณความพึงพอใจต่อคุณภาพสินค้าและบริการ</h3>
 
   <mat-form-field class="name-input">
     <mat-select placeholder="Select on Score" name="assignment" [(ngModel)]="assignment.scoreAssignment" required>
-      <mat-option *ngFor="let assignment of assignments" [value]="assignment">
-        {{assignment.level}}
+      <mat-option *ngFor="let score of scores" [value]="score">
+        {{score.level}}
       </mat-option>
     </mat-select>
   </mat-form-field>

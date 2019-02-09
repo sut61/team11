@@ -4,6 +4,7 @@
     <mat-form-field appearance="outline" class="inputID">
       <mat-label>ป้อนไอดีลูกค้า</mat-label>
       <input matInput [(ngModel)]="id" name="id" placeholder="ป้อนไอดีลูกค้า">
+      <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <div>
       <button mat-raised-button color="warn" (click)="onClick(id)" [disabled]="id == null">ค้นหา</button>
