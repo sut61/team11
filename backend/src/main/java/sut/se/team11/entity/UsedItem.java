@@ -22,7 +22,6 @@ public class UsedItem {
 
     @ManyToOne
     @JoinColumn(name = "stockId")
-    @JsonIgnore
     private Stock stock;
     @ManyToOne
     @JoinColumn(name = "repairmanId")

@@ -24,11 +24,12 @@ public class UsedItemController {
     @Autowired
     private RepairmanRepository repairmanRepository;
 
-    @PostMapping(path = "/{stockId}/newUsedItem")
-    private ResponseEntity<UsedItem> newUsedItem(@PathVariable long stockId, @RequestBody UsedItem usedItem){
+    @PostMapping(path = "/{checksId}/newUsedItem")
+    private ResponseEntity<UsedItem> newUsedItem(@PathVariable long checksId, @RequestBody UsedItem usedItem){
         UsedItem u = new UsedItem();
         long repairmanId = usedItem.getRepairman().getRepairmanId();
-        long checksId = usedItem.getChecks().getChecksId();
+        long stockId = usedItem.getStock().getStockId();
+
         Stock s = stockRepository.findById(stockId);
         Repairman r = repairmanRepository.findById(repairmanId);
         Checks c = checksRepository.findById(checksId);

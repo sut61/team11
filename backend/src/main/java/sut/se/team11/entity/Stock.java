@@ -19,6 +19,4 @@ public class Stock {
     private String stockName;
     private String description;
 
-    @OneToMany(mappedBy = "stock")
-    private List<UsedItem> usedItems;
 }
