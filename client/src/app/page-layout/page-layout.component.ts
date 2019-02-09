@@ -15,7 +15,7 @@ export class PageLayoutComponent implements OnInit {
     this.router.navigate(['/find-customer']);
   }
   goUsedItemForm(){
-    this.router.navigate(['/used-item-form']);
+    this.router.navigate(['/findChecks']);
   }
   gocustomer(){
     this.router.navigate(['/customer']).then(() => {
