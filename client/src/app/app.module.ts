@@ -49,6 +49,7 @@ import { UsedItemFormComponent } from './components/used-item-form/used-item-for
 import { RpfindEmpComponent } from './components/rpfind-emp/rpfind-emp.component';
 import { CreateRpComponent } from './components/create-rp/create-rp.component';
 import { ViewListReportComponent } from './components/view-list-report/view-list-report.component';
+import { FindChecksComponent } from './components/find-checks/find-checks.component';
 
 
 const routes: Routes = [
@@ -77,7 +78,8 @@ const routes: Routes = [
   {path: 'used-item-form', component: UsedItemFormComponent},
   {path: 'rpfindEmp', component: RpfindEmpComponent},
   {path: ':id/create-rp', component: CreateRpComponent},
-  {path: 'view-list-report', component: ViewListReportComponent}
+  {path: 'view-list-report', component: ViewListReportComponent},
+  {path: 'findChecks', component: FindChecksComponent}
 ];
 
 @NgModule({
@@ -106,7 +108,8 @@ const routes: Routes = [
     UsedItemFormComponent,
     RpfindEmpComponent,
     CreateRpComponent,
-    ViewListReportComponent
+    ViewListReportComponent,
+    FindChecksComponent
     
   ],
   imports: [

@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="search">
+    <h1>ค้นหาใบตรวจสภาพ</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>ป้อนไอดีใบตรวจสภาพ</mat-label>
+      <input matInput [(ngModel)]="idChecks" name="idChecks" placeholder="ป้อนไอดีใบตรวจสภาพ..."  required>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button mat-raised-button color="warn" (click)="submit()" [disabled]="idChecks == null">ถัดไป</button>
+  </div>
+</div>

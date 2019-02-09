@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    text-align: center;
+}
+.container .search{
+    margin: 10em auto;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.container .search mat-form-field{
+   max-width: 500px;
+   margin: auto;
+   display: block;
+}
+.search button{
+    margin: auto;
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+}
