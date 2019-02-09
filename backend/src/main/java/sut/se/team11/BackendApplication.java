@@ -26,7 +26,8 @@ public class BackendApplication {
 						   RepairmanRepository repairmanRepository, StockRepository stockRepository,
 						   ChecksRepository checksRepository,UsedItemRepository usedItemRepository, SavePriceRepository savePriceRepository,
 						   ProblemTypeRepository problemTypeRepository, DepartmentRepository departmentRepository,
-						   TypePromotionRepository typePromotionRepository, CartRepository cartRepository
+						   TypePromotionRepository typePromotionRepository, CartRepository cartRepository,
+						   AccountRepository accountRepository
 	){
 		return  args -> {
 
@@ -278,6 +279,18 @@ public class BackendApplication {
 				department.setDepName(depName);
 				departmentRepository.save(department);
 
+			});
+
+			///set For Login
+			Stream.of("user").forEach(username -> {
+				Account account = new Account();
+				Employee e = employeeRepository.findById(1);
+				account.setEmployee(e);
+				account.setLogin(false);
+				account.setUsername(username);
+				account.setPassword("111111");
+
+				accountRepository.save(account);
 			});
 		};
 	}
