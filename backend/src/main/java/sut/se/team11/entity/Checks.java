@@ -14,19 +14,17 @@ public class Checks {
     @Id
     @SequenceGenerator(name = "checks_seq", sequenceName = "checks_seq")
     @GeneratedValue(generator = "checks_seq", strategy = GenerationType.SEQUENCE)
-    private Long checksId;
+    private @NotNull Long checksId;
 
+    @Size(min = 5, max = 50)
+    @Pattern(regexp = "\\w+")
     private @NotNull String evaluate;
     private Date date;
 
-
-    @NotNull
-    @Size(min = 2, max = 5)
-    @Pattern(regexp = "\\d+")
-    private String weight;
+    private  @NotNull int weight;
 
     @ManyToOne
-    private  Employee employee;
+    private   Employee employee;
     @ManyToOne
     private BuyItem buyItem;
     @ManyToOne

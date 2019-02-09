@@ -45,8 +45,8 @@ public class ChecksTest {
         Checks c = new Checks();
 
         c.setDate(new Date());
-        c.setEvaluate("AAAAA");
-        c.setWeight("125");
+        c.setEvaluate("122313qwedsadAAAAA");
+        c.setWeight(35);
 
         entityManager.persist(c);
         entityManager.flush();
@@ -65,7 +65,7 @@ public class ChecksTest {
 
         c.setDate(new Date());
         c.setEvaluate(null);
-        c.setWeight("125");
+        c.setWeight(13);
 
         try {
             entityManager.persist(c);
@@ -92,8 +92,8 @@ public class ChecksTest {
         Checks c = new Checks();
 
         c.setDate(new Date());
-        c.setEvaluate("dsddd");
-        c.setWeight("42154154122");
+        c.setEvaluate("122313qwedsadAAAAAqwedasfjhqwjlkjroiquwiorj102384r90iqwopjfasouf9qpueoru19348e9udafihvaslfj9qier9i123peqowjdklasfasfasgf1234rqwfasc");
+        c.setWeight(12);
 
         try {
             entityManager.persist(c);
@@ -118,8 +118,8 @@ public class ChecksTest {
         Checks c = new Checks();
 
         c.setDate(new Date());
-        c.setEvaluate("dsddd");
-        c.setWeight("4");
+        c.setEvaluate("12a");
+        c.setWeight(5);
 
         try {
             entityManager.persist(c);
@@ -137,13 +137,14 @@ public class ChecksTest {
             System.out.println(" ");
         }
     }
+
     @Test
     public void testChecksPattern() {
         Checks c = new Checks();
 
         c.setDate(new Date());
-        c.setEvaluate("dsddd");
-        c.setWeight("454a");
+        c.setEvaluate("-122313qwedsadAAAAA");
+        c.setWeight(21);
 
         try {
             entityManager.persist(c);
@@ -171,15 +172,15 @@ public class ChecksTest {
         Checks c = new Checks();
 
         c.setChecksId((long) 1);
-        c.setEvaluate("dfddd");
-        c.setWeight("41");
+        c.setEvaluate("122313qwedsadAAAAA");
+        c.setWeight(41);
 //		entityManager.persist(c);
 //		entityManager.flush();
 
 //		Checks c1 = new Checks();
         c.setChecksId((long) 2);
-        c.setEvaluate("dfddd");
-        c.setWeight("41");
+        c.setEvaluate("122313qwedsadAAAAA");
+        c.setWeight(41);
 //		entityManager.persist(c1);
 //		entityManager.flush();
 
