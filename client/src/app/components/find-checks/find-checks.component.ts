@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../shared/notification/notification.service';
 import { FindChecksService } from '../../shared/find-checks/find-checks.service';
+import { Checks } from 'src/app/shared/check/check.service';
 @Component({
   selector: 'app-find-checks',
   templateUrl: './find-checks.component.html',
@@ -10,7 +11,7 @@ import { FindChecksService } from '../../shared/find-checks/find-checks.service'
 export class FindChecksComponent implements OnInit {
 
   idChecks: any;
-  getId: any;
+  check: Checks;
   constructor(
     private router: Router,
     public notification: NotificationService,
@@ -23,8 +24,8 @@ export class FindChecksComponent implements OnInit {
 
   submit(){
     this.find.findChecks(this.idChecks).subscribe((resId) => {
-      this.getId = resId;
-      this.router.navigate([`${this.getId}/used-item-form`]);
+      this.check = resId;
+      this.router.navigate([`${this.check.checksId}/used-item-form`]);
     }, error => {
       this.notification.notFound();
       console.log(error);

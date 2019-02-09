@@ -5,40 +5,36 @@
         <h2>ป้อนข้อมูล</h2>
       </mat-card-header>
       <mat-card-content class="content">
-        <form>
-
-          <mat-form-field appearance="outline">
-            <mat-label>ป้อนไอดี</mat-label>
-            <input matInput name="id" id="id" placeholder="ป้อนไอดีของใบเช็คสภาพ...">
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-select placeholder="เลือกที่จัดเก็บ">
-              <mat-option>
-                <!-- {{stock.stockName}} -->
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+        <form [formGroup]="form" (ngSubmit)="submit()">
 
           <mat-form-field appearance="outline">
             <mat-label>ป้อนราคา</mat-label>
-            <input matInput>
+            <input matInput name="price" id="price" formControlName="price" placeholder="ป้อนราคา...">
           </mat-form-field>
-
+          
           <mat-form-field>
-            <mat-select placeholder="เลือกช่างซ่อม">
-              <mat-option >
-                <!-- {{repairman.repairmanName}} -->
+            <mat-select placeholder="เลือกที่จัดเก็บ" formControlName="stock">
+              <mat-option *ngFor="let stock of stocks" [value]="stock" id="stock.stockId">
+                {{stock.stockName}}
               </mat-option>
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field appearance="outline">
-            <mat-label>ป้อนรายละเอียด</mat-label>
-            <input matInput>
+          <mat-form-field>
+            <mat-select placeholder="เลือกช่างซ่อม" formControlName="repairman">
+              <mat-option *ngFor="let repairman of repairmans" [value]="repairman" id="repairman.repairmanId">
+                {{repairman.repairmanName}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
 
-          <button mat-raised-button color="warn" id="save">บันทึก</button>
+          <mat-form-field appearance="outline" hintLabel="Min 10 , Max 50 characters">
+            <mat-label>ป้อนรายละเอียด</mat-label>
+            <input matInput #input maxlength="50" name="details" id="details" formControlName="details" placeholder="ป้อนรายละเอียด...">
+            <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
+          </mat-form-field>
+
+          <button mat-raised-button color="warn" id="save" type="submit" [disabled]="form.invalid">บันทึก</button>
         </form>
       </mat-card-content>
     </mat-card>    

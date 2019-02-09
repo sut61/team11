@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UsedItem } from '../models/model-class';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,7 @@ export class UsedItemService {
   getRepairmans():Observable<any>{
     return this.http.get(this.API + '/Repairmans');
   }
-  insertUsedItem(stockId: any, usedItem: any){
-    return this.http.post(this.API + '/' + stockId + '/newUsedItem', usedItem);
+  insertUsedItem(checksId: any, usedItem: UsedItem){
+    return this.http.post(this.API + '/' + checksId + '/newUsedItem', usedItem);
   }
 }

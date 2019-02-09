@@ -31,4 +31,9 @@ export class NotificationService {
     this.config['panelClass'] = ['notification','error'];
     this.snackBar.open('Save Success!!','', this.config);
   }
+
+  saveSuccess(){
+    this.config['panelClass'] = ['notification','success'];
+    this.snackBar.open('บันทึกข้อมูลสำเร็จ','', this.config);
+  }
 }
