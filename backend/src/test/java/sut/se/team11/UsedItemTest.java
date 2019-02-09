@@ -34,18 +34,14 @@ public class UsedItemTest {
 
     //    บันทึกข้อมูลได้ปกติ
     @Test
-    public void testInsertNormalCase(){
-        UsedItem u1 = new UsedItem();
-        u1.setPrice(100.0);
-        u1.setDetails("AAAAAAAAAAA");
+    public void testInsertNormalsCase(){
+        UsedItem u11 = new UsedItem();
+        u11.setPrice(500.0);
+        u11.setDetails("AAAAAAAAAA");
 
         try{
-            entityManager.persist(u1);
-            entityManager.flush();
 
-            fail("Should not pass to this line");
-        }catch (javax.validation.ConstraintViolationException e){
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            entityManager.persist(u11);
 
             System.out.println("\n");
             System.out.println(" ");
@@ -55,8 +51,9 @@ public class UsedItemTest {
             System.out.println(" ");
             System.out.println("\n");
 
-            assertEquals(violations.isEmpty(),false);
-            assertEquals(violations.size(),1);
+        }catch (javax.validation.ConstraintViolationException e){
+            fail("Should not pass to this line");
+
         }
     }
 
@@ -112,7 +109,7 @@ public class UsedItemTest {
             System.out.println("\n");
 
             assertEquals(violations.isEmpty(),false);
-            assertEquals(violations.size(),2);
+            assertEquals(violations.size(),1);
         }
     }
 
@@ -140,7 +137,7 @@ public class UsedItemTest {
             System.out.println("\n");
 
             assertEquals(violations.isEmpty(),false);
-            assertEquals(violations.size(),2);
+            assertEquals(violations.size(),1);
         }
     }
 
