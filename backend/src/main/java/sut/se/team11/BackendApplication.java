@@ -241,7 +241,6 @@ public class BackendApplication {
 				priceTag.setCategoryTwo(c2);
 				priceTag.setPriceTwo(300);
 				priceTag.setUsedItem(ut);
-				priceTag.setExplain("Good Quality");
 				priceTag.setEmployee(emp);
 				savePriceRepository.save(priceTag);
 
@@ -293,6 +292,7 @@ public class BackendApplication {
 				account.setPassword("111111");
 
 				accountRepository.save(account);
+
 			});
 		};
 	}

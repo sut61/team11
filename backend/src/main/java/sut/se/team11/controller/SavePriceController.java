@@ -1,10 +1,7 @@
 package sut.se.team11.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sut.se.team11.entity.Category;
 import sut.se.team11.entity.Employee;
 import sut.se.team11.entity.SavePrice;
@@ -13,6 +10,9 @@ import sut.se.team11.repository.CategoryRepository;
 import sut.se.team11.repository.EmployeeRepository;
 import sut.se.team11.repository.SavePriceRepository;
 import sut.se.team11.repository.UsedItemRepository;
+
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,25 +26,31 @@ public class SavePriceController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @PostMapping(path = "/newPriceTag")
-    private SavePrice newPriceTag(@RequestBody SavePrice savePrice) {
+    @GetMapping("/SavePrice")
+    public Collection<SavePrice> SavePrice() {
+
+        return savePriceRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @PostMapping(path = "/newSavePrice/{c1}/{c2}")
+    private SavePrice newSavePrice (@RequestBody SavePrice savePrice,@PathVariable long c1,@PathVariable long c2) {
         SavePrice sp = new SavePrice();
-        long C1 = savePrice.getCategoryOne().getCategoryId();
-        long C2 = savePrice.getCategoryTwo().getCategoryId();
         long used = savePrice.getUsedItem().getUsedItemId();
 
-        Category c1 = categoryRepository.findById(C1);
-        Category c2 = categoryRepository.findById(C2);
+
+        Category category1 = categoryRepository.findById(c1);
+        Category category2 = categoryRepository.findById(c2);
         UsedItem ut = usedItemRepository.findById(used);
         Employee em = employeeRepository.findById(savePrice.getEmployee().getEId());
 
-        sp.setCategoryOne(c1);
+        sp.setCategoryOne(category1);
         sp.setPriceOne(savePrice.getPriceOne());
-        sp.setCategoryTwo(c2);
+        sp.setCategoryTwo(category2);
         sp.setPriceTwo(savePrice.getPriceTwo());
         sp.setUsedItem(ut);
-        sp.setExplain(savePrice.getExplain());
+        sp.setUsedItem(ut);
         sp.setEmployee(em);
+
 
         return savePriceRepository.save(sp);
     }
