@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../shared/login/login.service';
+import { Account } from '../shared/models/model-class';
 @Component({
   selector: 'app-page-layout',
   templateUrl: './page-layout.component.html',
@@ -7,9 +9,23 @@ import { Router } from '@angular/router';
 })
 export class PageLayoutComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  acc: Account;
+  constructor(
+    private router: Router,
+    private login: LoginService
+    ) { 
+      this.acc = JSON.parse(localStorage.getItem('account'));
+    }
 
   ngOnInit() {
+    this.acc = JSON.parse(localStorage.getItem('account'));
+  }
+  logout(){
+    console.log(this.acc.accId);
+    this.login.logout(this.acc.accId).subscribe(() => {
+      localStorage.clear();
+      this.router.navigate(['/login']);
+    });
   }
   goBuyItem(){
     this.router.navigate(['/find-customer']);

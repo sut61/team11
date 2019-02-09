@@ -3,14 +3,12 @@ package sut.se.team11.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sut.se.team11.entity.Account;
 import sut.se.team11.repository.AccountRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class AccountController {
     @Autowired
     private AccountRepository accountRepository;
@@ -19,7 +17,7 @@ public class AccountController {
     private ResponseEntity<Account> login(@PathVariable String username, @PathVariable String password){
         Account a = accountRepository.findByUsernameAndPassword(username,password);
         if(a == null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(a);
     }
