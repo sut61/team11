@@ -1,6 +1,9 @@
 package sut.se.team11.controller;
 
+import org.hibernate.annotations.Check;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sut.se.team11.entity.Checks;
@@ -46,5 +49,14 @@ public class UsedItemController {
         UsedItem save = usedItemRepository.save(u);
         return ResponseEntity.ok().body(save);
 
+    }
+
+    @GetMapping(path = "/findChecks/{checksId}")
+    private ResponseEntity<Checks> findChecks(@PathVariable long checksId){
+        Checks c = checksRepository.findById(checksId);
+        if(c == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(c);
     }
 }
