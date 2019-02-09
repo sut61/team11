@@ -38,7 +38,6 @@ public class Employee {
     private Branch branch;
 
     @ManyToOne
-    private Position position;  
-
+    private Position position;
 
 }
