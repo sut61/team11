@@ -34,7 +34,7 @@ export class CustomerComponent implements OnInit {
     private service: CustomerService , private httpClient: HttpClient,private router: Router,public snackBar: MatSnackBar) { }
 
     config: MatSnackBarConfig = {
-      duration: 1000,
+      duration: 5000,
       horizontalPosition: 'right',
       verticalPosition: 'top'
     }
@@ -79,6 +79,8 @@ export class CustomerComponent implements OnInit {
         },
         error => {
             console.log('Rrror', error);
+            this.config['panelClass'] = ['notification','error'];
+            this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
         }
       );
       this.router.navigate(['/customer']).then(() => {
@@ -90,7 +92,7 @@ export class CustomerComponent implements OnInit {
   }
 
   checkerror(){
-    this.config['panelClass'] = ['notification','error'];
+    this.config['panelClass'] = ['notification','er'];
     this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
   }
 }

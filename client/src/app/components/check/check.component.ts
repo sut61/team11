@@ -31,7 +31,7 @@ export class CheckComponent implements OnInit {
       this.date = new Date();
       }
       config: MatSnackBarConfig = {
-        duration: 1000,
+        duration: 5000,
         horizontalPosition: 'right',
         verticalPosition: 'top'
       }
@@ -84,7 +84,7 @@ save() {
     }
   
     checkerror(){
-      this.config['panelClass'] = ['notification','error'];
+      this.config['panelClass'] = ['notification','er'];
       this.snackBar.open('บันทึกข้อมูลเสร็จแล้ว','', this.config);
     }
 

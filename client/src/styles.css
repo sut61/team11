@@ -18,3 +18,10 @@ snack-bar-container.warn {
     background-color: #f99157;
     color : #fff;
 }
+
+
+snack-bar-container.er {
+    margin-top: 10%;
+    background-color: #20d43e;
+    color : #fff;
+}
