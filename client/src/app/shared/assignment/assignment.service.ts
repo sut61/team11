@@ -21,6 +21,7 @@ export class Assignment {
   assignmentId: any;
   comment: any;
   scoreAssignment: ScoreAssignment;
+  employee?: Employee;
 }
 
 export class ScoreAssignment{
@@ -28,13 +29,9 @@ export class ScoreAssignment{
   level: any;
 }
 
-export class Employee {
-  eId: any;
-  eName: any;
-  title:any ;
-  age: any;
-  tel:any ;
-  address: any;
+export class Employee{
+  eid?: any;
+  ename?: string;
 }
 
 export class Customer {

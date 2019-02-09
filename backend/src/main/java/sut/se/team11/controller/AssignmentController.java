@@ -33,12 +33,13 @@ public class AssignmentController {
 
         Assignment a = new Assignment();
         long scoreAssignmentId = assignment.getScoreAssignment().getScoreAssignmentId();
+        long eId = assignment.getEmployee().getEId();
 
-//        Employee employee = employeeRepository.findById(eId);
+        Employee employee = employeeRepository.findById(eId);
         Customer customer = customerRepository.findById(customerId);
         ScoreAssignment scoreAssignment = scoreAssignmentRepository.findById(scoreAssignmentId);
 
-//        a.setEmployee(employee);
+        a.setEmployee(employee);
         a.setCustomer(customer);
         a.setComment(assignment.getComment());
         a.setScoreAssignment(scoreAssignment);
