@@ -53,6 +53,8 @@ import { ViewListReportComponent } from './components/view-list-report/view-list
 import { FindChecksComponent } from './components/find-checks/find-checks.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './shared/login/login.guard';
+import { PriceTagComponent } from './components/price-tag/price-tag.component';
+import { SavePriceComponent } from './components/save-price/save-price.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -86,7 +88,10 @@ const routes: Routes = [
   {path: 'view-list-report', component: ViewListReportComponent, canActivate: [LoginGuard]},
   {path: 'promotion', component: PromotionComponent, canActivate: [LoginGuard]},
   {path: 'findChecks', component: FindChecksComponent, canActivate: [LoginGuard]},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'priceTag', component:PriceTagComponent},
+  {path: 'saveprice', component:SavePriceComponent}
+  
 ];
 
 @NgModule({
@@ -119,7 +124,9 @@ const routes: Routes = [
     ViewListReportComponent,
     FindChecksComponent,
     PromotionComponent,
-    LoginComponent
+    LoginComponent,
+    PriceTagComponent,
+    SavePriceComponent
     
   ],
   imports: [
