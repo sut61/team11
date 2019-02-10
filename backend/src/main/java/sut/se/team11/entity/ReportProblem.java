@@ -1,5 +1,7 @@
 package sut.se.team11.entity;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -16,10 +18,11 @@ public class ReportProblem {
     private Long rpId;
 
     @NotNull
-    @Size(min = 5, max = 20)
+    @Size(min = 20, max = 100)
     @Pattern(regexp = "[^@!#$]+")
     private String rpDetail;
 
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
     private Date date;
 
     @ManyToOne
