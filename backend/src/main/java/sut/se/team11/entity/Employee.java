@@ -21,9 +21,9 @@ public class Employee {
     @Min(0)
     private int age;
     @JsonFormat (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    @NotNull
     private Date bDate;
-    //@Pattern(regexp = "[0-9]{10}")
+    @NotNull
+    @Pattern(regexp = "[0-9]{10}")
     private String tel;
     private String address;
 
