@@ -63,7 +63,11 @@ export class CreateRpComponent implements OnInit {
       // this.router.navigate([`${this.report.rpId}/${this.report.problemType.ptId}/${this.employee.eid}/${this.report.department.depId}/view-list-report`]);
       this.router.navigate([`view-list-report`]);
     }, err => {
-      console.log('Rrror', err);
-    });
+      if(err.error == null){
+        this.notification.notFound();
+      }else{
+        this.notification.error();
+      }
+      console.log(err);    });
   }
 }
