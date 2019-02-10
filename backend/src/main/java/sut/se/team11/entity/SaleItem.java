@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 
@@ -17,13 +19,16 @@ public class SaleItem {
     @Id
     @SequenceGenerator(name = "sale_seq", sequenceName = "sale_seq")
     @GeneratedValue(generator = "sale_seq", strategy = GenerationType.SEQUENCE)
-    
-    private Long saleItemId;
-    private @NonNull double price;
-    private @NonNull int amount;
+    @Column(unique = true)
+    private @NotNull Long saleItemId;
+    @Min(0)
+    @Max(1000000)
+    @NumberFormat(pattern = "#,###,###.##")
+    private @NotNull double price;
+    private @NotNull int amount;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private @NonNull Date date;
-    private @NonNull double totalPrice;
+    private @NotNull Date date;
+    private @NotNull double totalPrice;
 
 
     @ManyToOne
