@@ -20,7 +20,7 @@
                        <mat-list-item role="listitem">ชื่อพนักงาน : {{employee.ename}}</mat-list-item>
                    </mat-list>
 
-                    <mat-form-field class="name-input">
+                    <mat-form-field class="name-input" appearance="outline">
                         <mat-select placeholder="สินค้า" name="buyItem" [(ngModel)]="check.buyItem" required>
                           <mat-option *ngFor="let buyItem of buyItems" [value]="buyItem">
                             {{buyItem.itemName}}
@@ -29,18 +29,18 @@
                       </mat-form-field>
 
 
-                      <mat-form-field  hintLabel="Min 5 , Max 50 characters" class="name-input">
+                      <mat-form-field  hintLabel="Min 5 , Max 50 characters" class="name-input" appearance="outline">
                         <mat-label>รายละเอียด</mat-label>
                         <input matInput #input maxlength="50" name="รายละเอียด" [(ngModel)]="check.evaluate" placeholder="รายละเอียด..." required>
                         <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
                       </mat-form-field>
 
-                      <mat-form-field  class="name-input">
+                      <mat-form-field  class="name-input" appearance="outline">
                         <mat-label>น้ำหนักสินค้า</mat-label>
                         <input matInput placeholder="น้ำหนักสินค้า" [(ngModel)]="check.weight" name="weight" required>
                       </mat-form-field>
 
-                      <mat-form-field class="name-input">
+                      <mat-form-field class="name-input" appearance="outline">
                         <mat-select placeholder="สินค้า" name="categorize" [(ngModel)]="check.categorize" required>
                           <mat-option *ngFor="let categorize of categorizes" [value]="categorize">
                             {{categorize.categorizeName}}

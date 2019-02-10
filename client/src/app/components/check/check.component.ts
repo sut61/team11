@@ -31,7 +31,7 @@ export class CheckComponent implements OnInit {
       this.date = new Date();
       }
       config: MatSnackBarConfig = {
-        duration: 5000,
+        duration: 6000,
         horizontalPosition: 'right',
         verticalPosition: 'top'
       }
