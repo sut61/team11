@@ -18,11 +18,10 @@ public class ReportProblem {
     private Long rpId;
 
     @NotNull
-    @Size(min = 20, max = 100)
+    @Size(min = 10, max = 100)
     @Pattern(regexp = "[^@!#$]+")
     private String rpDetail;
 
-    @DateTimeFormat(pattern = "MM/dd/yyyy")
     private Date date;
 
     @ManyToOne

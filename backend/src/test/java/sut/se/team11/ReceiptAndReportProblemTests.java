@@ -73,9 +73,9 @@ public class ReceiptAndReportProblemTests {
 	}
 
 	@Test
-	public void testTextLessThen20() {
+	public void testTextLessThen10() {
 		ReportProblem rp1 = new ReportProblem();
-		rp1.setRpDetail("0123456789");//10
+		rp1.setRpDetail("012345678");//10
 		rp1.setDate(new Date());
 		try {
 			entityManager.persist(rp1);
@@ -164,7 +164,7 @@ public class ReceiptAndReportProblemTests {
 		} catch (ConstraintViolationException e) {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
-			assertEquals(violations.size(), 3);
+			assertEquals(violations.size(), 1);
 			System.out.println("===================================");
 			System.out.println("=            - S P 1 -            =");
 			System.out.println("= ----------- T E S T ----------- =");
@@ -184,7 +184,7 @@ public class ReceiptAndReportProblemTests {
         } catch(ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 2);
 			System.out.println("===================================");
 			System.out.println("=            - S P 1 -            =");
 			System.out.println("= ----------- T E S T ----------- =");
@@ -205,7 +205,7 @@ public class ReceiptAndReportProblemTests {
 		} catch(ConstraintViolationException e) {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
-			assertEquals(violations.size(), 3);
+			assertEquals(violations.size(), 1);
 			System.out.println("===================================");
 			System.out.println("=            - S P 1 -            =");
 			System.out.println("= ----------- T E S T ----------- =");
