@@ -1,8 +1,10 @@
 package sut.se.team11.entity;
 
 import lombok.Data;
-import lombok.NonNull;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Data
@@ -12,21 +14,26 @@ public class Assignment {
     @Id
     @SequenceGenerator(name = "assignment_seq", sequenceName = "assignment_seq")
     @GeneratedValue(generator = "assignment_seq", strategy = GenerationType.SEQUENCE)
+    @Column(unique = true)
     private Long assignmentId;
-    private String comment;
+
+
+    @Size(min = 5, max = 15)
+    @Pattern(regexp = "\\w+")
+    private @NotNull String comment;
 
     @ManyToOne
-    @NonNull
+    @NotNull
     @JoinColumn(name = "customerId")
     private Customer customer;
 
     @ManyToOne
-    @NonNull
+    @NotNull
     @JoinColumn(name = "employeeId")
     private Employee employee;
 
     @OneToOne
-    @NonNull
+    @NotNull
     @JoinColumn(name = "scoreAssignmentId")
     private ScoreAssignment scoreAssignment;
 

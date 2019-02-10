@@ -88,6 +88,7 @@ animals: Animal[] = [
         },
         error => {
             console.log('Rrror', error);
+            this.notification.error();
         }
       );
    }
