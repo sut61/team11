@@ -8,8 +8,12 @@
       <form class="example-form" #employeeForm="ngForm" > 
           
         <mat-form-field class="example-full-width" >
-          <input matInput placeholder="คำนำหน้า"  [(ngModel)]="employee.title" name="title" required >
-        </mat-form-field> 
+          <mat-select placeholder="คำนำหน้า"  [(ngModel)]="employee.title" name="title" required >
+          <mat-option value="นาย" >นาย</mat-option>
+          <mat-option value="นาง" >นาง</mat-option>
+          <mat-option value="นางสาว" >นางสาว</mat-option>
+          </mat-select>
+        </mat-form-field><br>
    
                 <mat-form-field class="example-full-width" >
                   <input matInput placeholder="ชื่อ-นามสกุล"  [(ngModel)]="employee.ename" name="name" required >
