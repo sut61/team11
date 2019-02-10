@@ -107,6 +107,7 @@ export class QUOTATIONComponent implements OnInit {
         console.log("คุณกรอกข้อมูลไม่ครบ");
         this.config['panelClass'] = ['notification','error'];
         this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+        
       }
   }
 
