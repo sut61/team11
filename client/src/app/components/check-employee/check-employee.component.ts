@@ -42,7 +42,7 @@ export class CheckEmployeeComponent implements OnInit {
 
     },err => {
       this.config['panelClass'] = ['notification','error'];
-      this.snackBar.open('ไม่สามารถบันทึกข้อมูลได้','', this.config);
+      this.snackBar.open('ไม่พบข้อมูลได้','', this.config);
       console.log(err);
     });
     // this.config['panelClass'] = ['notification','error'];
