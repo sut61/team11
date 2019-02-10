@@ -3,10 +3,7 @@ package sut.se.team11.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Negative;
-import javax.validation.constraints.NegativeOrZero;
+import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.List;
 
@@ -18,10 +15,10 @@ public class Receipt {
     @SequenceGenerator(name = "receipt_seq",sequenceName = "receipt_seq")
     @GeneratedValue(generator = "receipt_seq",strategy = GenerationType.SEQUENCE)
     private Long rId;
+
     private  Date date;
 
-    @Negative
-    @NegativeOrZero
+    @Positive
     @Min(value = 10)
     @Max(value = 100000)
     private  double netPrice;
