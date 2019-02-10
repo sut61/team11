@@ -229,23 +229,6 @@ public class BackendApplication {
 			});
 			//B5804658
 
-			Stream.of("").forEach(sp -> {
-				SavePrice priceTag = new SavePrice();
-
-				Category c1 = categoryRepository.findById(1);
-				Category c2 = categoryRepository.findById(2);
-				UsedItem ut = usedItemRepository.findById(1);
-				Employee emp = employeeRepository.findById(1);
-
-				priceTag.setCategoryOne(c1);
-				priceTag.setPriceOne(230);
-				priceTag.setCategoryTwo(c2);
-				priceTag.setPriceTwo(300);
-				priceTag.setUsedItem(ut);
-				priceTag.setEmployee(emp);
-				savePriceRepository.save(priceTag);
-
-			});
 
 			Stream.of("Goodlink").forEach(el -> {
 				Checks c = new Checks();
@@ -320,6 +303,7 @@ public class BackendApplication {
 
 
 			});
+
 			Stream.of("").forEach(sp -> {
 				SavePrice priceTag = new SavePrice();
 

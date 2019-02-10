@@ -8,6 +8,8 @@
             <mat-list-item *ngFor="let saveprice of saveprices">
               <h4 mat-line>{{saveprice.categoryOne.categoryName}}</h4>
               <h4 mat-line>ราคาเริ่มต้น: {{saveprice.priceOne}} </h4>
+              <h4 mat-line>{{saveprice.categoryTwo.categoryName}}</h4>
+              <h4 mat-line>ราคาเริ่มต้น: {{saveprice.priceTwo}} </h4>
               <mat-divider></mat-divider>
             </mat-list-item>
         </mat-list>
