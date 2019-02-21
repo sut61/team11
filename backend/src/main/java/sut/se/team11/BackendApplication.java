@@ -230,7 +230,7 @@ public class BackendApplication {
 			//B5804658
 
 
-			Stream.of("Goodlink","Soundgood").forEach(e -> {
+			Stream.of("ch").forEach(e -> {
 				Checks c = new Checks();
 				Categorize cr = categorizeRepository.findById(1);
 				Employee e1 = employeeRepository.findById(1);
@@ -239,7 +239,7 @@ public class BackendApplication {
 				c.setCategorize(cr);
 				c.setDate(new Date());
 				c.setEmployee(e1);
-				c.setEvaluate(e);
+				c.setEvaluate("Goodlink");
 				c.setWeight(333);
 
 				checksRepository.save(c);
@@ -252,7 +252,7 @@ public class BackendApplication {
 				c2.setCategorize(cr2);
 				c2.setDate(new Date());
 				c2.setEmployee(e2);
-				c2.setEvaluate(e);
+				c2.setEvaluate("Soundgood");
 				c2.setWeight(256);
 
 				checksRepository.save(c2);
