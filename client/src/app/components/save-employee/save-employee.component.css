@@ -38,3 +38,11 @@
     border-radius: 20px;
   
 }
+.content{
+    color: #ecf0f1;
+    position: absolute;
+    width: 200px;
+    height: 40px;
+	top: 65%;
+	left: 40%;
+}
