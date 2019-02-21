@@ -10,7 +10,7 @@ export class DialogService {
   constructor(public snackBar: MatSnackBar) { }
 
   config: MatSnackBarConfig = {
-    duration: 500,
+    duration: 3000,
     horizontalPosition: "center"
   }
   foundNull(){

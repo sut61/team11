@@ -91,10 +91,10 @@ const routes: Routes = [
   {path: 'promotion', component: PromotionComponent, canActivate: [LoginGuard]},
   {path: 'findChecks', component: FindChecksComponent, canActivate: [LoginGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'priceTag', component:PriceTagComponent},
-  {path: 'saveprice', component:SavePriceComponent},
-  {path: 'find-customeras', component: FindCustomerasComponent},
-  {path: ':id/assignment', component: AssignmentComponent}
+  {path: 'priceTag', component:PriceTagComponent, canActivate: [LoginGuard]},
+  {path: 'saveprice', component:SavePriceComponent, canActivate: [LoginGuard]},
+  {path: 'find-customeras', component: FindCustomerasComponent, canActivate: [LoginGuard]},
+  {path: ':id/assignment', component: AssignmentComponent, canActivate: [LoginGuard]},
   
 ];
 
