@@ -230,7 +230,7 @@ public class BackendApplication {
 			//B5804658
 
 
-			Stream.of("Goodlink").forEach(el -> {
+			Stream.of("Goodlink","Soundgood").forEach(el -> {
 				Checks c = new Checks();
 				Categorize cr = categorizeRepository.findById(1);
 				Employee e = employeeRepository.findById(1);
@@ -243,6 +243,8 @@ public class BackendApplication {
 				c.setWeight(333);
 
 				checksRepository.save(c);
+
+				
 			});
 			Stream.of("อุปกรณ์ชำรุด", "ระบบอินเทอร์เน็ต", "เครื่องจักรชำรุด", "ทั่วไป").forEach(ptName -> {
 				ProblemType problemType = new ProblemType();
@@ -295,7 +297,7 @@ public class BackendApplication {
 				Checks checks = checksRepository.findById(1);
 
 				usedItem.setPrice(365);
-				usedItem.setDetails("Radio goodlink");
+				usedItem.setDetails("Radio good");
 				usedItem.setStock(s);
 				usedItem.setChecks(checks);
 				usedItem.setRepairman(r1);
