@@ -230,19 +230,32 @@ public class BackendApplication {
 			//B5804658
 
 
-			Stream.of("Goodlink","Soundgood").forEach(el -> {
+			Stream.of("Goodlink","Soundgood").forEach(e -> {
 				Checks c = new Checks();
 				Categorize cr = categorizeRepository.findById(1);
-				Employee e = employeeRepository.findById(1);
+				Employee e1 = employeeRepository.findById(1);
 				BuyItem b = buyItemRepository.findById(1);
 				c.setBuyItem(b);
 				c.setCategorize(cr);
 				c.setDate(new Date());
-				c.setEmployee(e);
-				c.setEvaluate(el);
+				c.setEmployee(e1);
+				c.setEvaluate(e);
 				c.setWeight(333);
 
 				checksRepository.save(c);
+
+				Checks c2 = new Checks();
+				Categorize cr2 = categorizeRepository.findById(1);
+				Employee e2 = employeeRepository.findById(1);
+				BuyItem b2 = buyItemRepository.findById(1);
+				c2.setBuyItem(b2);
+				c2.setCategorize(cr2);
+				c2.setDate(new Date());
+				c2.setEmployee(e2);
+				c2.setEvaluate(e);
+				c2.setWeight(256);
+
+				checksRepository.save(c2);
 
 				
 			});
@@ -294,7 +307,7 @@ public class BackendApplication {
 
 				Repairman r1 = repairmanRepository.findById(1);
 				Stock s = stockRepository.findById(1);
-				Checks checks = checksRepository.findById(1);
+				Checks checks = checksRepository.findById(2);
 
 				usedItem.setPrice(365);
 				usedItem.setDetails("Radio good");
@@ -306,22 +319,7 @@ public class BackendApplication {
 
 			});
 
-			Stream.of("").forEach(sp -> {
-				SavePrice priceTag = new SavePrice();
-
-				Category c1 = categoryRepository.findById(1);
-				Category c2 = categoryRepository.findById(2);
-				UsedItem ut = usedItemRepository.findById(1);
-				Employee emp = employeeRepository.findById(1);
-
-				priceTag.setCategoryOne(c1);
-				priceTag.setPriceOne(230);
-				priceTag.setCategoryTwo(c2);
-				priceTag.setPriceTwo(300);
-				priceTag.setUsedItem(ut);
-				priceTag.setEmployee(emp);
-				savePriceRepository.save(priceTag);
-			});
+			
 
 		};
 	}
