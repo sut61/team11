@@ -48,7 +48,9 @@ export class CreateReceiptComponent implements OnInit {
     this.receipt.netPrice = this.createR.netPrice;
     this.service.create(this.receipt.netPrice, this.employee.eid,this.branch.bid,this.cart.cartId, this.receipt).subscribe((res) => {
       console.log(res);
+      this.service.notificationSuccess();
     }, err => {
+      this.service.notificationError();
       console.log(err);
     });
     this.service.reUpdate(this.cart.cartId,this.cart).subscribe((res) => {

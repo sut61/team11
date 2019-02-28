@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { NotificationService } from 'src/app/shared/notification/notification.service';
 import { Employee, RpfindEmpService } from 'src/app/shared/rpfind-emp/rpfind-emp.service';
-// import { E } from '@angular/core/src/render3';
-import { Department, CreateRpService, ProblemType, ReportProblem } from 'src/app/shared/create-rp/create-rp.service';
+import { CreateRpService, ReportProblem } from 'src/app/shared/create-rp/create-rp.service';
 
 @Component({
   selector: 'app-create-rp',
@@ -23,7 +21,6 @@ export class CreateRpComponent implements OnInit {
     private service1: CreateRpService,
     private router: Router,
     private route: ActivatedRoute,
-    public notification: NotificationService
   ) { }
 
   ngOnInit() {
@@ -60,14 +57,11 @@ export class CreateRpComponent implements OnInit {
   save(){
     this.service1.postReport(this.report.rpDetail, this.report.problemType.ptId, this.employee.eid, this.report.department.depId, this.report).subscribe((res) => {
       console.log('PUT Request is successful', res);
-      // this.router.navigate([`${this.report.rpId}/${this.report.problemType.ptId}/${this.employee.eid}/${this.report.department.depId}/view-list-report`]);
+      this.service1.notificationSuccess();
       this.router.navigate([`view-list-report`]);
     }, err => {
-      if(err.error == null){
-        this.notification.notFound();
-      }else{
-        this.notification.error();
-      }
-      console.log(err);    });
+        this.service1.notificationError();
+      console.log(err);    
+    });
   }
 }

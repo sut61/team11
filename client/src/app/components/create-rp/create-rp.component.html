@@ -21,19 +21,19 @@
                         </mat-form-field>
 
                         <mat-form-field class="name-input">
-                            <mat-select placeholder="ประเภทปัญหา" name="department" [(ngModel)]="report.problemType" required>
+                            <mat-select placeholder="ประเภทปัญหา" name="problemType" [(ngModel)]="report.problemType" required>
                                 <mat-option *ngFor="let problemType of problemTypes" [value]="problemType">
                                     {{problemType.ptName}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
                         <mat-form-field  class="name-input">
-                            <mat-label>ราละเอียด</mat-label>
+                            <mat-label>รายละเอียด ห้ามอักษรพิเศษ "!,@,#,$,*,%,&" </mat-label>
                             <input matInput placeholder="รายละเอียด" [(ngModel)]="report.rpDetail" name="rpDetail" required>
                         </mat-form-field>
                     </div>
                     <div class="button-submit">
-                        <button mat-flat-button color="warn" id="reg" [disabled]="regisForm.invalid || checkSelected == false">
+                        <button mat-flat-button color="warn" id="reg" [disabled]="regisForm.invalid || department == false || problemType == false">
                             บันทึก
                         </button>
                     </div>

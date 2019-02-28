@@ -21,13 +21,11 @@ public class ReceiptController {
     private BranchRepository branchRepository;
     @Autowired
     private CartRepository cartRepository;
-    @Autowired
-    private BuyItemRepository buyItemRepository;
 
     @PostMapping(path = "/newReceipt/{netPrice}/{eId}/{bId}/{cartId}")
     public Receipt newReceipt(@RequestBody Receipt receipt,
                               @PathVariable double netPrice,
-		    	      @PathVariable long eId,
+                              @PathVariable long eId,
                               @PathVariable long bId,
                               @PathVariable long cartId){
         Receipt newReceipt = new Receipt();
@@ -40,7 +38,6 @@ public class ReceiptController {
         newReceipt.setCart(cart);
         newReceipt.setEmployee(employee);
         newReceipt.setDate(new Date());
-        //double netPrice = newReceipt.sumTotalPrice();
         newReceipt.setNetPrice(netPrice);
 
         return receiptRepository.save(newReceipt);

@@ -19,17 +19,24 @@ public class ReportProblem {
 
     @NotNull
     @Size(min = 10, max = 100)
-    @Pattern(regexp = "[^@!#$]+")
+    @Pattern(regexp = "[^@!#$%&*]+")
     private String rpDetail;
 
+    @NotNull
+    @Temporal(value = TemporalType.DATE)
     private Date date;
 
+    @NotNull
     @ManyToOne
     @JoinColumn (name = "ptId")
     private ProblemType problemType;
+
+    @NotNull
     @ManyToOne
     @JoinColumn (name = "depId")
     private Department department;
+
+    @NotNull
     @ManyToOne
     @JoinColumn (name = "eId")
     private Employee employee;
