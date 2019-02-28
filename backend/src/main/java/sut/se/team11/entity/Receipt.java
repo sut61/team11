@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -16,19 +15,25 @@ public class Receipt {
     @GeneratedValue(generator = "receipt_seq",strategy = GenerationType.SEQUENCE)
     private Long rId;
 
+    @NotNull
+    @Temporal(value = TemporalType.DATE)
     private  Date date;
 
     @Positive
-    @Min(value = 10)
-    @Max(value = 100000)
+    @Min(value = 1)
     private  double netPrice;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "branchId")
     private Branch branch;
+
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "employeeId")
     private Employee employee;
+
+    @NotNull
     @OneToOne
     @JoinColumn(name = "cartId")
     private Cart cart;
