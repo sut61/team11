@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 
@@ -23,6 +20,8 @@ public class Promotion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long promotionId;
 
+    @Pattern(regexp = "[ก-์|A-z|\\s].+" )
+    @Column(unique = true)
     private @NotNull String promotionName;
 
     @NotNull
