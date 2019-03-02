@@ -52,6 +52,7 @@ export class AddItemComponent implements OnInit {
     }, err => {
       this.notificaion.error();
       console.log(err);
+      this.form.reset();
     });
   }
 
