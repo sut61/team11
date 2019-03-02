@@ -218,6 +218,68 @@ public class PromotionTest {
         }
     }
 
+    @Test // ตรวจสอบว่าใส่ข้อมูลไม่ครบ
+    public void testDetailPromotionNull() {
+        Promotion promotion = new Promotion();
+
+        promotion.setPromotionName("ยิ่งซื้อยิ่งลด");
+        promotion.setNumberOfTime(1);
+        promotion.setDetailPromotion(null);
+        promotion.setDateIn(new Date());
+        promotion.setDateOut(new Date());
+
+        try {
+            entityManager.persist(promotion);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ================== Sprint2 TEST 7 ====================  ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+
+        }
+    }
+
+    @Test // ตรวจสอบรูปเเบบ
+    public void testPromotionNamePattern() {
+        Promotion promotion = new Promotion();
+
+        promotion.setPromotionName("?-;abcdefgh");
+        promotion.setNumberOfTime(1);
+        promotion.setDetailPromotion("ซื้อสองชิ้นในราคารวม 200 บาทลด 30 บาท");
+        promotion.setDateIn(new Date());
+        promotion.setDateOut(new Date());
+
+
+
+        try {
+            entityManager.persist(promotion);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ================== Sprint2 TEST 8 ====================  ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+
+        }
+    }
+
 
 
 }
