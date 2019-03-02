@@ -18,6 +18,7 @@ import java.util.Date;
 public class Quotation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
     private long quotationidId;
 
 
