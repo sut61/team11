@@ -9,8 +9,14 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+import sut.se.team11.entity.BuyItem;
+import sut.se.team11.entity.Categorize;
 import sut.se.team11.entity.Checks;
+import sut.se.team11.entity.Employee;
+import sut.se.team11.repository.BuyItemRepository;
+import sut.se.team11.repository.CategorizeRepository;
 import sut.se.team11.repository.ChecksRepository;
+import sut.se.team11.repository.EmployeeRepository;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -30,6 +36,13 @@ public class ChecksTest {
     @Autowired
     private ChecksRepository checksRepository;
     @Autowired
+    private EmployeeRepository employeeRepository;
+    @Autowired
+    private BuyItemRepository buyItemRepository;
+    @Autowired
+    private CategorizeRepository categorizeRepository;
+
+    @Autowired
     private TestEntityManager entityManager;
 
     private Validator validator;
@@ -43,8 +56,14 @@ public class ChecksTest {
     @Test
     public void testChecks() {
         Checks c = new Checks();
+        Categorize cr = categorizeRepository.findById(1);
+        Employee e1 = employeeRepository.findById(1);
+        BuyItem b = buyItemRepository.findById(1);
 
+        c.setBuyItem(b);
+        c.setCategorize(cr);
         c.setDate(new Date());
+        c.setEmployee(e1);
         c.setEvaluate("122313qwedsadAAAAA");
         c.setWeight(35);
 
@@ -62,10 +81,17 @@ public class ChecksTest {
     @Test
     public void testChecksNull() {
         Checks c = new Checks();
+        Categorize cr = categorizeRepository.findById(1);
+        Employee e1 = employeeRepository.findById(1);
+        BuyItem b = buyItemRepository.findById(1);
 
+        c.setBuyItem(b);
+        c.setCategorize(cr);
         c.setDate(new Date());
+        c.setEmployee(e1);
         c.setEvaluate(null);
         c.setWeight(13);
+        
 
         try {
             entityManager.persist(c);
@@ -90,8 +116,14 @@ public class ChecksTest {
     @Test
     public void testChecksSize() {
         Checks c = new Checks();
+        Categorize cr = categorizeRepository.findById(1);
+        Employee e1 = employeeRepository.findById(1);
+        BuyItem b = buyItemRepository.findById(1);
 
+        c.setBuyItem(b);
+        c.setCategorize(cr);
         c.setDate(new Date());
+        c.setEmployee(e1);
         c.setEvaluate("122313qwedsadAAAAAqwedasfjhqwjlkjroiquwiorj102384r90iqwopjfasouf9qpueoru19348e9udafihvaslfj9qier9i123peqowjdklasfasfasgf1234rqwfasc");
         c.setWeight(12);
 
@@ -116,8 +148,14 @@ public class ChecksTest {
     @Test
     public void testChecksSizeNo() {
         Checks c = new Checks();
+        Categorize cr = categorizeRepository.findById(1);
+        Employee e1 = employeeRepository.findById(1);
+        BuyItem b = buyItemRepository.findById(1);
 
+        c.setBuyItem(b);
+        c.setCategorize(cr);
         c.setDate(new Date());
+        c.setEmployee(e1);
         c.setEvaluate("12a");
         c.setWeight(5);
 
@@ -141,8 +179,14 @@ public class ChecksTest {
     @Test
     public void testChecksPattern() {
         Checks c = new Checks();
+        Categorize cr = categorizeRepository.findById(1);
+        Employee e1 = employeeRepository.findById(1);
+        BuyItem b = buyItemRepository.findById(1);
 
+        c.setBuyItem(b);
+        c.setCategorize(cr);
         c.setDate(new Date());
+        c.setEmployee(e1);
         c.setEvaluate("-122313qwedsadAAAAA");
         c.setWeight(21);
 
@@ -170,10 +214,17 @@ public class ChecksTest {
     public void testCheckUniqu() {
 
         Checks c = new Checks();
+        Categorize cr = categorizeRepository.findById(1);
+        Employee e1 = employeeRepository.findById(1);
+        BuyItem b = buyItemRepository.findById(1);
 
         c.setChecksId((long) 1);
         c.setEvaluate("122313qwedsadAAAAA");
         c.setWeight(41);
+        c.setBuyItem(b);
+        c.setCategorize(cr);
+        c.setDate(new Date());
+        c.setEmployee(e1);
 //		entityManager.persist(c);
 //		entityManager.flush();
 
@@ -181,6 +232,10 @@ public class ChecksTest {
         c.setChecksId((long) 2);
         c.setEvaluate("122313qwedsadAAAAA");
         c.setWeight(41);
+        c.setBuyItem(b);
+        c.setCategorize(cr);
+        c.setDate(new Date());
+        c.setEmployee(e1);
 //		entityManager.persist(c1);
 //		entityManager.flush();
 
