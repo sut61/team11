@@ -16,6 +16,7 @@ public class Customer {
     @Id
     @SequenceGenerator(name = "customer_seq", sequenceName = "customer_seq")
     @GeneratedValue(generator = "customer_seq", strategy = GenerationType.SEQUENCE)
+    @Column(unique = true)
     private @NotNull Long customerId;
     private @NotNull String customerName;
     private @NotNull String address;
@@ -25,13 +26,13 @@ public class Customer {
     private  String tel;
 
     @ManyToOne
-    private Branch branch;
+    private @NotNull Branch branch;
 
     @ManyToOne
-    private Career career;
+    private @NotNull Career career;
 
     @ManyToOne
-    private Province province;
+    private @NotNull Province province;
 
 
     public Customer() {}

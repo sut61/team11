@@ -23,8 +23,11 @@ import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import sut.se.team11.entity.Branch;
+import sut.se.team11.entity.Career;
 import sut.se.team11.entity.Customer;
-import sut.se.team11.repository.CustomerRepository;
+import sut.se.team11.entity.Province;
+import sut.se.team11.repository.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -32,7 +35,12 @@ import sut.se.team11.repository.CustomerRepository;
 public class CustomerTest {
     @Autowired
     private CustomerRepository customerRepository;
-
+    @Autowired
+    private BranchRepository branchRepository;
+    @Autowired
+    private CareerRepository careerRepository;
+    @Autowired
+    private ProvinceRepository provinceRepository;
     @Autowired
     private TestEntityManager entityManager;
 
@@ -47,10 +55,16 @@ public class CustomerTest {
     public void testCustomer() {
 
         Customer customer = new Customer();
+        Branch branch = branchRepository.findById(1);
+        Career career = careerRepository.findById(5);
+        Province province = provinceRepository.findById(10);
 
         customer.setAddress("211/11 หมู่ 11 มหาวิทยาลัยเทคโนโลยีสุรนารี");
         customer.setTel("0215487562");
         customer.setCustomerName("AAAA");
+        customer.setBranch(branch);
+        customer.setCareer(career);
+        customer.setProvince(province);
 
         entityManager.persist(customer);
         entityManager.flush();
@@ -69,9 +83,15 @@ public class CustomerTest {
     @Test
     public void testCustomerNull() {
         Customer customer = new Customer();
+        Branch branch = branchRepository.findById(1);
+        Career career = careerRepository.findById(5);
+        Province province = provinceRepository.findById(10);
         customer.setCustomerName(null);
         customer.setAddress("211/11 หมู่ 11 มหาวิทยาลัยเทคโนโลยีสุรนารี");
         customer.setTel("0215487562");
+        customer.setBranch(branch);
+        customer.setCareer(career);
+        customer.setProvince(province);
 
 
 
@@ -98,9 +118,15 @@ public class CustomerTest {
     @Test
     public void testCustomerSize() {
         Customer customer = new Customer();
+        Branch branch = branchRepository.findById(1);
+        Career career = careerRepository.findById(5);
+        Province province = provinceRepository.findById(10);
         customer.setCustomerName("AAAA");
         customer.setAddress("211/11 หมู่ 11 มหาวิทยาลัยเทคโนโลยีสุรนารี");
         customer.setTel("01251554151515");
+        customer.setBranch(branch);
+        customer.setCareer(career);
+        customer.setProvince(province);
         try {
             entityManager.persist(customer);
             entityManager.flush();
@@ -121,9 +147,15 @@ public class CustomerTest {
     @Test
     public void testCustomerSizeNo() {
         Customer customer = new Customer();
+        Branch branch = branchRepository.findById(1);
+        Career career = careerRepository.findById(5);
+        Province province = provinceRepository.findById(10);
         customer.setCustomerName("AAAA");
         customer.setAddress("211/11 หมู่ 11 มหาวิทยาลัยเทคโนโลยีสุรนารี");
         customer.setTel("012");
+        customer.setBranch(branch);
+        customer.setCareer(career);
+        customer.setProvince(province);
 
         try {
             entityManager.persist(customer);
@@ -145,9 +177,15 @@ public class CustomerTest {
     @Test
     public void testCustomerPattern() {
         Customer customer = new Customer();
+        Branch branch = branchRepository.findById(1);
+        Career career = careerRepository.findById(5);
+        Province province = provinceRepository.findById(10);
         customer.setCustomerName("AAAA");
         customer.setAddress("211/11 หมู่ 11 มหาวิทยาลัยเทคโนโลยีสุรนารี");
         customer.setTel("05sadasdasdg");
+        customer.setBranch(branch);
+        customer.setCareer(career);
+        customer.setProvince(province);
 
         try {
             entityManager.persist(customer);
@@ -172,15 +210,24 @@ public class CustomerTest {
     public void testCustomerUniqu() {
 
         Customer customer = new Customer();
+        Branch branch = branchRepository.findById(1);
+        Career career = careerRepository.findById(5);
+        Province province = provinceRepository.findById(10);
         customer.setCustomerId((long)1);
         customer.setCustomerName("AAAA");
         customer.setAddress("211/11 หมู่ 11 มหาวิทยาลัยเทคโนโลยีสุรนารี");
         customer.setTel("0215487562");
+        customer.setBranch(branch);
+        customer.setCareer(career);
+        customer.setProvince(province);
 
         customer.setCustomerId((long)2);
         customer.setCustomerName("AAAA");
         customer.setAddress("211/11");
         customer.setTel("0215487562");
+        customer.setBranch(branch);
+        customer.setCareer(career);
+        customer.setProvince(province);
 
         try {
             entityManager.persist(customer);
