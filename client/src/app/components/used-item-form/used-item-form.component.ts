@@ -53,7 +53,15 @@ export class UsedItemFormComponent implements OnInit {
       this.notification.saveSuccess();
       this.form.reset();
     },error => {
-      this.notification.errorMore();
+      // console.log(error);
+      let str = error.error.message;
+      let sError = str.split(";", 1);
+      if(sError == "could not execute statement"){
+        this.notification.uniqueError();
+      }else{
+        this.notification.error();
+        this.form.reset();
+      }
     });
   }
 

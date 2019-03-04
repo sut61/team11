@@ -37,9 +37,9 @@ export class NotificationService {
     this.snackBar.open('บันทึกข้อมูลสำเร็จ','', this.config);
   }
 
-  errorMore(){
+  uniqueError(){
     this.config['panelClass'] = ['notification','error'];
-    this.snackBar.open('มีบางอย่างผิดพลาด, โปรดตรวจสอบว่าไอดีใบตรวจสภาพยังไม่ถูกใช้งาน','', this.config);
+    this.snackBar.open('ไอดีใบตรวจสภาพถูกใช้งานแล้ว','', this.config);
   }
 }
 
