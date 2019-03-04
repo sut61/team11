@@ -7,7 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
+import sut.se.team11.entity.Checks;
+import sut.se.team11.entity.Repairman;
+import sut.se.team11.entity.Stock;
 import sut.se.team11.entity.UsedItem;
+import sut.se.team11.repository.ChecksRepository;
+import sut.se.team11.repository.RepairmanRepository;
+import sut.se.team11.repository.StockRepository;
 import sut.se.team11.repository.UsedItemRepository;
 
 import javax.validation.*;
@@ -25,6 +31,13 @@ public class UsedItemTest {
     @Autowired
     private TestEntityManager entityManager;
 
+    @Autowired
+    private StockRepository stockRepository;
+    @Autowired
+    private RepairmanRepository repairmanRepository;
+    @Autowired
+    private ChecksRepository checksRepository;
+
     private Validator validator;
     @Before
     public void setup() {
@@ -36,8 +49,14 @@ public class UsedItemTest {
     @Test
     public void testInsertNormalsCase(){
         UsedItem u11 = new UsedItem();
+        Checks cks = checksRepository.findById(1);
+        Repairman rpm = repairmanRepository.findById(1);
+        Stock st = stockRepository.findById(1);
         u11.setPrice(500.0);
         u11.setDetails("AAAAAAAAAA");
+        u11.setChecks(cks);
+        u11.setRepairman(rpm);
+        u11.setStock(st);
 
         try{
 
@@ -61,7 +80,13 @@ public class UsedItemTest {
     @Test
     public void testDetailsIncorrectPattern(){
         UsedItem u2 = new UsedItem();
-        u2.setPrice(100.0);
+        Checks cks = checksRepository.findById(1);
+        Repairman rpm = repairmanRepository.findById(1);
+        Stock st = stockRepository.findById(1);
+        u2.setPrice(500.0);
+        u2.setChecks(cks);
+        u2.setRepairman(rpm);
+        u2.setStock(st);
         u2.setDetails("AAAAAAAAAAA*****");
 
         try{
@@ -89,7 +114,13 @@ public class UsedItemTest {
     @Test
     public void testDetailsOverSize(){
         UsedItem u3 = new UsedItem();
-        u3.setPrice(100.0);
+        Checks cks = checksRepository.findById(1);
+        Repairman rpm = repairmanRepository.findById(1);
+        Stock st = stockRepository.findById(1);
+        u3.setPrice(500.0);
+        u3.setChecks(cks);
+        u3.setRepairman(rpm);
+        u3.setStock(st);
         u3.setDetails("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
 
         try{
@@ -117,8 +148,14 @@ public class UsedItemTest {
     @Test
     public void testDetailsLessThanSize(){
         UsedItem u4 = new UsedItem();
-        u4.setPrice(100.0);
+        Checks cks = checksRepository.findById(1);
+        Repairman rpm = repairmanRepository.findById(1);
+        Stock st = stockRepository.findById(1);
+        u4.setPrice(500.0);
         u4.setDetails("AAA");
+        u4.setChecks(cks);
+        u4.setRepairman(rpm);
+        u4.setStock(st);
 
         try{
             entityManager.persist(u4);
@@ -143,10 +180,15 @@ public class UsedItemTest {
 
     // ใส่ Null
     @Test
-    public void testDetailsMustBeNotNull(){
+    public void testStockMustBeNotNull(){
         UsedItem u5 = new UsedItem();
-        u5.setPrice(100.0);
-        u5.setDetails(null);
+        Checks cks = checksRepository.findById(1);
+        Repairman rpm = repairmanRepository.findById(1);
+        u5.setPrice(500.0);
+        u5.setDetails("AAAAAAAAAA");
+        u5.setChecks(cks);
+        u5.setRepairman(rpm);
+        u5.setStock(null);
 
         try{
             entityManager.persist(u5);
@@ -173,16 +215,28 @@ public class UsedItemTest {
     @Test(expected=javax.persistence.PersistenceException.class)
     public void testDataUnique(){
         UsedItem u6 = new UsedItem();
+        Checks cks = checksRepository.findById(1);
+        Repairman rpm = repairmanRepository.findById(1);
+        Stock st = stockRepository.findById(1);
         u6.setUsedItemId(55L);
         u6.setPrice(100.0);
         u6.setDetails("AAAAAAAAAAA");
+        u6.setChecks(cks);
+        u6.setRepairman(rpm);
+        u6.setStock(st);
         entityManager.persist(u6);
         entityManager.flush();
 
         UsedItem u7 = new UsedItem();
-        u7.setUsedItemId(55L);
-        u7.setPrice(100.0);
-        u7.setDetails("AAAAAAAAAAA");
+        Checks cks1 = checksRepository.findById(1);
+        Repairman rpm1 = repairmanRepository.findById(1);
+        Stock st1 = stockRepository.findById(1);
+        u6.setUsedItemId(55L);
+        u6.setPrice(100.0);
+        u6.setDetails("AAAAAAAAAAA");
+        u6.setChecks(cks1);
+        u6.setRepairman(rpm1);
+        u6.setStock(st1);
         entityManager.persist(u7);
         entityManager.flush();
 

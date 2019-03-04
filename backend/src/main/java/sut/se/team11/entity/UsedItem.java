@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Data
 @Entity
@@ -20,6 +17,7 @@ public class UsedItem {
     @Column(unique = true)
     private Long usedItemId;
     @NotNull
+    @Min(100)
     private double price;
     @NotNull
     @Size(min = 10, max = 50)
@@ -28,10 +26,10 @@ public class UsedItem {
 
     @ManyToOne
     @JoinColumn(name = "stockId")
-    private Stock stock;
+    private @NotNull Stock stock;
     @ManyToOne
     @JoinColumn(name = "repairmanId")
-    private Repairman repairman;
+    private @NotNull Repairman repairman;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "checksId")
     @JsonIgnore
