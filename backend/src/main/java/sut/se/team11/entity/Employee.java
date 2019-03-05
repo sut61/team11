@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
@@ -18,13 +16,17 @@ public class Employee {
     private long eId;
     private String title;
     private String eName;
-    @Min(1)
+    @Positive
+    @Min(16)
+    @Max(60)
     private int age;
     @JsonFormat (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date bDate;
     @NotNull
     @Pattern(regexp = "[0-9]{10}")
     private String tel;
+    @NotNull
+    @Size(min=3,max=30)
     private String address;
 
     @ManyToOne
