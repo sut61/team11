@@ -20,14 +20,16 @@ public class SavePrice {
     private long priceTagId;
     @ManyToOne
     private Category categoryOne;
+    @NotNull
     @Positive
-    @Min(0)
+    @Min(100)
     @Max(10000)
     private int priceOne;
     @ManyToOne
     private Category categoryTwo;
+    @NotNull
     @Positive
-    @Min(0)
+    @Min(100)
     @Max(10000)
     private int priceTwo;
     @ManyToOne

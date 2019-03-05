@@ -68,14 +68,18 @@ public class SavePriceTest {
 
     }
     @Test
-    public void TestSavePriceMin() {
+    public void TestSavePriceOneMin() {
         SavePrice savePrice = new SavePrice();
-        savePrice.setPriceOne(-369);
+        savePrice.setPriceOne(69);
         savePrice.setPriceTwo(369);
         try {
             entityManager.persist(savePrice);
             entityManager.flush();
+            fail("Should not pass to this line");
         } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ");
@@ -84,18 +88,20 @@ public class SavePriceTest {
             System.out.println(" ");
             System.out.println(" ");
         }
-
-
     }
     @Test
-    public void TestSavePriceMax() {
+    public void TestSavePriceOneMax() {
         SavePrice savePrice = new SavePrice();
-        savePrice.setPriceOne(369);
-        savePrice.setPriceTwo(369000);
+        savePrice.setPriceOne(30000);
+        savePrice.setPriceTwo(369);
         try {
             entityManager.persist(savePrice);
             entityManager.flush();
+            fail("Should not pass to this line");
         } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ");
@@ -104,22 +110,23 @@ public class SavePriceTest {
             System.out.println(" ");
             System.out.println(" ");
         }
-
     }
     @Test
-    public void TestSavePriceNotNegative() {
+    public void TestSavePriceTwoMax() {
         SavePrice savePrice = new SavePrice();
-        savePrice.setPriceOne(-365);
-        savePrice.setPriceTwo(-356);
-
+        savePrice.setPriceOne(369);
+        savePrice.setPriceTwo(369000);
         try {
             entityManager.persist(savePrice);
             entityManager.flush();
         } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ");
-            System.out.println(" 4. Price should be positive ");
+            System.out.println(" 4. Enter price2 is higher than max. ");
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ");
@@ -127,19 +134,113 @@ public class SavePriceTest {
 
     }
     @Test
-    public void TestSavePriceNotZreo() {
+    public void TestSavePriceTwoMin() {
+        SavePrice savePrice = new SavePrice();
+        savePrice.setPriceOne(369);
+        savePrice.setPriceTwo(50);
+        try {
+            entityManager.persist(savePrice);
+            entityManager.flush();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" 5. Enter price2 is lower than min. ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+        }
+
+    }
+    @Test
+    public void TestSavePriceOneNotNegative() {
+        SavePrice savePrice = new SavePrice();
+        savePrice.setPriceOne(-365);
+        savePrice.setPriceTwo(356);
+
+        try {
+            entityManager.persist(savePrice);
+            entityManager.flush();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" 6. Price1 should be positive ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+        }
+
+    }
+    @Test
+    public void TestSavePriceTwoNotNegative() {
+        SavePrice savePrice = new SavePrice();
+        savePrice.setPriceOne(365);
+        savePrice.setPriceTwo(-356);
+
+        try {
+            entityManager.persist(savePrice);
+            entityManager.flush();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" 7. Price2 should be positive ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+        }
+
+    }
+    @Test
+    public void TestSavePriceOneNotNull() {
         SavePrice savePrice = new SavePrice();
         savePrice.setPriceOne(0);
+        savePrice.setPriceTwo(356);
+
+        try {
+            entityManager.persist(savePrice);
+            entityManager.flush();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" 8. Price1 shouldn't be null ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+        }
+
+    }
+    @Test
+    public void TestSavePriceTwoNotNull() {
+        SavePrice savePrice = new SavePrice();
+        savePrice.setPriceOne(258);
         savePrice.setPriceTwo(0);
 
         try {
             entityManager.persist(savePrice);
             entityManager.flush();
         } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ");
-            System.out.println(" 5. Price shouldn't be zero ");
+            System.out.println(" 9. Price2 shouldn't be null ");
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ");
