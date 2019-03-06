@@ -25,7 +25,13 @@ export class FindChecksComponent implements OnInit {
   submit(){
     this.find.findChecks(this.idChecks).subscribe((resId) => {
       this.check = resId;
-      this.router.navigate([`${this.check.checksId}/used-item-form`]);
+      // this.router.navigate([`${this.check.checksId}/used-item-form`]);
+      // console.log(this.check);
+      if(this.check.usedItem == null){
+        this.router.navigate([`${this.check.checksId}/used-item-form`]);
+      }else{
+        this.notification.uniqueError();
+      }
     }, error => {
       this.notification.notFound();
       console.log(error);
