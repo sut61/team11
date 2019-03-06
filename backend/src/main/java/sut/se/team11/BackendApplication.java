@@ -319,6 +319,21 @@ public class BackendApplication {
 
 			});
 
+			Stream.of("VeryGood").forEach(el -> {
+				Checks c = new Checks();
+				Categorize cr = categorizeRepository.findById(1);
+				Employee e = employeeRepository.findById(1);
+				BuyItem b = buyItemRepository.findById(1);
+				c.setBuyItem(b);
+				c.setCategorize(cr);
+				c.setDate(new Date());
+				c.setEmployee(e);
+				c.setEvaluate(el);
+				c.setWeight(900);
+
+				checksRepository.save(c);
+			});
+
 			
 
 		};
