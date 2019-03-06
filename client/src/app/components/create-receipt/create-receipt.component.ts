@@ -14,9 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class CreateReceiptComponent implements OnInit {
   private createR: Receipt = new Receipt();
-  private re: Receipt;
-  private carts: Receipt;
-  private employees: Receipt;
+
   customer: Customer = new Customer();
   id: any;
   cart: Cart = new Cart();
@@ -33,6 +31,7 @@ export class CreateReceiptComponent implements OnInit {
   receipt: Receipt = new Receipt();
 
   netPrice: any;
+  branchs: Array<any>;
 
   constructor(    
     private service:  CreateReceiptService,
@@ -43,10 +42,11 @@ export class CreateReceiptComponent implements OnInit {
 
   ngOnInit() {
     this.set();
+    this.getBranch();
   }
   SaveAndUpdate(){
     this.receipt.netPrice = this.createR.netPrice;
-    this.service.create(this.receipt.netPrice, this.employee.eid,this.branch.bid,this.cart.cartId, this.receipt).subscribe((res) => {
+    this.service.create(this.receipt.netPrice, this.employee.eid, this.receipt.branch.bid, this.cart.cartId, this.receipt).subscribe((res) => {
       console.log(res);
       this.service.notificationSuccess();
     }, err => {
@@ -77,14 +77,6 @@ export class CreateReceiptComponent implements OnInit {
     });
 
     this.sub = this.route.params.subscribe(param => {
-      this.id = param['id4'];
-      this.branch.bid = param['id4'];
-      console.log('PAGE4_BRANCH_ID: ' + this.id);
-    }, err => {
-      console.log(err + "Errororororor");
-    });
-
-    this.sub = this.route.params.subscribe(param => {
       this.createR.netPrice = param['id'];
       console.log('PAGE4_NETPRICE: ' + this.createR.netPrice);
     }, err => {
@@ -92,4 +84,10 @@ export class CreateReceiptComponent implements OnInit {
     });
   }
 
+  getBranch(){
+    this.service.getBranch().subscribe(data =>{
+      console.log(data);
+      this.branchs = data;
+    });
+  }
 }
