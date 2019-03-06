@@ -26,11 +26,7 @@ export class FindCustomerComponent implements OnInit {
       this.customer = res;
       this.router.navigate([`${this.customer.customerId}/createCart`]);
     }, err => {
-      if(err.error == null){
-        this.notification.notFound();
-      }else{
-        this.notification.error();
-      }
+      this.notification.notFound();
       console.log(err);
     });
   }
