@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UsedItem } from '../models/model-class';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,7 @@ export class Checks{
   employee:Employee;
   buyItem:BuyItem;
   categorize:Categorize;
+  usedItem?: UsedItem;
 }
 export class Categorize{
   categorizeId?: any;
