@@ -40,4 +40,8 @@ export class CreateReceiptService {
     console.log(receipt);
     return this.http.post(this.API + '/newReceipt/' + receipt.netPrice + '/' + eid + '/' + bid + '/' + cartId, receipt);
   }
+
+  getBranch(): Observable<any> {
+    return this.http.get(this.API + '/Branch');
+  }
 }

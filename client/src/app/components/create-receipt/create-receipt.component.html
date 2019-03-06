@@ -2,23 +2,28 @@
   <h1 class="container">Individual receipt</h1><br><br>
 </mat-card>
 <mat-card class="container">
-  <div class="container">
-    <h2>Information: </h2>
-    <div class="view-cart-item">
-      <div class="container">
-        <mat-list role="list">
-          <mat-list-item role="listitem"> ID : {{cart.cartId}}</mat-list-item>
-          <mat-list-item role="listitem"> Branch ID : {{branch.bid}}</mat-list-item>
-          <mat-list-item role="listitem"> Employee ID : {{employee.eid}}</mat-list-item>
-          <mat-list-item role="listitem"> Net Price : {{createR.netPrice}}</mat-list-item>
-        </mat-list>
-      </div>
-      </div>
-  </div>
-</mat-card>
+    <mat-card-content class="container">
+    <form #regisForm="ngForm" (ngSubmit)="SaveAndUpdate()">
+        <div class="example-container">
+            <mat-list role="list">
+              <mat-list-item role="listitem"> Cart ID : {{cart.cartId}}</mat-list-item>
+              <mat-list-item role="listitem"> Employee ID : {{employee.eid}}</mat-list-item>
+              <mat-list-item role="listitem"> Net Price : {{createR.netPrice}}</mat-list-item>
+            </mat-list>
 
-<mat-card>
-  <div class="container">
-    <button mat-raised-button color="primary" (click)="SaveAndUpdate()" id="findBtn" class="container">SUBMIT</button>
-  </div>
+            <mat-form-field class="container">
+                <mat-select placeholder="เลือกสาขา" name="branch" [(ngModel)]="receipt.branch" required>
+                    <mat-option *ngFor="let branch of branchs" [value]="branch">
+                        {{branch.bname}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="button-submit">
+            <button mat-flat-button color="warn" id="reg" [disabled]="regisForm.invalid || branch == false">
+                บันทึก
+            </button>
+        </div>
+    </form>
+    </mat-card-content>       
 </mat-card>
