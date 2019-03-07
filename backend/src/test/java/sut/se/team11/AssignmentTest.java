@@ -25,6 +25,8 @@ public class AssignmentTest {
     private TestEntityManager entityManager;
 
     private Validator validator;
+    private Customer customer;
+
 
     @Before
     public void setup() {
@@ -125,6 +127,30 @@ public class AssignmentTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(),false);
             assertEquals(violations.size(),4);
+
+        }
+    }
+
+    @Test //testCustomerNotNull
+    public void testCustomerNotNull() {
+        Assignment a6 = new Assignment();
+        a6.setCustomer(null);
+        try {
+            entityManager.persist(a6);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 4);
+
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ==================TEST 6 testCustomerNotNull Sprint2 Assignment==================== ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
 
         }
     }

@@ -11,8 +11,8 @@ export class SaveSaleitemService {
     private http: HttpClient
   ) { }
 
-  SaveSaleItem(id2:any,id3:any,buyItemId: any,save:SaleItem){
-    return this.http.post(this.API + '/' + id3 +'/' + id2 +'/' + buyItemId + '/saleItem', save);
+  SaveSaleItem(id2:any,id3:any,buyItemId: any,save:SaleItem,amountt:number){
+    return this.http.post(this.API + '/' + id3 +'/' + id2 +'/' + buyItemId + '/' + amountt +'/saleItem', save);
   }
 
   findBuyItem(id: any){

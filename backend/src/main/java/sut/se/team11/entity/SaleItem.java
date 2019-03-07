@@ -30,11 +30,12 @@ public class SaleItem {
     private @NotNull Date date;
     private @NotNull double totalPrice;
 
-
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "customerId")
     private Customer customer;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "employeeId")
     private Employee employee;
