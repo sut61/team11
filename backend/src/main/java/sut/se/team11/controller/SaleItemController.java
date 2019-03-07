@@ -32,9 +32,9 @@ public class SaleItemController {
     private BuyItemRepository buyItemRepository;
 
 
-    @PostMapping(path = "/{customerId}/{eId}/{buyItemId}/saleItem")
+    @PostMapping(path = "/{customerId}/{eId}/{buyItemId}/{amountt}/saleItem")
     private ResponseEntity<SaleItem> newSaleItem(@RequestBody SaleItem saleItem, @PathVariable long customerId, @PathVariable long eId,
-                                                 @PathVariable long buyItemId){
+                                                 @PathVariable long buyItemId, @PathVariable int amountt){
 
         SaleItem s = new SaleItem();
 
@@ -45,9 +45,12 @@ public class SaleItemController {
         Employee employee = employeeRepository.findById(eId);
         BuyItem buyItem = buyItemRepository.findById(buyItemId);
         Customer customer = customerRepository.findById(customerId);
-
+        double pricer = buyItem.getTotalPrice() - (buyItem.getPrice()*amountt);
         if(customer  != null && employee != null && buyItem != null) {
 
+            buyItem.setAmount(amountt);
+            buyItem.setTotalPrice(pricer);
+            buyItemRepository.save(buyItem);
 
             s.setPrice(saleItem.getPrice());
             s.setAmount(saleItem.getAmount());

@@ -65,7 +65,7 @@ export class SaveSaleitemComponent implements OnInit {
     if(a < 0){
       this.notification.over();
     }else{
-      this.save.SaveSaleItem(this.id2,this.id3,this.id, this.saveitem).subscribe(() => {
+      this.save.SaveSaleItem(this.id2,this.id3,this.id, this.saveitem,a).subscribe(() => {
         this.notification.success();
       }, err => {
         this.notification.error();  

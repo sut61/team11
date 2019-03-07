@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
+import sut.se.team11.entity.BuyItem;
+import sut.se.team11.entity.Customer;
+import sut.se.team11.entity.Employee;
 import sut.se.team11.entity.SaleItem;
 import sut.se.team11.repository.SaleItemRepository;
 
@@ -27,7 +30,9 @@ public class SaleItemTest {
     private TestEntityManager entityManager;
 
     private Validator validator;
-
+    private Customer customer;
+    private Employee employee;
+    private BuyItem buyItem;
     @Before
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -41,10 +46,11 @@ public class SaleItemTest {
         s1.setPrice(100.0);
         s1.setAmount(10);
         s1.setTotalPrice(1000.0);
+        s1.setCustomer(customer);
         s1.setDate(new Date());
 
         entityManager.persist(s1);
-        entityManager.flush();
+        // entityManager.flush();
 
         System.out.println("\n");
         System.out.println(" ");
@@ -65,6 +71,7 @@ public class SaleItemTest {
         s2.setPrice(100);
         s2.setAmount(10);
         s2.setTotalPrice(1000);
+        s2.setCustomer(customer);
         entityManager.persist(s2);
         entityManager.flush();
 
@@ -73,6 +80,7 @@ public class SaleItemTest {
         s3.setPrice(100);
         s3.setAmount(10);
         s3.setTotalPrice(1000);
+        s3.setCustomer(customer);
         entityManager.persist(s3);
         entityManager.flush();
 
@@ -91,7 +99,7 @@ public class SaleItemTest {
         SaleItem s4 = new SaleItem();
         s4.setPrice(102213522152.20);
         s4.setAmount(10);
-
+        s4.setCustomer(customer);
         try {
             entityManager.persist(s4);
             entityManager.flush();
@@ -99,7 +107,7 @@ public class SaleItemTest {
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 4);
 
             System.out.println(" ");
             System.out.println(" ");
@@ -112,12 +120,14 @@ public class SaleItemTest {
         }
     }
 
+
+
     @Test // test Double ติดลบ หรือ น้อยกว่า 0
     public void testDoubleNegativeValueSaleItem() {
         SaleItem s5 = new SaleItem();
-            s5.setPrice(-1.12);
-            s5.setAmount(10);
-
+        s5.setPrice(-1.12);
+        s5.setAmount(10);
+        s5.setCustomer(customer);
         try {
             entityManager.persist(s5);
             entityManager.flush();
@@ -126,7 +136,7 @@ public class SaleItemTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 4);
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ==================TEST 4 testDoubleNegativeValueSaleItem Sprint1 SaleItem==================== ");
@@ -142,7 +152,7 @@ public class SaleItemTest {
         SaleItem s6 = new SaleItem();
         s6.setPrice(1234567.9871);
         s6.setAmount(10);
-
+        s6.setCustomer(customer);
 
         try {
             entityManager.persist(s6);
@@ -151,7 +161,7 @@ public class SaleItemTest {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 4);
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ==================TEST 5 testDecimalOutOfBoundSaleItem Sprint1 SaleItem==================== ");
@@ -162,4 +172,55 @@ public class SaleItemTest {
     }
 
 
+    @Test //testCustomerNotNull
+    public void testCustomerNotNull() {
+        SaleItem s7 = new SaleItem();
+        s7.setPrice(100.0);
+        s7.setAmount(10);
+        s7.setCustomer(null);
+        try {
+            entityManager.persist(s7);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ==================TEST 6 testCustomerNotNull Sprint1 SaleItem==================== ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+
+        }
+    }
+
+    @Test //testEmployeeNotNull
+    public void testEmployeeNotNull() {
+        SaleItem s8 = new SaleItem();
+        s8.setPrice(100.0);
+        s8.setAmount(10);
+        s8.setEmployee(null);
+        try {
+            entityManager.persist(s8);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 3);
+
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ==================TEST 6 testEmployeeNotNull Sprint1 SaleItem==================== ");
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println(" ");
+
+        }
+    }
 }
